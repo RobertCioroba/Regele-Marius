@@ -1,4 +1,5 @@
 ﻿using Regele_Marius.Models;
+using Regele_Marius.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,31 @@ namespace Regele_Marius.Controllers
             _context = new ContextClinica();
         }
 
+        public ActionResult Create()
+        {
+            var _specializari = _context.Specializari.ToList();
+
+            var viewModel = new MedicFormViewModel
+            {
+                Medic = new Medic(),
+                Specializari = _specializari
+            };
+
+            return View(viewModel);
+        }
+
         // GET: Medic
         public ActionResult Index()
         {
             var medici = _context.Medici.ToList();
             return View(medici);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                _context.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
