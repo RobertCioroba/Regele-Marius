@@ -1,12 +1,17 @@
 ﻿@model Regele_Marius.ViewModels.MedicFormViewModel
 @{
     ViewBag.Title = "Create";
+
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h2>Medic nou</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create","Medic"))
 {
     @Html.AntiForgeryToken()
 

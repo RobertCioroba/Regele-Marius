@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Index";
+
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h2>Index</h2>
