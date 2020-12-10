@@ -14,6 +14,7 @@ namespace Regele_Marius.Models
         public DbSet<Specializare>Specializari { get; set; }
         public DbSet<Role> Roluri { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
     }
 }
 

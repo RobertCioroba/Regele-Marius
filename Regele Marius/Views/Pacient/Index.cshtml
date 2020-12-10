@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Regele_Marius.Models.Pacient>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista pacienti";
 
     if (Session["NumeUtilizator"] == null)
     {
@@ -9,10 +9,10 @@
     }
 }
 
-<h2>Index</h2>
+<h2>Lista pacienti</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Pacient nou", "Create")
 </p>
 <table class="table">
     <tr>

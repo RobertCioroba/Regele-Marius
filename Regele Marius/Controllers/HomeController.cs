@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Regele_Marius.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,22 +9,17 @@ namespace Regele_Marius.Controllers
 {
     public class HomeController : Controller
     {
+        private ContextClinica _context;
+
+        public HomeController()
+        {
+            _context = new ContextClinica();
+        }
+
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            var slider = _context.Sliders.ToList();
+            ViewBag.Slider = slider;
             return View();
         }
     }

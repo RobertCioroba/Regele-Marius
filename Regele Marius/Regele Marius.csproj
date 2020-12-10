@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicController.cs" />
     <Compile Include="Controllers\PacientController.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SpecializareController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,11 +184,20 @@
     <Compile Include="Migrations\202012081106432_AddingUserEntity.designer.cs">
       <DependentUpon>202012081106432_AddingUserEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012101051195_AddingSliderEntity.cs" />
+    <Compile Include="Migrations\202012101051195_AddingSliderEntity.designer.cs">
+      <DependentUpon>202012101051195_AddingSliderEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101115460_ModifySliderEntity.cs" />
+    <Compile Include="Migrations\202012101115460_ModifySliderEntity.designer.cs">
+      <DependentUpon>202012101115460_ModifySliderEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContextClinica.cs" />
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Pacient.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Specializare.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Utilizator.cs" />
@@ -208,6 +218,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -243,6 +256,7 @@
     <Content Include="Views\Medic\Index.cshtml" />
     <Content Include="Views\Cont\Inregistrare.cshtml" />
     <Content Include="Views\Cont\Logare.cshtml" />
+    <Content Include="Views\Slider\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -281,6 +295,12 @@
     <EmbeddedResource Include="Migrations\202012081106432_AddingUserEntity.resx">
       <DependentUpon>202012081106432_AddingUserEntity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101051195_AddingSliderEntity.resx">
+      <DependentUpon>202012101051195_AddingSliderEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101115460_ModifySliderEntity.resx">
+      <DependentUpon>202012101115460_ModifySliderEntity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -295,7 +315,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Uploads\Slider\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
