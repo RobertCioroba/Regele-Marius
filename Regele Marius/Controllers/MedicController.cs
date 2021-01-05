@@ -41,6 +41,21 @@ namespace Regele_Marius.Controllers
             return Content("Medic salvat!");
         }
 
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var medic = _context.Medici.SingleOrDefault(c => c.Id == id);
+
+            if (medic == null)
+                return HttpNotFound();
+            _context.Medici.Remove(medic);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Edit(int? id)
         {
             if (id == null)

@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Create";
+
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h2>Informatii Slider</h2>

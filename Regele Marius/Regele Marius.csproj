@@ -127,8 +127,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnalizaController.cs" />
+    <Compile Include="Controllers\ArticolController.cs" />
     <Compile Include="Controllers\ContController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InterventieController.cs" />
     <Compile Include="Controllers\MedicController.cs" />
     <Compile Include="Controllers\PacientController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
@@ -192,11 +195,35 @@
     <Compile Include="Migrations\202012101115460_ModifySliderEntity.designer.cs">
       <DependentUpon>202012101115460_ModifySliderEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012111219094_AddingAnalizaModel.cs" />
+    <Compile Include="Migrations\202012111219094_AddingAnalizaModel.designer.cs">
+      <DependentUpon>202012111219094_AddingAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012111512425_AddingBoolForAnalizaModel.cs" />
+    <Compile Include="Migrations\202012111512425_AddingBoolForAnalizaModel.designer.cs">
+      <DependentUpon>202012111512425_AddingBoolForAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012151745171_AddingArticolModel.cs" />
+    <Compile Include="Migrations\202012151745171_AddingArticolModel.designer.cs">
+      <DependentUpon>202012151745171_AddingArticolModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101051112069_RemoveBoolFromAnalizaModel.cs" />
+    <Compile Include="Migrations\202101051112069_RemoveBoolFromAnalizaModel.designer.cs">
+      <DependentUpon>202101051112069_RemoveBoolFromAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101051624185_AddingInterventieModel.cs" />
+    <Compile Include="Migrations\202101051624185_AddingInterventieModel.designer.cs">
+      <DependentUpon>202101051624185_AddingInterventieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Analiza.cs" />
+    <Compile Include="Models\Articol.cs" />
     <Compile Include="Models\ContextClinica.cs" />
+    <Compile Include="Models\Interventie.cs" />
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Pacient.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Serviciu.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Specializare.cs" />
     <Compile Include="Models\User.cs" />
@@ -257,6 +284,11 @@
     <Content Include="Views\Cont\Inregistrare.cshtml" />
     <Content Include="Views\Cont\Logare.cshtml" />
     <Content Include="Views\Slider\Create.cshtml" />
+    <Content Include="Views\Articol\Index.cshtml" />
+    <Content Include="Views\Analiza\Create.cshtml" />
+    <Content Include="Views\Analiza\Index.cshtml" />
+    <Content Include="Views\Interventie\Index.cshtml" />
+    <Content Include="Views\Interventie\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -301,6 +333,21 @@
     <EmbeddedResource Include="Migrations\202012101115460_ModifySliderEntity.resx">
       <DependentUpon>202012101115460_ModifySliderEntity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012111219094_AddingAnalizaModel.resx">
+      <DependentUpon>202012111219094_AddingAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012111512425_AddingBoolForAnalizaModel.resx">
+      <DependentUpon>202012111512425_AddingBoolForAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012151745171_AddingArticolModel.resx">
+      <DependentUpon>202012151745171_AddingArticolModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101051112069_RemoveBoolFromAnalizaModel.resx">
+      <DependentUpon>202101051112069_RemoveBoolFromAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101051624185_AddingInterventieModel.resx">
+      <DependentUpon>202101051624185_AddingInterventieModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -316,6 +363,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Uploads\Articole\" />
     <Folder Include="Uploads\Slider\" />
   </ItemGroup>
   <PropertyGroup>
