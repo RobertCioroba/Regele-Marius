@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -36,13 +37,41 @@ namespace Regele_Marius.Controllers
             _context.Sliders.Add(slider);
             _context.SaveChanges();
 
-            return Content("Imagine salvata cu succes!");
+            return RedirectToAction("Index");
         }
 
         // GET: Slider
         public ActionResult Index()
         {
-            return View();
+            var slidere = _context.Sliders.ToList();
+            return View(slidere);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var slider = _context.Sliders.SingleOrDefault(c => c.Id == id);
+
+            if (slider == null)
+                return HttpNotFound();
+            _context.Sliders.Remove(slider);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var slider = _context.Sliders.SingleOrDefault(c => c.Id == id);
+            if (slider == null)
+                return HttpNotFound();
+
+            return View("Create", slider);
         }
     }
 }

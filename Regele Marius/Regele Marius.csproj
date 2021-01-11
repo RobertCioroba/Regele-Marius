@@ -215,6 +215,18 @@
     <Compile Include="Migrations\202101051624185_AddingInterventieModel.designer.cs">
       <DependentUpon>202101051624185_AddingInterventieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101071323355_AddingProgramareAnalizaModel.cs" />
+    <Compile Include="Migrations\202101071323355_AddingProgramareAnalizaModel.designer.cs">
+      <DependentUpon>202101071323355_AddingProgramareAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101111537465_ChangeMedicModelDataType.cs" />
+    <Compile Include="Migrations\202101111537465_ChangeMedicModelDataType.designer.cs">
+      <DependentUpon>202101111537465_ChangeMedicModelDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101112055171_AddPathForArticleImages.cs" />
+    <Compile Include="Migrations\202101112055171_AddPathForArticleImages.designer.cs">
+      <DependentUpon>202101112055171_AddPathForArticleImages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -222,6 +234,7 @@
     <Compile Include="Models\Interventie.cs" />
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Pacient.cs" />
+    <Compile Include="Models\ProgramareAnaliza.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Serviciu.cs" />
     <Compile Include="Models\Slider.cs" />
@@ -261,6 +274,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Uploads\Articole\covid.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -284,11 +298,13 @@
     <Content Include="Views\Cont\Inregistrare.cshtml" />
     <Content Include="Views\Cont\Logare.cshtml" />
     <Content Include="Views\Slider\Create.cshtml" />
-    <Content Include="Views\Articol\Index.cshtml" />
     <Content Include="Views\Analiza\Create.cshtml" />
     <Content Include="Views\Analiza\Index.cshtml" />
     <Content Include="Views\Interventie\Index.cshtml" />
     <Content Include="Views\Interventie\Create.cshtml" />
+    <Content Include="Views\Articol\Create.cshtml" />
+    <Content Include="Views\Articol\Index.cshtml" />
+    <Content Include="Views\Slider\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -348,6 +364,15 @@
     <EmbeddedResource Include="Migrations\202101051624185_AddingInterventieModel.resx">
       <DependentUpon>202101051624185_AddingInterventieModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071323355_AddingProgramareAnalizaModel.resx">
+      <DependentUpon>202101071323355_AddingProgramareAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101111537465_ChangeMedicModelDataType.resx">
+      <DependentUpon>202101111537465_ChangeMedicModelDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101112055171_AddPathForArticleImages.resx">
+      <DependentUpon>202101112055171_AddPathForArticleImages.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -363,7 +388,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Uploads\Articole\" />
     <Folder Include="Uploads\Slider\" />
   </ItemGroup>
   <PropertyGroup>

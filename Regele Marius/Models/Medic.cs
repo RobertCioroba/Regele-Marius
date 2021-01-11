@@ -12,25 +12,35 @@ namespace Regele_Marius.Models
         public int SpecializareId { get; set; }
         [Display(Name ="Specializare")]
         public Specializare Specializare { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Inceput luni")]
-        public string LuniInceput { get; set; }
+        public DateTime LuniInceput { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Final luni")]
-        public string LuniFinal { get; set; }
+        public DateTime LuniFinal { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Inceput marti")]
-        public string MartiInceput { get; set; }
+        public DateTime MartiInceput { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Final marti")]
-        public string MartiFinal { get; set; }
+        public DateTime MartiFinal { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Inceput miercuri")]
-        public string MiercuriInceput { get; set; }
+        public DateTime MiercuriInceput { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Final miercuri")]
-        public string MiercuriFinal { get; set; }
+        public DateTime MiercuriFinal { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Inceput joi")]
-        public string JoiInceput { get; set; }
+        public DateTime JoiInceput { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Final joi")]
-        public string JoiFinal { get; set; }
+        public DateTime JoiFinal { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Inceput vineri")]
-        public string VineriInceput { get; set; }
+        public DateTime VineriInceput { get; set; }
+        [DataType(DataType.Time)]
         [Display(Name = "Final vineri")]
-        public string VineriFinal { get; set; }
+        public DateTime VineriFinal { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -36,13 +37,40 @@ namespace Regele_Marius.Controllers
             string imagePath = "~/Uploads/Articole/" + numeImagine;
 
             picture.SaveAs(Server.MapPath(imagePath));
-            articol.Titlu = numeImagine;
+            articol.Nume = numeImagine;
             articol.Imagine = imagePath;
 
             _context.Articole.Add(articol);
             _context.SaveChanges();
 
-            return Content("Imagine salvata cu succes!");
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var articol = _context.Articole.SingleOrDefault(c => c.Id == id);
+
+            if (articol == null)
+                return HttpNotFound();
+            _context.Articole.Remove(articol);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var articol = _context.Articole.SingleOrDefault(c => c.Id == id);
+            if (articol == null)
+                return HttpNotFound();
+
+            return View("Create", articol);
         }
 
         protected override void Dispose(bool disposing)

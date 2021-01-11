@@ -18,6 +18,7 @@ namespace Regele_Marius.Models
         public DbSet<Analiza> Analize { get; set; }
         public DbSet<Interventie> Interventii { get; set; }
         public DbSet<Articol> Articole { get; set; }
+        public DbSet<ProgramareAnaliza> ProgramariAnaliza { get; set; }
     }
 }
 
