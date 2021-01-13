@@ -8,7 +8,6 @@ namespace Regele_Marius.Models
 {
     public class ContextClinica : DbContext
     {
-        public DbSet<Utilizator>Utilizatori { get; set; }
         public DbSet<Medic>Medici { get; set; }
         public DbSet<Pacient>Pacienti { get; set; }
         public DbSet<Specializare>Specializari { get; set; }
@@ -19,6 +18,7 @@ namespace Regele_Marius.Models
         public DbSet<Interventie> Interventii { get; set; }
         public DbSet<Articol> Articole { get; set; }
         public DbSet<ProgramareAnaliza> ProgramariAnaliza { get; set; }
+        public DbSet<ProgramareInterventie> ProgramariInterventie { get; set; }
     }
 }
 

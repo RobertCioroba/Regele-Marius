@@ -29,5 +29,7 @@ namespace Regele_Marius.Models
         public int Calciu { get; set; }
         public int Fier { get; set; }
         public int Magneziu { get; set; }
+
+        public virtual ICollection<ProgramareAnaliza> ProgramariAnaliza { get; set; }
     }
 }

@@ -134,6 +134,8 @@
     <Compile Include="Controllers\InterventieController.cs" />
     <Compile Include="Controllers\MedicController.cs" />
     <Compile Include="Controllers\PacientController.cs" />
+    <Compile Include="Controllers\ProgramareAnaliza1Controller.cs" />
+    <Compile Include="Controllers\ProgramareInterventieController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SpecializareController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,6 +229,30 @@
     <Compile Include="Migrations\202101112055171_AddPathForArticleImages.designer.cs">
       <DependentUpon>202101112055171_AddPathForArticleImages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101131109045_NewDayNewLife.cs" />
+    <Compile Include="Migrations\202101131109045_NewDayNewLife.designer.cs">
+      <DependentUpon>202101131109045_NewDayNewLife.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101131411140_CreateProgramareAnalizaForeignKey.cs" />
+    <Compile Include="Migrations\202101131411140_CreateProgramareAnalizaForeignKey.designer.cs">
+      <DependentUpon>202101131411140_CreateProgramareAnalizaForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101131528188_AnotherChangeForProgramareAnaliza.cs" />
+    <Compile Include="Migrations\202101131528188_AnotherChangeForProgramareAnaliza.designer.cs">
+      <DependentUpon>202101131528188_AnotherChangeForProgramareAnaliza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101131610500_SmallChangesMedicModel.cs" />
+    <Compile Include="Migrations\202101131610500_SmallChangesMedicModel.designer.cs">
+      <DependentUpon>202101131610500_SmallChangesMedicModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101131614483_SmallChangesMedicModel2.cs" />
+    <Compile Include="Migrations\202101131614483_SmallChangesMedicModel2.designer.cs">
+      <DependentUpon>202101131614483_SmallChangesMedicModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101132046507_AddingProgramareInterventieModel.cs" />
+    <Compile Include="Migrations\202101132046507_AddingProgramareInterventieModel.designer.cs">
+      <DependentUpon>202101132046507_AddingProgramareInterventieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -235,6 +261,7 @@
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Pacient.cs" />
     <Compile Include="Models\ProgramareAnaliza.cs" />
+    <Compile Include="Models\ProgramareInterventie.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Serviciu.cs" />
     <Compile Include="Models\Slider.cs" />
@@ -244,6 +271,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\MedicFormViewModel.cs" />
+    <Compile Include="ViewModels\ProgramareAnalizaViewModel.cs" />
+    <Compile Include="ViewModels\ProgramareInterventieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database2.mdf" />
@@ -305,6 +334,10 @@
     <Content Include="Views\Articol\Create.cshtml" />
     <Content Include="Views\Articol\Index.cshtml" />
     <Content Include="Views\Slider\Index.cshtml" />
+    <Content Include="Views\ProgramareAnaliza1\Create.cshtml" />
+    <Content Include="Views\ProgramareAnaliza1\Index.cshtml" />
+    <Content Include="Views\ProgramareInterventie\Create.cshtml" />
+    <Content Include="Views\ProgramareInterventie\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -372,6 +405,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101112055171_AddPathForArticleImages.resx">
       <DependentUpon>202101112055171_AddPathForArticleImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131109045_NewDayNewLife.resx">
+      <DependentUpon>202101131109045_NewDayNewLife.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131411140_CreateProgramareAnalizaForeignKey.resx">
+      <DependentUpon>202101131411140_CreateProgramareAnalizaForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131528188_AnotherChangeForProgramareAnaliza.resx">
+      <DependentUpon>202101131528188_AnotherChangeForProgramareAnaliza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131610500_SmallChangesMedicModel.resx">
+      <DependentUpon>202101131610500_SmallChangesMedicModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131614483_SmallChangesMedicModel2.resx">
+      <DependentUpon>202101131614483_SmallChangesMedicModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101132046507_AddingProgramareInterventieModel.resx">
+      <DependentUpon>202101132046507_AddingProgramareInterventieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

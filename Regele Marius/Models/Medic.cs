@@ -9,38 +9,41 @@ namespace Regele_Marius.Models
 {
     public class Medic : Utilizator
     {
-        public int SpecializareId { get; set; }
+        public int? SpecializareId { get; set; }
         [Display(Name ="Specializare")]
         public Specializare Specializare { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Inceput luni")]
-        public DateTime LuniInceput { get; set; }
+        public DateTime? LuniInceput { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Final luni")]
-        public DateTime LuniFinal { get; set; }
+        public DateTime? LuniFinal { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Inceput marti")]
-        public DateTime MartiInceput { get; set; }
+        public DateTime? MartiInceput { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Final marti")]
-        public DateTime MartiFinal { get; set; }
+        public DateTime? MartiFinal { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Inceput miercuri")]
-        public DateTime MiercuriInceput { get; set; }
+        public DateTime? MiercuriInceput { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Final miercuri")]
-        public DateTime MiercuriFinal { get; set; }
+        public DateTime? MiercuriFinal { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Inceput joi")]
-        public DateTime JoiInceput { get; set; }
+        public DateTime? JoiInceput { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Final joi")]
-        public DateTime JoiFinal { get; set; }
+        public DateTime? JoiFinal { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Inceput vineri")]
-        public DateTime VineriInceput { get; set; }
+        public DateTime? VineriInceput { get; set; }
         [DataType(DataType.Time)]
         [Display(Name = "Final vineri")]
-        public DateTime VineriFinal { get; set; }
+        public DateTime? VineriFinal { get; set; }
+
+        public virtual ICollection<ProgramareAnaliza> ProgramariAnaliza { get; set; }
+        public virtual ICollection<ProgramareInterventie> ProgramariInterventie { get; set; }
     }
 }

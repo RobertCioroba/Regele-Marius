@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Regele_Marius.Models.ProgramareInterventie>
+
+<p>
+    @Html.ActionLink("Interventie noua", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Interventie.Echipament)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataProgramare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OraInceput)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Interventie.Echipament)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medic.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataProgramare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OraInceput)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
