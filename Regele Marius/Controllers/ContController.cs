@@ -49,7 +49,7 @@ namespace Regele_Marius.Controllers
             if (!ModelState.IsValid)
                 return View("Logare", user);
 
-            var loginUser = _context.Users.Where(u => u.NumeUtilizator == user.NumeUtilizator && u.Parola == user.Parola && u.Activ == true).FirstOrDefault();
+            var loginUser = _context.Users.Where(u => u.NumeUtilizator == user.NumeUtilizator && u.Parola == user.Parola).FirstOrDefault();
             if(loginUser == null)
             {
                 ModelState.AddModelError("NumeUtilizator","Nume utilizator sau parola incorecta!");
@@ -58,6 +58,7 @@ namespace Regele_Marius.Controllers
             else
             {
                 Session["NumeUtilizator"] = loginUser.NumeUtilizator;
+                Session["Activ"] = loginUser.Activ;
                 return RedirectToAction("Index", "Home");
             }
             

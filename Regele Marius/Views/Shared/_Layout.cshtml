@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Regele Marius</title>
+    <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -20,18 +20,26 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == true)
+                    {
+                        <li>@Html.ActionLink("Medici", "Index", "Medic")</li>
+                        <li>@Html.ActionLink("Articole", "Index", "Articol")</li>
+                        <li>@Html.ActionLink("Programare Analiza", "Index", "ProgramareAnaliza1")</li>
+                        <li>@Html.ActionLink("Programare Interventie", "Index", "ProgramareInterventie")</li>
+                        <li>@Html.ActionLink("Deconectare", "Deconectare", "Cont")</li>
+                    }
 
-                    @if (Session["NumeUtilizator"] != null)
+                    @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == false)
                     {
                         <li>@Html.ActionLink("Specializari", "Index", "Specializare")</li>
                         <li>@Html.ActionLink("Lista pacienti", "Index", "Pacient")</li>
                         <li>@Html.ActionLink("Medici", "Index", "Medic")</li>
-                        <li>@Html.ActionLink("Slider", "Create", "Slider")</li>
+                        <li>@Html.ActionLink("Slider", "Index", "Slider")</li>
                         <li>@Html.ActionLink("Analize", "Index", "Analiza")</li>
                         <li>@Html.ActionLink("Interventii", "Index", "Interventie")</li>
                         <li>@Html.ActionLink("Articole", "Index", "Articol")</li>
                         <li>@Html.ActionLink("Programare Analiza", "Index", "ProgramareAnaliza1")</li>
-                        <li>@Html.ActionLink("Programare Interventie", "Index", "ProgramareInterventie")</li>
+                        <li>@Html.ActionLink("Deconectare", "Deconectare", "Cont")</li>
                     }
 
                     @if (Session["NumeUtilizator"] == null)
@@ -39,10 +47,7 @@
                         <li>@Html.ActionLink("Logare", "Logare", "Cont")</li>
                         <li>@Html.ActionLink("Inregistrare", "Inregistrare", "Cont")</li>
                     }
-                    @if (Session["NumeUtilizator"] != null)
-                    {
-                        <li>@Html.ActionLink("Deconectare", "Deconectare", "Cont")</li>
-                    }
+
                 </ul>
             </div>
         </div>

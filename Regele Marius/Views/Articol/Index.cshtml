@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<Regele_Marius.Models.Articol>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Articole";
+
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h2>Articole</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adaugare articol", "Create")
 </p>
 <table class="table">
     <tr>

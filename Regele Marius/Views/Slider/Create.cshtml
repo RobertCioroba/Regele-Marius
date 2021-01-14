@@ -1,7 +1,7 @@
 ﻿@model Regele_Marius.Models.Slider
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Slide nou";
 
     if (Session["NumeUtilizator"] == null)
     {
@@ -9,7 +9,7 @@
     }
 }
 
-<h2>Informatii Slider</h2>
+<h2>Slide nou</h2>
 
 
 @using (Html.BeginForm("Create","Slider",FormMethod.Post, new { enctype="multipart/form-data" }))
@@ -47,7 +47,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @Html.HiddenFor(m => m.Id)
-                <input type="submit" value="Salvare" class="btn btn-primary" />
+                <input type="submit" value="Salvare" class="btn btn-default" />
             </div>
         </div>
     </div>

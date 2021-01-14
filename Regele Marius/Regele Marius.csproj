@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -138,6 +141,7 @@
     <Compile Include="Controllers\ProgramareInterventieController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SpecializareController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -253,6 +257,10 @@
     <Compile Include="Migrations\202101132046507_AddingProgramareInterventieModel.designer.cs">
       <DependentUpon>202101132046507_AddingProgramareInterventieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101141342453_PasswordAgain.cs" />
+    <Compile Include="Migrations\202101141342453_PasswordAgain.designer.cs">
+      <DependentUpon>202101141342453_PasswordAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -290,8 +298,13 @@
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
     <Content Include="Images\3.jpg" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -338,6 +351,11 @@
     <Content Include="Views\ProgramareAnaliza1\Index.cshtml" />
     <Content Include="Views\ProgramareInterventie\Create.cshtml" />
     <Content Include="Views\ProgramareInterventie\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -424,6 +442,9 @@
     <EmbeddedResource Include="Migrations\202101132046507_AddingProgramareInterventieModel.resx">
       <DependentUpon>202101132046507_AddingProgramareInterventieModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101141342453_PasswordAgain.resx">
+      <DependentUpon>202101141342453_PasswordAgain.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -440,6 +461,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\Slider\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

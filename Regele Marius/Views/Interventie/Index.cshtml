@@ -1,7 +1,12 @@
 ﻿@model IEnumerable<Regele_Marius.Models.Interventie>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista interventii";
+
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h2>Lista interventii</h2>

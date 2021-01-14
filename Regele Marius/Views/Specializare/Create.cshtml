@@ -1,7 +1,7 @@
 ﻿@model Regele_Marius.Models.Specializare
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Lista specializari";
 
     if (Session["NumeUtilizator"] == null)
     {
@@ -30,14 +30,14 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @Html.HiddenFor(m => m.Id)
-                <input type="submit" value="Salvare specializare!" class="btn btn-primary" />
+                <input type="submit" value="Salvare" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Inapoi", "Index")
 </div>
 
 @section Scripts {

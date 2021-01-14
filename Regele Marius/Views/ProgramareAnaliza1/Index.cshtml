@@ -1,10 +1,15 @@
 ﻿@model IEnumerable<Regele_Marius.Models.ProgramareAnaliza>
 
 @{
-    ViewBag.Title = "Lista Programari";
+    ViewBag.Title = "Lista programari analiza";
+
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
-<h2>Lista programari</h2>
+<h2>Lista programari analiza</h2>
 
 <p>
     @Html.ActionLink("Programare noua", "Create")
@@ -54,3 +59,5 @@
 }
 
 </table>
+
+<a href="GeneratePDF"> Generate PDF</a>
