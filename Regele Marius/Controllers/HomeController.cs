@@ -20,6 +20,8 @@ namespace Regele_Marius.Controllers
         {
             var slider = _context.Sliders.ToList();
             ViewBag.Slider = slider;
+            var articol = _context.Articole.ToList();
+            ViewBag.Articol = articol;
             return View();
         }
     }

@@ -26,6 +26,7 @@ namespace Regele_Marius.Models
         [MaxLength(20)]
         [DataType(DataType.Password)]
         public string Parola { get; set; }
+        [Display(Name = "Medic")]
         public bool Activ { get; set; }
     }
 }

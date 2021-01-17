@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnalizaController.cs" />
     <Compile Include="Controllers\ArticolController.cs" />
+    <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\ContController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterventieController.cs" />
@@ -261,9 +262,22 @@
     <Compile Include="Migrations\202101141342453_PasswordAgain.designer.cs">
       <DependentUpon>202101141342453_PasswordAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101151117008_AddingCalculatorEntity.cs" />
+    <Compile Include="Migrations\202101151117008_AddingCalculatorEntity.designer.cs">
+      <DependentUpon>202101151117008_AddingCalculatorEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101151638427_ChangeCalculatorModel.cs" />
+    <Compile Include="Migrations\202101151638427_ChangeCalculatorModel.designer.cs">
+      <DependentUpon>202101151638427_ChangeCalculatorModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101151712337_SmallChanges.cs" />
+    <Compile Include="Migrations\202101151712337_SmallChanges.designer.cs">
+      <DependentUpon>202101151712337_SmallChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
+    <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\ContextClinica.cs" />
     <Compile Include="Models\Interventie.cs" />
     <Compile Include="Models\Medic.cs" />
@@ -277,6 +291,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Utilizator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ArticolViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\MedicFormViewModel.cs" />
     <Compile Include="ViewModels\ProgramareAnalizaViewModel.cs" />
@@ -316,6 +331,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Style\StyleSheet.css" />
     <Content Include="Uploads\Articole\covid.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -356,6 +372,7 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Calculator\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -444,6 +461,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101141342453_PasswordAgain.resx">
       <DependentUpon>202101141342453_PasswordAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151117008_AddingCalculatorEntity.resx">
+      <DependentUpon>202101151117008_AddingCalculatorEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151638427_ChangeCalculatorModel.resx">
+      <DependentUpon>202101151638427_ChangeCalculatorModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151712337_SmallChanges.resx">
+      <DependentUpon>202101151712337_SmallChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

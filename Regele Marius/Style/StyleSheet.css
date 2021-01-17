@@ -1,0 +1,24 @@
+﻿
+.navbar {
+    background: white;
+}
+
+.navbar-brand {
+    color: black !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color:gray !important;
+}
+
+.nav li a {
+    color: black !important;
+    transition: all 0.3s ease-in-out;
+    font-size:100%;
+    font:inherit;
+}
+
+.nav li a:hover{
+    color:gray !important;
+}

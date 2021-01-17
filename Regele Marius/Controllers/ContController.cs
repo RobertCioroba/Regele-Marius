@@ -59,6 +59,7 @@ namespace Regele_Marius.Controllers
             {
                 Session["NumeUtilizator"] = loginUser.NumeUtilizator;
                 Session["Activ"] = loginUser.Activ;
+                Session["Id"] = loginUser.Id;
                 return RedirectToAction("Index", "Home");
             }
             

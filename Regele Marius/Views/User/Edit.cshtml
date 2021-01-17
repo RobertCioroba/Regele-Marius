@@ -1,17 +1,16 @@
 ﻿@model Regele_Marius.Models.User
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editare cont";
 }
 
-<h2>Edit</h2>
+<h2>Informatii cont</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -59,5 +58,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Inapoi", "Index")
 </div>
