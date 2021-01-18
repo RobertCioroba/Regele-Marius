@@ -6,6 +6,7 @@
 .navbar-brand {
     color: black !important;
     transition: all 0.3s ease-in-out;
+    height: 75px!important;
 }
 
 .navbar-brand:hover {
@@ -15,8 +16,6 @@
 .nav li a {
     color: black !important;
     transition: all 0.3s ease-in-out;
-    font-size:100%;
-    font:inherit;
 }
 
 .nav li a:hover{

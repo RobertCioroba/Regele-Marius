@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "Specializare noua";
 
-    if (Session["NumeUtilizator"] == null)
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == false)
     {
         Response.Redirect("~/Cont/Logare", false);
     }

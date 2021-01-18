@@ -140,6 +140,7 @@
     <Compile Include="Controllers\PacientController.cs" />
     <Compile Include="Controllers\ProgramareAnaliza1Controller.cs" />
     <Compile Include="Controllers\ProgramareInterventieController.cs" />
+    <Compile Include="Controllers\RezultatAnalizaController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SpecializareController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -274,6 +275,10 @@
     <Compile Include="Migrations\202101151712337_SmallChanges.designer.cs">
       <DependentUpon>202101151712337_SmallChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101182248536_ChangeRezultatAnalizaModel.cs" />
+    <Compile Include="Migrations\202101182248536_ChangeRezultatAnalizaModel.designer.cs">
+      <DependentUpon>202101182248536_ChangeRezultatAnalizaModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -296,6 +301,7 @@
     <Compile Include="ViewModels\MedicFormViewModel.cs" />
     <Compile Include="ViewModels\ProgramareAnalizaViewModel.cs" />
     <Compile Include="ViewModels\ProgramareInterventieViewModel.cs" />
+    <Compile Include="ViewModels\RezultatAnalizaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database2.mdf" />
@@ -333,6 +339,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Uploads\Articole\covid.jpg" />
+    <Content Include="Uploads\Others\Loggg.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -371,8 +378,8 @@
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Calculator\Create.cshtml" />
+    <Content Include="Views\RezultatAnaliza\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -471,6 +478,9 @@
     <EmbeddedResource Include="Migrations\202101151712337_SmallChanges.resx">
       <DependentUpon>202101151712337_SmallChanges.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101182248536_ChangeRezultatAnalizaModel.resx">
+      <DependentUpon>202101182248536_ChangeRezultatAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -487,7 +497,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\Slider\" />
-    <Folder Include="Views\Users\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
