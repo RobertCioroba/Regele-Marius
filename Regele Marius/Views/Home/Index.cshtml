@@ -2,36 +2,45 @@
     ViewBag.Title = "Acasa";
 }
 
+<!--
 
-<!-- Carousel
-    ================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    
-    <ol class="carousel-indicators">
+  <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>-->
+<!-- Carousel
+  ================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @foreach (var item in ViewBag.Slider)
+        {
+            var status1 = "";
+            if (item.Id == 5)
+            {
+                status1 = "active";
+            }
+            <li data-target="#myCarousel" data-slide-to="@item.Id @status1"></li>
+        }
     </ol>
-
     <div class="carousel-inner" role="listbox">
+
         @foreach (var item in ViewBag.Slider)
         {
             var status = "";
-
-            if (item.Id == 1)
+            if (item.Id == 5)
             {
                 status = "active";
             }
 
-            <div class="item @status" style="height: 75vh;">
-                <img class="first-slide" src="@Url.Content(item.Imagine)" alt="@item.Nume" style="position: relative; top: -50%;">
+            <div class="item @status">
+                <img class="first-slide" src="@Url.Content(item.Imagine)" alt="@item.Nume">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>@item.Titlu</h1>
                         <p>@item.Descriere</p>
-                        <p><a class="btn btn-lg btn-primary" href="~/Cont/Inregistrare" role="button">Inregistrare</a></p>
-
+                        <p><a class="btn btn-lg btn-primary" href="/Cont/Inregistrare" role="button">Inregistreaza-te acum</a></p>
                     </div>
                 </div>
             </div>
@@ -46,6 +55,3 @@
         <span class="sr-only">Next</span>
     </a>
 </div><!-- /.carousel -->
-
-
-
