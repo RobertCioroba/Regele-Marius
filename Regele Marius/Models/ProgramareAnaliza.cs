@@ -17,5 +17,8 @@ namespace Regele_Marius.Models
         public DateTime DataProgramare { get; set; }
         [DataType(DataType.Time)]
         public DateTime OraInceput { get; set; }
+
+        public Medic Medic { get; set; }
+        public Analiza Analiza { get; set; }
     }
 }

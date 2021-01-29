@@ -1,12 +1,20 @@
-﻿
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7 !important;
+}
+
+
 .navbar {
     background: white;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand {
     color: black !important;
     transition: all 0.3s ease-in-out;
-    height: 75px!important;
+    height: 50px!important;
+    padding: 0 !important;
 }
 
 .navbar-brand:hover {
@@ -16,8 +24,79 @@
 .nav li a {
     color: black !important;
     transition: all 0.3s ease-in-out;
+    font-size: 15px;
 }
 
 .nav li a:hover{
     color:gray !important;
+}
+
+
+.calculator-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.article-section {
+    display: flex;
+}
+
+.article-section article {
+    padding: 48px;
+    background: #fff;
+    border-radius: 6px;
+    margin: 15px;
+}
+
+.article-section article h3 {
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.article-section article p {
+    font-size: 16px;
+}
+
+/**
+    Article page
+**/
+.list-articles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+}
+
+    .list-articles article {
+        background: #fff;
+        padding: 0;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 9px 0 rgba(0,0,0,.1);
+    }
+
+.list-articles article .image-container {
+    position: relative;
+    height: 390px;
+}
+
+.list-articles article .image-container h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+}
+
+.list-articles article .image-container img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.list-articles article .article-description {
+    padding: 15px 25px;
 }

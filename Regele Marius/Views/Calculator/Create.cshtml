@@ -9,62 +9,77 @@
     }
 }
 
-<h2>Calculator grasime corporala</h2>
+<h1 class="calculator-title">Calculează-ți indicele de masă corporală</h1>
+<section class="article-section">
+    <article>
+        <h3>Află dacă ești pacient metabolic</h3>
+        <p>Riscul de a dezvolta diabet și alte afecțiuni metabolice crește nu doar odată cu indicele corporal (BMI), ci și cu circumferința taliei. Circumferința taliei indică o acumulare excesivă de țesut adipos în interiorul abdomenului, în jurul organelor vitale.</p>
+        <p>Dacă ai circumferința taliei peste 88 cm (la femei) și 102 cm (la bărbați), te încadrezi în cea mai severă clasă de risc pentru a dezvolta sindromul metabolic.</p>
+    </article>
+
+    <article>
+        <h3>Obezitatea este o boală metabolică</h3>
+        <p>Obezitatea și supraponderea reprezintă o problemă majoră de sănătate în lumea modernă și principalul factor în creșterea morbidității generale, scăderea speranței de viață și a calității vieții.</p>
+        <p>Riscurile legate de prezența supraponderii și obezității sunt multiple, afectând toate sistemele organismului. Un indice al masei corporale BMI > 30 crește exponențial riscul de complicații și patologii asociate, dintre care cele mai grave sunt diabetul zaharat și bolile cardiovasculare.</p>
+    </article>
+</section>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Gen, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Gen, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Gen, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Greutate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Greutate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Greutate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Inaltime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Inaltime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Inaltime, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Varsta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Varsta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Varsta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <p></p>
-
-        @{ 
-            var valoare = ViewBag.Message;
-        }
-
-        <h3>@valoare</h3>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Calculeaza" class="btn btn-default" />
-            </div>
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gen, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.Gen, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Gen, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Greutate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Greutate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Greutate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Inaltime, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Inaltime, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Inaltime, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Varsta, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Varsta, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Varsta, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <p></p>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Calculeaza" class="btn btn-default" />
+        </div>
+    </div>
+
+    @{
+        var BMI = ViewBag.Title;
+        var valoare = ViewBag.Message;
+    }
+
+    <h3>Procent grasime corporala: @ViewBag.valoare </h3>
+    <h3>Indice masa corporala(IBM): @ViewBag.BMI</h3>
+</div>
 }
 
-<div>
-    @Html.ActionLink("Inapoi", "Index")
-</div>
+
+
+<img src="~/Uploads/Others/IBM2.PNG" />

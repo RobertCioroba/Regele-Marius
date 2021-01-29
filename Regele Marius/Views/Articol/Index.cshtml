@@ -14,6 +14,22 @@
 <p>
     @Html.ActionLink("Adaugare articol", "Create")
 </p>
+
+<section class="list-articles row">
+    @foreach (var item in Model)
+    {
+    <article class="col-md-6 col-sm-12">
+        <div class="image-container">
+            <img src="@Url.Content(item.Imagine)" />
+            <h3>@Html.DisplayFor(modelItem => item.Titlu)</h3>
+        </div>
+        <div class="article-description">
+            <p>@Html.DisplayFor(modelItem => item.Descriere)</p>
+        </div>
+    </article>
+    }
+    </section>
+<!--
 <table class="table">
     <tr>
         <th>
@@ -50,4 +66,4 @@
     </tr>
     }
 
-</table>
+</table>-->

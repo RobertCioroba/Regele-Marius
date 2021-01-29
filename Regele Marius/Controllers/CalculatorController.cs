@@ -48,8 +48,15 @@ namespace Regele_Marius.Controllers
             else
                 _context.Calculatoare.Add(_calculator);
 
+
+            var BMI = (_calculator.Greutate) / (_calculator.Inaltime * _calculator.Inaltime);
+            var rezultatText = "";
+            if (gen == 0)
+                if (rezultat < 1)
+
             _context.SaveChanges();
             ViewBag.Message = rezultat;
+            ViewBag.Title = BMI;
             return View();
         }
 
