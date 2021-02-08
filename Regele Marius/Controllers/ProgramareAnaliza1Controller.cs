@@ -85,7 +85,8 @@ namespace Regele_Marius.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            var programariAnaliza = _context.ProgramariAnaliza.Include(c => c.Analiza).ToList();
+            return View(programariAnaliza);
         }
 
         protected override void Dispose(bool disposing)

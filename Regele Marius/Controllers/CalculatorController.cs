@@ -52,11 +52,39 @@ namespace Regele_Marius.Controllers
             var BMI = (_calculator.Greutate) / (_calculator.Inaltime * _calculator.Inaltime);
             var rezultatText = "";
             if (gen == 0)
-                if (rezultat < 1)
+            {
+                if (rezultat <= 13.00)
+                    rezultatText = "Sportiv";
+                else
+                    if (rezultat > 13.00 && rezultat <= 17.00)
+                    rezultatText = "Fitness";
+                else
+                    if (rezultat > 17.00 && rezultat <= 24.00)
+                    rezultatText = "Greutate medie";
+                else
+                    if (rezultat > 24)
+                    rezultatText = "Obezitate";
+            }
+            else
+            {
+                if (rezultat <= 20.00)
+                    rezultatText = "Sportiv";
+                else
+                    if (rezultat > 20.00 && rezultat <= 24.00)
+                    rezultatText = "Fitness";
+                else
+                    if (rezultat > 24.00 && rezultat <= 31.00)
+                    rezultatText = "Greutate medie";
+                else
+                    if (rezultat > 31)
+                    rezultatText = "Obezitate";
+            }
+
 
             _context.SaveChanges();
-            ViewBag.Message = rezultat;
-            ViewBag.Title = BMI;
+            ViewBag.Message1 = String.Format("{0:0.00}", rezultat); 
+            ViewBag.Message2 = String.Format("{0:0.00}", BMI);
+            ViewBag.Message3 = rezultatText;
             return View();
         }
 

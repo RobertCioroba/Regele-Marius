@@ -59,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -134,6 +135,7 @@
     <Compile Include="Controllers\ArticolController.cs" />
     <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\ContController.cs" />
+    <Compile Include="Controllers\DiagramaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterventieController.cs" />
     <Compile Include="Controllers\MedicController.cs" />
@@ -279,16 +281,43 @@
     <Compile Include="Migrations\202101182248536_ChangeRezultatAnalizaModel.designer.cs">
       <DependentUpon>202101182248536_ChangeRezultatAnalizaModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102051338509_OneToOneMedicUser.cs" />
+    <Compile Include="Migrations\202102051338509_OneToOneMedicUser.designer.cs">
+      <DependentUpon>202102051338509_OneToOneMedicUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102051359042_OneToOneMedicUser1.cs" />
+    <Compile Include="Migrations\202102051359042_OneToOneMedicUser1.designer.cs">
+      <DependentUpon>202102051359042_OneToOneMedicUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102051452525_test.cs" />
+    <Compile Include="Migrations\202102051452525_test.designer.cs">
+      <DependentUpon>202102051452525_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102051520319_addSexInPacient.cs" />
+    <Compile Include="Migrations\202102051520319_addSexInPacient.designer.cs">
+      <DependentUpon>202102051520319_addSexInPacient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102081232099_AddingRezultatAnalizaModel.cs" />
+    <Compile Include="Migrations\202102081232099_AddingRezultatAnalizaModel.designer.cs">
+      <DependentUpon>202102081232099_AddingRezultatAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102081755172_UpdateRezultatAnalizaModel.cs" />
+    <Compile Include="Migrations\202102081755172_UpdateRezultatAnalizaModel.designer.cs">
+      <DependentUpon>202102081755172_UpdateRezultatAnalizaModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
     <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\ContextClinica.cs" />
+    <Compile Include="Models\Diagrama.cs" />
     <Compile Include="Models\Interventie.cs" />
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Pacient.cs" />
     <Compile Include="Models\ProgramareAnaliza.cs" />
     <Compile Include="Models\ProgramareInterventie.cs" />
+    <Compile Include="Models\RezultatAnaliza.cs" />
+    <Compile Include="Models\RezultatInterventie.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Serviciu.cs" />
     <Compile Include="Models\Slider.cs" />
@@ -356,7 +385,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Pacient\Index.cshtml" />
-    <Content Include="Views\Pacient\Create.cshtml" />
     <Content Include="Views\Specializare\Index.cshtml" />
     <Content Include="Views\Specializare\Create.cshtml" />
     <Content Include="Views\Medic\Create.cshtml" />
@@ -380,7 +408,10 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Calculator\Create.cshtml" />
+    <Content Include="Views\Diagrama\Index.cshtml" />
+    <Content Include="Views\Pacient\Create.cshtml" />
     <Content Include="Views\RezultatAnaliza\Create.cshtml" />
+    <Content Include="Views\RezultatAnaliza\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -481,6 +512,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101182248536_ChangeRezultatAnalizaModel.resx">
       <DependentUpon>202101182248536_ChangeRezultatAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102051338509_OneToOneMedicUser.resx">
+      <DependentUpon>202102051338509_OneToOneMedicUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102051359042_OneToOneMedicUser1.resx">
+      <DependentUpon>202102051359042_OneToOneMedicUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102051452525_test.resx">
+      <DependentUpon>202102051452525_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102051520319_addSexInPacient.resx">
+      <DependentUpon>202102051520319_addSexInPacient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102081232099_AddingRezultatAnalizaModel.resx">
+      <DependentUpon>202102081232099_AddingRezultatAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102081755172_UpdateRezultatAnalizaModel.resx">
+      <DependentUpon>202102081755172_UpdateRezultatAnalizaModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -18,7 +18,7 @@ namespace Regele_Marius.Models
         [DataType(DataType.Time)]
         public DateTime OraInceput { get; set; }
 
-        public Medic Medic { get; set; }
-        public Analiza Analiza { get; set; }
+        public virtual Medic Medic { get; set; }
+        public virtual Analiza Analiza { get; set; }
     }
 }

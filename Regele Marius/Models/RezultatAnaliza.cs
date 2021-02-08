@@ -1,12 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace Regele_Marius.Models
 {
-    public class Analiza : Serviciu
+    public class RezultatAnaliza
     {
+        public int Id { get; set; }
+        [Display(Name = "Nume Medic")]
+        public int MedicId { get; set; }
+        public int PacientId { get; set; }
+        [Display(Name = "Analiza")]
+        public int AnalizaId { get; set; }
+
+        public enum Sex2
+        {
+            Masculin, Feminin
+        }
+        [DataType(DataType.Date)]
+        public DateTime DataNastere { get; set; }
+        public int NrTelefon { get; set; }
+        public string Email { get; set; }
+        public string Adresa { get; set; }
+        public Sex2 Gen { get; set; }
+
+        public string Denumire { get; set; }
+        public string Descriere { get; set; }
+        public int Pret { get; set; }
+
         public int Glicemie { get; set; }
         public int NumarLeucocite { get; set; }
         public int NumarEritrocite { get; set; }
@@ -30,7 +53,8 @@ namespace Regele_Marius.Models
         public int Fier { get; set; }
         public int Magneziu { get; set; }
 
-        public virtual ICollection<ProgramareAnaliza> ProgramariAnaliza { get; set; }
-        public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }
+        public virtual Medic Medic { get; set; }
+        public virtual Pacient Pacient { get; set; }
+        public virtual Analiza Analiza { get; set; }
     }
 }

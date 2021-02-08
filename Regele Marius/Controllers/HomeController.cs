@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Regele_Marius.Controllers
 {
@@ -20,8 +22,7 @@ namespace Regele_Marius.Controllers
         {
             var slider = _context.Sliders.ToList();
             ViewBag.Slider = slider;
-            var articol = _context.Articole.ToList();
-            ViewBag.Articol = articol;
+
             return View();
         }
     }
