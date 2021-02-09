@@ -1,0 +1,288 @@
+﻿@model Regele_Marius.Models.RezultatAnaliza
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RezultatAnaliza</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Analiza.Denumire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Analiza.Denumire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medic.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pacient.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pacient.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNastere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNastere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrTelefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrTelefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Denumire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Denumire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pret)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pret)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Glicemie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Glicemie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumarLeucocite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumarLeucocite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumarEritrocite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumarEritrocite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hemoglobina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hemoglobina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hematrocit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hematrocit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VolumEritrocitarMediu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VolumEritrocitarMediu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConcentratieMedie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConcentratieMedie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trombocite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trombocite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VolumMediuTrombocitar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VolumMediuTrombocitar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plachetocrit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plachetocrit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monocite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monocite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Neutrofile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Neutrofile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eozinofile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eozinofile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bazofile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bazofile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Limfocite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Limfocite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Colesterol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colesterol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trigliceride)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trigliceride)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Creatinina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creatinina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calciu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calciu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Magneziu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Magneziu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

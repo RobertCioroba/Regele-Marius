@@ -136,6 +136,7 @@
     <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\ContController.cs" />
     <Compile Include="Controllers\DiagramaController.cs" />
+    <Compile Include="Controllers\ExRezultatAnalizasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterventieController.cs" />
     <Compile Include="Controllers\MedicController.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Controllers\ProgramareAnaliza1Controller.cs" />
     <Compile Include="Controllers\ProgramareInterventieController.cs" />
     <Compile Include="Controllers\RezultatAnalizaController.cs" />
+    <Compile Include="Controllers\RezultatInterventieController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SpecializareController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -305,6 +307,10 @@
     <Compile Include="Migrations\202102081755172_UpdateRezultatAnalizaModel.designer.cs">
       <DependentUpon>202102081755172_UpdateRezultatAnalizaModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102081809123_AddingRezultatInterventieModel.cs" />
+    <Compile Include="Migrations\202102081809123_AddingRezultatInterventieModel.designer.cs">
+      <DependentUpon>202102081809123_AddingRezultatInterventieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -331,6 +337,7 @@
     <Compile Include="ViewModels\ProgramareAnalizaViewModel.cs" />
     <Compile Include="ViewModels\ProgramareInterventieViewModel.cs" />
     <Compile Include="ViewModels\RezultatAnalizaViewModel.cs" />
+    <Compile Include="ViewModels\RezultatInterventieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database2.mdf" />
@@ -412,6 +419,13 @@
     <Content Include="Views\Pacient\Create.cshtml" />
     <Content Include="Views\RezultatAnaliza\Create.cshtml" />
     <Content Include="Views\RezultatAnaliza\Index.cshtml" />
+    <Content Include="Views\RezultatInterventie\Create.cshtml" />
+    <Content Include="Views\RezultatAnaliza\Details.cshtml" />
+    <Content Include="Views\ExRezultatAnalizas\Create.cshtml" />
+    <Content Include="Views\ExRezultatAnalizas\Delete.cshtml" />
+    <Content Include="Views\ExRezultatAnalizas\Details.cshtml" />
+    <Content Include="Views\ExRezultatAnalizas\Edit.cshtml" />
+    <Content Include="Views\ExRezultatAnalizas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -531,6 +545,9 @@
     <EmbeddedResource Include="Migrations\202102081755172_UpdateRezultatAnalizaModel.resx">
       <DependentUpon>202102081755172_UpdateRezultatAnalizaModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102081809123_AddingRezultatInterventieModel.resx">
+      <DependentUpon>202102081809123_AddingRezultatInterventieModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -547,6 +564,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\Slider\" />
+    <Folder Include="Views\Exemplu\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

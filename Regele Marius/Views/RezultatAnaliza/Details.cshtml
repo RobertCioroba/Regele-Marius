@@ -1,0 +1,203 @@
+﻿@model Regele_Marius.Models.RezultatAnaliza
+
+@{
+    ViewBag.Title = "Buletin analize";
+}
+
+<div>
+    <hr />
+    <div class="buletin-analize">
+        <div class="header">
+
+            <h2 class="titlu-sectiune">Buletin Analize medicale</h2>
+        </div>
+
+        <div class="detalii-pacient">
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Analiza.Denumire)</span>
+                <span>@Html.DisplayFor(model => model.Analiza.Denumire)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Medic.Nume)</span>
+                <span>@Html.DisplayFor(model => model.Medic.Nume)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Pacient.Email)</span>
+                <span>@Html.DisplayFor(model => model.Pacient.Email)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.DataNastere)</span>
+                <span>@Html.DisplayFor(model => model.DataNastere)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.NrTelefon)</span>
+                <span>@Html.DisplayFor(model => model.NrTelefon)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Adresa)</span>
+                <span>@Html.DisplayFor(model => model.Adresa)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Gen)</span>
+                <span>@Html.DisplayFor(model => model.Gen)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Denumire)</span>
+                <span>@Html.DisplayFor(model => model.Denumire)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Descriere)</span>
+                <span>@Html.DisplayFor(model => model.Descriere)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Pret)</span>
+                <span>@Html.DisplayFor(model => model.Pret)</span>
+            </div>
+
+        </div>
+    </div>
+    <div class="rezultat-analize table-responsive-lg">
+        <table class="table">
+            <thead>
+                <th>Parametru analizat</th>
+                <th>Valoarea obtinuta</th>
+                <th>Valori biologice de referinta</th>
+                <th>U.M.</th>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Glicemie)</td>
+                        <td>@Html.DisplayFor(model => model.Glicemie)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.NumarLeucocite)</td>
+                        <td>@Html.DisplayFor(model => model.NumarLeucocite)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.NumarEritrocite)</td>
+                        <td>@Html.DisplayFor(model => model.NumarEritrocite)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Hemoglobina)</td>
+                        <td>@Html.DisplayFor(model => model.Hemoglobina)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Hematrocit)</td>
+                        <td>@Html.DisplayFor(model => model.Hematrocit)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.VolumEritrocitarMediu)</td>
+                        <td>@Html.DisplayFor(model => model.VolumEritrocitarMediu)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.ConcentratieMedie)</td>
+                        <td>@Html.DisplayFor(model => model.ConcentratieMedie)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Trombocite)</td>
+                        <td>@Html.DisplayFor(model => model.Trombocite)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.VolumMediuTrombocitar)</td>
+                        <td>@Html.DisplayFor(model => model.VolumMediuTrombocitar)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Plachetocrit)</td>
+                        <td>@Html.DisplayFor(model => model.Plachetocrit)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Monocite)</td>
+                        <td>@Html.DisplayFor(model => model.Monocite)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Neutrofile)</td>
+                        <td>@Html.DisplayFor(model => model.Neutrofile)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Eozinofile)</td>
+                        <td>@Html.DisplayFor(model => model.Eozinofile)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Bazofile)</td>
+                        <td>@Html.DisplayFor(model => model.Bazofile)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Limfocite)</td>
+                        <td>@Html.DisplayFor(model => model.Limfocite)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Colesterol)</td>
+                        <td>@Html.DisplayFor(model => model.Colesterol)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Trigliceride)</td>
+                        <td>@Html.DisplayFor(model => model.Trigliceride)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Uree)</td>
+                        <td>@Html.DisplayFor(model => model.Uree)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Creatinina)</td>
+                        <td>@Html.DisplayFor(model => model.Creatinina)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Calciu)</td>
+                        <td>@Html.DisplayFor(model => model.Calciu)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Fier)</td>
+                        <td>@Html.DisplayFor(model => model.Fier)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Magneziu)</td>
+                        <td>@Html.DisplayFor(model => model.Magneziu)</td>
+                        <td>3 - 5</td>
+                        <td>mg/dL</td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+</div>

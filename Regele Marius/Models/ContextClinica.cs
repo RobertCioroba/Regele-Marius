@@ -22,6 +22,7 @@ namespace Regele_Marius.Models
         public DbSet<ProgramareInterventie> ProgramariInterventie { get; set; }
         public DbSet<Calculator> Calculatoare { get; set; }
         public DbSet<RezultatAnaliza> RezultateAnaliza { get; set; }
+        public DbSet<RezultatInterventie> RezultateInterventie { get; set; }
     }
 }
 

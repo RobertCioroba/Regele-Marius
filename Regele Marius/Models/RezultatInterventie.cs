@@ -26,6 +26,14 @@ namespace Regele_Marius.Models
         public string Adresa { get; set; }
         public Sex3 Gen { get; set; }
 
+        public string Denumire { get; set; }
+        public string Descriere { get; set; }
+        public int Pret { get; set; }
+
+        public string Echipament { get; set; }
+        public string Durata { get; set; }
+        public bool Succes { get; set; }
+
         public virtual Medic Medic { get; set; }
         public virtual Pacient Pacient { get; set; }
         public virtual Interventie Interventie { get; set; }

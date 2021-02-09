@@ -66,6 +66,21 @@ namespace Regele_Marius.Controllers
             return View("Create", viewModel);
         }
 
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            RezultatAnaliza rezultatAnaliza = _context.RezultateAnaliza.Find(id);
+            if (rezultatAnaliza == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rezultatAnaliza);
+        }
+
         public ActionResult Index()
         {
             var rezultateAnaliza = _context.RezultateAnaliza.Include(c => c.Pacient).ToList();

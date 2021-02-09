@@ -10,5 +10,6 @@ namespace Regele_Marius.Models
         public string Echipament { get; set; }
 
         public virtual ICollection<ProgramareInterventie> ProgramariInterventie { get; set; }
+        public virtual ICollection<RezultatInterventie> RezultateInterventie { get; set; }
     }
 }

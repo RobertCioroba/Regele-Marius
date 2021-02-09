@@ -100,3 +100,47 @@
 .list-articles article .article-description {
     padding: 15px 25px;
 }
+
+/* Rezultat analiza */
+.buletin-analize {
+    padding: 15px 25px;
+    border: 1px solid #232323;
+    margin-bottom: 40px;
+}
+
+.buletin-analize .header .titlu-sectiune {
+    padding: 10px 0;
+    background: lightgray;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.detalii-pacient .detaliu-pacient {
+    border-bottom: 1px dotted black;
+    padding: 10px 200px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.detalii-pacient .detaliu-pacient:last-of-type {
+    border-bottom: none;
+}
+
+.detalii-pacient .detaliu-pacient span:first-of-type {
+    font-weight: 700;
+}
+
+.rezultat-analize table thead th {
+    background: lightgray;
+    border-right: 2px solid #fff;
+    border-bottom: none;
+}
+
+.rezultat-analize table tbody td {
+    border-top: 1px dotted black;
+}
+
+.rezultat-analize table tbody tr:first-of-type td {
+    border-top: none;
+}

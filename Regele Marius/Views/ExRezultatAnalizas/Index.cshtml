@@ -1,0 +1,225 @@
+﻿@model IEnumerable<Regele_Marius.Models.RezultatAnaliza>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Analiza.Denumire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pacient.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNastere)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NrTelefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Denumire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descriere)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pret)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Glicemie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumarLeucocite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumarEritrocite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hemoglobina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hematrocit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VolumEritrocitarMediu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConcentratieMedie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trombocite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VolumMediuTrombocitar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plachetocrit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monocite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Neutrofile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eozinofile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bazofile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Limfocite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Colesterol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trigliceride)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uree)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creatinina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calciu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Magneziu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Analiza.Denumire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medic.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacient.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNastere)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NrTelefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Denumire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descriere)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pret)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Glicemie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumarLeucocite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumarEritrocite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hemoglobina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hematrocit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VolumEritrocitarMediu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConcentratieMedie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trombocite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VolumMediuTrombocitar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plachetocrit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monocite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Neutrofile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eozinofile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bazofile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Limfocite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Colesterol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trigliceride)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uree)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creatinina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calciu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Magneziu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
