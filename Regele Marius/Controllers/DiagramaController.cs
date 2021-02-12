@@ -10,25 +10,28 @@ namespace Regele_Marius.Controllers
 {
     public class DiagramaController : Controller
     {
-        // GET: Diagrama
+        private ContextClinica _context;
+
+        public DiagramaController()
+        {
+            _context = new ContextClinica();
+        }
+
         public ActionResult Index()
         {
+            var numarPacientiFemei = 0;
+            numarPacientiFemei = _context.Pacienti.Count();
+            Console.WriteLine(numarPacientiFemei);
+            List<Diagrama> intrari = new List<Diagrama>();
 
-            List<Diagrama> dataPoints = new List<Diagrama>();
+            intrari.Add(new Diagrama("NXP", 14));
+            intrari.Add(new Diagrama("Infineon", 10));
+            intrari.Add(new Diagrama("Renesas", 9));
+            intrari.Add(new Diagrama("STMicroelectronics", 8));
+            intrari.Add(new Diagrama("Texas Instruments", 7));
+ 
 
-            dataPoints.Add(new Diagrama("NXP", 14));
-            dataPoints.Add(new Diagrama("Infineon", 10));
-            dataPoints.Add(new Diagrama("Renesas", 9));
-            dataPoints.Add(new Diagrama("STMicroelectronics", 8));
-            dataPoints.Add(new Diagrama("Texas Instruments", 7));
-            dataPoints.Add(new Diagrama("Bosch", 5));
-            dataPoints.Add(new Diagrama("ON Semiconductor", 4));
-            dataPoints.Add(new Diagrama("Toshiba", 3));
-            dataPoints.Add(new Diagrama("Micron", 3));
-            dataPoints.Add(new Diagrama("Osram", 2));
-            dataPoints.Add(new Diagrama("Others", 35));
-
-            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+            ViewBag.Diagrame = JsonConvert.SerializeObject(intrari);
             return View();
         }
     }

@@ -9,6 +9,7 @@ namespace Regele_Marius.Models
     [DataContract]
     public class Diagrama
     {
+        public int Id { get; set; }
         public Diagrama (string suprafata, double valoare)
         {
             this.Suprafata = suprafata;
