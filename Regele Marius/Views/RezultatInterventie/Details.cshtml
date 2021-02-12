@@ -1,0 +1,76 @@
+﻿@model Regele_Marius.Models.RezultatInterventie
+
+@{
+    ViewBag.Title = "Buletin Interventie";
+}
+
+
+
+<div>
+    <hr />
+    <div class="buletin-analize">
+        <div class="header">
+
+            <h2 class="titlu-sectiune">Buletin interventie</h2>
+        </div>
+
+        <div class="detalii-pacient">
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Interventie.Denumire)</span>
+                <span>@Html.DisplayFor(model => model.Interventie.Denumire)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Medic.Nume)</span>
+                <span>@Html.DisplayFor(model => model.Medic.Nume)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Pacient.Email)</span>
+                <span>@Html.DisplayFor(model => model.Pacient.Email)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.DataNastere)</span>
+                <span>@Html.DisplayFor(model => model.DataNastere)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.NrTelefon)</span>
+                <span>@Html.DisplayFor(model => model.NrTelefon)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Adresa)</span>
+                <span>@Html.DisplayFor(model => model.Adresa)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Gen)</span>
+                <span>@Html.DisplayFor(model => model.Gen)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Denumire)</span>
+                <span>@Html.DisplayFor(model => model.Denumire)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Descriere)</span>
+                <span>@Html.DisplayFor(model => model.Descriere)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Pret)</span>
+                <span>@Html.DisplayFor(model => model.Pret)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Interventie.Echipament)</span>
+                <span>@Html.DisplayFor(model => model.Interventie.Echipament)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Durata)</span>
+                <span>@Html.DisplayFor(model => model.Durata)</span>
+            </div>
+            <div class="detaliu-pacient">
+                <span>@Html.DisplayNameFor(model => model.Succes)</span>
+                <span>@Html.DisplayFor(model => model.Succes)</span>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+
+    @Html.ActionLink("Inapoi", "Index")
+</p>

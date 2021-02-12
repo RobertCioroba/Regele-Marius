@@ -311,6 +311,10 @@
     <Compile Include="Migrations\202102081809123_AddingRezultatInterventieModel.designer.cs">
       <DependentUpon>202102081809123_AddingRezultatInterventieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102120842424_UpdateRezultatInterventie.cs" />
+    <Compile Include="Migrations\202102120842424_UpdateRezultatInterventie.designer.cs">
+      <DependentUpon>202102120842424_UpdateRezultatInterventie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -426,6 +430,8 @@
     <Content Include="Views\ExRezultatAnalizas\Details.cshtml" />
     <Content Include="Views\ExRezultatAnalizas\Edit.cshtml" />
     <Content Include="Views\ExRezultatAnalizas\Index.cshtml" />
+    <Content Include="Views\RezultatInterventie\Index.cshtml" />
+    <Content Include="Views\RezultatInterventie\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011171445106_InitialModel.resx">
@@ -547,6 +553,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102081809123_AddingRezultatInterventieModel.resx">
       <DependentUpon>202102081809123_AddingRezultatInterventieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102120842424_UpdateRezultatInterventie.resx">
+      <DependentUpon>202102120842424_UpdateRezultatInterventie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ namespace Regele_Marius.Models
         public int MedicId { get; set; }
         public int PacientId { get; set; }
         [Display(Name = "Analiza")]
-        public int AnalizaId { get; set; }
+        public int InterventieId { get; set; }
 
         public enum Sex3
         {

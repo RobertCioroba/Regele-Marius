@@ -3,8 +3,10 @@ using Regele_Marius.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Regele_Marius.Controllers
 {
@@ -43,6 +45,63 @@ namespace Regele_Marius.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var _rezultatInterventie = _context.RezultateInterventie.SingleOrDefault(p => p.Id == id);
+            if (_rezultatInterventie == null)
+                return HttpNotFound();
+
+            var viewModel = new RezultatInterventieViewModel
+            {
+                RezultatInterventie = new RezultatInterventie(),
+                Interventii = _context.Interventii.ToList(),
+                Medici = _context.Medici.ToList(),
+                Pacienti = _context.Pacienti.ToList()
+            };
+
+            return View("Create", viewModel);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            RezultatInterventie rezultatInterventie = _context.RezultateInterventie.Find(id);
+            if (rezultatInterventie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rezultatInterventie);
+        }
+
+        public ActionResult Index()
+        {
+            var rezultatInterventie = _context.RezultateInterventie.Include(c => c.Pacient).ToList();
+            return View(rezultatInterventie);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var rezultatInterventie = _context.RezultateInterventie.SingleOrDefault(c => c.Id == id);
+
+            if (rezultatInterventie == null)
+                return HttpNotFound();
+            _context.RezultateInterventie.Remove(rezultatInterventie);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
 
         protected override void Dispose(bool disposing)
         {
