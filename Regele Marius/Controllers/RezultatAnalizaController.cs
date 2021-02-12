@@ -19,6 +19,13 @@ namespace Regele_Marius.Controllers
             _context = new ContextClinica();
         }
 
+        public ActionResult GeneratePDF(int id)
+        {
+            var report = new Rotativa.ActionAsPdf("Details", new { id = id });
+            return report;
+        }
+
+
         public ActionResult Create()
         {
             var _pacienti = _context.Pacienti.ToList();
