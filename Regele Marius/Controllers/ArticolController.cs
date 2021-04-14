@@ -55,9 +55,17 @@ namespace Regele_Marius.Controllers
 
             if (articol == null)
                 return HttpNotFound();
+
+            return View(articol);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Articol articol = _context.Articole.Find(id);
             _context.Articole.Remove(articol);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
 

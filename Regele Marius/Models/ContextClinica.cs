@@ -13,7 +13,7 @@ namespace Regele_Marius.Models
         public DbSet<Pacient>Pacienti { get; set; }
         public DbSet<Specializare>Specializari { get; set; }
         public DbSet<Role> Roluri { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User1> Users1 { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Analiza> Analize { get; set; }
         public DbSet<Interventie> Interventii { get; set; }

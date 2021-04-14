@@ -3,10 +3,6 @@
 @{
     ViewBag.Title = "Programare analiza";
 
-    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
-    {
-        Response.Redirect("~/Cont/Logare", false);
-    }
 
 }
 
@@ -20,13 +16,6 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ProgramareAnaliza.MedicId, "MedicId", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.ProgramareAnaliza.MedicId, new SelectList(Model.Medici, "Id", "Nume"), "Selectare Medic", htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.MedicId, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.ProgramareAnaliza.AnalizaId, "AnalizaId", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -37,18 +26,42 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ProgramareAnaliza.DataProgramare, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ProgramareAnaliza.Nume, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ProgramareAnaliza.DataProgramare, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.DataProgramare, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.ProgramareAnaliza.Nume, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Nume, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ProgramareAnaliza.OraInceput, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ProgramareAnaliza.Prenume, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ProgramareAnaliza.OraInceput, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.OraInceput, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.ProgramareAnaliza.Prenume, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Prenume, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProgramareAnaliza.DataNastere, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProgramareAnaliza.DataNastere, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.DataNastere, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProgramareAnaliza.NrTelefon, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProgramareAnaliza.NrTelefon, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.NrTelefon, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProgramareAnaliza.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProgramareAnaliza.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Email, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -61,6 +74,3 @@
 </div>
 }
 
-<div>
-    @Html.ActionLink("Inapoi", "Index")
-</div>

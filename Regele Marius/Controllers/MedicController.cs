@@ -38,7 +38,7 @@ namespace Regele_Marius.Controllers
             _context.Medici.Add(medic);
             _context.SaveChanges();
 
-            return Content("Medic salvat!");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int? id)
@@ -50,9 +50,17 @@ namespace Regele_Marius.Controllers
 
             if (medic == null)
                 return HttpNotFound();
+
+            return View(medic);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Medic medic = _context.Medici.Find(id);
             _context.Medici.Remove(medic);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
 

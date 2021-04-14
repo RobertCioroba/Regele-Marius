@@ -54,9 +54,17 @@ namespace Regele_Marius.Controllers
 
             if (pacient == null)
                 return HttpNotFound();
+
+            return View(pacient);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Pacient pacient = _context.Pacienti.Find(id);
             _context.Pacienti.Remove(pacient);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
 

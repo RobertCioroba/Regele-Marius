@@ -43,7 +43,6 @@ namespace Regele_Marius.Models
         [Display(Name = "Final vineri")]
         public DateTime? VineriFinal { get; set; }
 
-        public virtual ICollection<ProgramareAnaliza> ProgramariAnaliza { get; set; }
         public virtual ICollection<ProgramareInterventie> ProgramariInterventie { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }
         public virtual ICollection<RezultatInterventie> RezultateInterventie { get; set; }

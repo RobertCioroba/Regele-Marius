@@ -17,7 +17,7 @@ namespace Regele_Marius.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Users1.ToList());
         }
 
         // GET: User/Details/5
@@ -27,7 +27,7 @@ namespace Regele_Marius.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User1 user = db.Users1.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -46,11 +46,11 @@ namespace Regele_Marius.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,NumeUtilizator,Parola,Activ")] User user)
+        public ActionResult Create([Bind(Include = "Id,Email,NumeUtilizator,Parola,Activ")] User1 user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Users1.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace Regele_Marius.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User1 user = db.Users1.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace Regele_Marius.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,NumeUtilizator,Parola,Activ")] User user)
+        public ActionResult Edit([Bind(Include = "Id,Email,NumeUtilizator,Parola,Activ")] User1 user)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace Regele_Marius.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User1 user = db.Users1.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace Regele_Marius.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            User1 user = db.Users1.Find(id);
+            db.Users1.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

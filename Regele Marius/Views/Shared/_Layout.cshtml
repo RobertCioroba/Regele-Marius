@@ -37,21 +37,24 @@
 
                     @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == false)
                     {
-                        <li>@Html.ActionLink("Lista pacienti", "Index", "Pacient")</li>
                         <li>@Html.ActionLink("Medici", "Index", "Medic")</li>
                         <li>@Html.ActionLink("Articole", "Index", "Articol")</li>
                         <li>@Html.ActionLink("Programare Analiza", "Index", "ProgramareAnaliza1")</li>
                         <li>@Html.ActionLink("Programare Interventie", "Index", "ProgramareInterventie")</li>
-                        <li>@Html.ActionLink("Calculator", "Create", "Calculator")</li>
+
 
                     }
                 </ul>
 
                 @if (Session["NumeUtilizator"] == null)
                 {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Formular programare", "Create", "ProgramareAnaliza1")</li>
+                    <li>@Html.ActionLink("Calculator", "Create", "Calculator")</li>
+                </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li>@Html.ActionLink("Logare", "Logare", "Cont")</li>
-                        <li>@Html.ActionLink("Inregistrare", "Inregistrare", "Cont")</li>
                     </ul>
                 }
 

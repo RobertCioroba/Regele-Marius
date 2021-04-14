@@ -53,9 +53,17 @@ namespace Regele_Marius.Controllers
 
             if (analiza == null)
                 return HttpNotFound();
+
+            return View(analiza);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Analiza analiza = _context.Analize.Find(id);
             _context.Analize.Remove(analiza);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
 
