@@ -7,8 +7,14 @@ using System.Web;
 
 namespace Regele_Marius.Models
 {
-    public class Medic : Utilizator
+    public class Medic
     {
+        [ForeignKey("User1")]
+        public int Id { get; set; }
+        [Required]
+        public string Nume { get; set; }
+        [Required]
+        public string Prenume { get; set; }
         public int? SpecializareId { get; set; }
         [Display(Name ="Specializare")]
         public Specializare Specializare { get; set; }
@@ -43,6 +49,8 @@ namespace Regele_Marius.Models
         [Display(Name = "Final vineri")]
         public DateTime? VineriFinal { get; set; }
 
+
+        public virtual User1 User1 { get; set; }
         public virtual ICollection<ProgramareInterventie> ProgramariInterventie { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }
         public virtual ICollection<RezultatInterventie> RezultateInterventie { get; set; }

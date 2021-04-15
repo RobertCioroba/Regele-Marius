@@ -1,4 +1,5 @@
 ﻿using Regele_Marius.Models;
+using Regele_Marius.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,21 +27,23 @@ namespace Regele_Marius.Controllers
 
         public ActionResult Create()
         {
-            return View(new Analiza { Id = 0 });
+            var _specializari = _context.Specializari.ToList();
+
+            var viewModel = new AnalizaFormViewModel
+            {
+                Analiza = new Analiza(),
+                Specializari = _specializari
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Create(Analiza _analiza)
+        public ActionResult Create(Analiza analiza)
         {
-            if (!ModelState.IsValid)
-                return View("Create", _analiza);
-
-            if (_analiza.Id > 0)
-                _context.Entry(_analiza).State = System.Data.Entity.EntityState.Modified;
-            else
-                _context.Analize.Add(_analiza);
-
+            _context.Analize.Add(analiza);
             _context.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
@@ -72,11 +75,17 @@ namespace Regele_Marius.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var analiza = _context.Analize.SingleOrDefault(c => c.Id == id);
-            if (analiza == null)
+            var _analiza = _context.Analize.SingleOrDefault(p => p.Id == id);
+            if (_analiza == null)
                 return HttpNotFound();
 
-            return View("Create", analiza);
+            var viewModel = new AnalizaFormViewModel
+            {
+                Analiza = _analiza,
+                Specializari = _context.Specializari.ToList()
+            };
+
+            return View("Create", viewModel);
         }
 
         protected override void Dispose(bool disposing)

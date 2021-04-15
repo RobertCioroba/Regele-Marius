@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +9,7 @@ namespace Regele_Marius.Models
 {
     public class RezultatAnaliza
     {
+        [ForeignKey("ProgramareAnaliza")]
         public int Id { get; set; }
         [Display(Name = "Nume Medic")]
         public int MedicId { get; set; }
@@ -56,5 +58,6 @@ namespace Regele_Marius.Models
         public virtual Medic Medic { get; set; }
         public virtual Pacient Pacient { get; set; }
         public virtual Analiza Analiza { get; set; }
+        public virtual ProgramareAnaliza ProgramareAnaliza { get; set; }
     }
 }

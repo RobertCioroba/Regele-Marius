@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,28 +8,33 @@ namespace Regele_Marius.Models
 {
     public class Analiza : Serviciu
     {
-        public int Glicemie { get; set; }
-        public int NumarLeucocite { get; set; }
-        public int NumarEritrocite { get; set; }
-        public int Hemoglobina { get; set; }
-        public int Hematrocit { get; set; }
-        public int VolumEritrocitarMediu { get; set; }
-        public int ConcentratieMedie { get; set; }
-        public int Trombocite { get; set; }
-        public int VolumMediuTrombocitar { get; set; }
-        public int Plachetocrit { get; set; }
-        public int Monocite { get; set; }
-        public int Neutrofile { get; set; }
-        public int Eozinofile { get; set; }
-        public int Bazofile { get; set; }
-        public int Limfocite { get; set; }
-        public int Colesterol { get; set; }
-        public int Trigliceride { get; set; }
-        public int Uree { get; set; }
-        public int Creatinina { get; set; }
-        public int Calciu { get; set; }
-        public int Fier { get; set; }
-        public int Magneziu { get; set; }
+        public bool Glicemie { get; set; }
+        public bool NumarLeucocite { get; set; }
+        public bool NumarEritrocite { get; set; }
+        public bool Hemoglobina { get; set; }
+        public bool Hematrocit { get; set; }
+        public bool VolumEritrocitarMediu { get; set; }
+        public bool ConcentratieMedie { get; set; }
+        public bool Trombocite { get; set; }
+        public bool VolumMediuTrombocitar { get; set; }
+        public bool Plachetocrit { get; set; }
+        public bool Monocite { get; set; }
+        public bool Neutrofile { get; set; }
+        public bool Eozinofile { get; set; }
+        public bool Bazofile { get; set; }
+        public bool Limfocite { get; set; }
+        public bool Colesterol { get; set; }
+        public bool Trigliceride { get; set; }
+        public bool Uree { get; set; }
+        public bool Creatinina { get; set; }
+        public bool Calciu { get; set; }
+        public bool Fier { get; set; }
+        public bool Magneziu { get; set; }
+        public int? SpecializareId { get; set; }
+        [Display(Name = "Specializare")]
+        public Specializare Specializare { get; set; }
+
+        public float Durata { get; set; }
 
         public virtual ICollection<ProgramareAnaliza> ProgramariAnaliza { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Regele_Marius.Models.User1>
+
+@{
+    ViewBag.Title = "Lista medici";
+}
+
+<h2>Lista medici</h2>
+
+<p>
+    @Html.ActionLink("Cont nou", "Inregistrare")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Medic.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeUtilizator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parola)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activ)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medic.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeUtilizator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parola)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activ)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

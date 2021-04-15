@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
+using CaptchaMvc.HtmlHelpers;
 
 namespace Regele_Marius.Controllers
 {
@@ -39,12 +40,18 @@ namespace Regele_Marius.Controllers
         [HttpPost]
         public ActionResult Create(ProgramareAnaliza programareAnaliza)
         {
-            _context.ProgramariAnaliza.Add(programareAnaliza);
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+                if (this.IsCaptchaValid("Captcha is not valid"))
+                {
+                    List<Medic> medici = _context.Medici.ToList();
+                    _context.ProgramariAnaliza.Add(programareAnaliza);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            ViewBag.ErrMessage = "Error: captcha is not valid.";
+            return View();
         }
-
+        
 
         public ActionResult Delete(int? id)
         {

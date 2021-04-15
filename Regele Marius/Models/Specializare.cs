@@ -9,6 +9,7 @@ namespace Regele_Marius.Models
     public class Specializare
     {
         public int Id { get; set; }
+        [Required]
         [Display(Name = "Specializare")]
         public string Nume { get; set; }
 

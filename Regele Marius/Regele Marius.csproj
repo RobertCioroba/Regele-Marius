@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -140,12 +143,13 @@
     <Compile Include="Controllers\InterventieController.cs" />
     <Compile Include="Controllers\MedicController.cs" />
     <Compile Include="Controllers\PacientController.cs" />
+    <Compile Include="Controllers\PacientsController.cs" />
     <Compile Include="Controllers\ProgramareAnaliza1Controller.cs" />
     <Compile Include="Controllers\ProgramareInterventieController.cs" />
     <Compile Include="Controllers\RezultatAnalizaController.cs" />
     <Compile Include="Controllers\RezultatInterventieController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
-    <Compile Include="Controllers\SpecializareController.cs" />
+    <Compile Include="Controllers\SpecializaresController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,6 +165,42 @@
     <Compile Include="Migrations\202104141115495_SmallChanges.cs" />
     <Compile Include="Migrations\202104141115495_SmallChanges.Designer.cs">
       <DependentUpon>202104141115495_SmallChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104141139119_ChangeAnalizaModel.cs" />
+    <Compile Include="Migrations\202104141139119_ChangeAnalizaModel.Designer.cs">
+      <DependentUpon>202104141139119_ChangeAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104141155332_AddingValidators.cs" />
+    <Compile Include="Migrations\202104141155332_AddingValidators.Designer.cs">
+      <DependentUpon>202104141155332_AddingValidators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104141159438_removeRequired.cs" />
+    <Compile Include="Migrations\202104141159438_removeRequired.Designer.cs">
+      <DependentUpon>202104141159438_removeRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104141255104_OneToOne.cs" />
+    <Compile Include="Migrations\202104141255104_OneToOne.Designer.cs">
+      <DependentUpon>202104141255104_OneToOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104141315029_AddingProgramareId.cs" />
+    <Compile Include="Migrations\202104141315029_AddingProgramareId.Designer.cs">
+      <DependentUpon>202104141315029_AddingProgramareId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104141316179_AddingProgramareId2.cs" />
+    <Compile Include="Migrations\202104141316179_AddingProgramareId2.Designer.cs">
+      <DependentUpon>202104141316179_AddingProgramareId2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104141320049_OneToOneAnalize.cs" />
+    <Compile Include="Migrations\202104141320049_OneToOneAnalize.Designer.cs">
+      <DependentUpon>202104141320049_OneToOneAnalize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104150540557_AddingSpecializareFieldToAnalizaModel.cs" />
+    <Compile Include="Migrations\202104150540557_AddingSpecializareFieldToAnalizaModel.Designer.cs">
+      <DependentUpon>202104150540557_AddingSpecializareFieldToAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104150908538_AddingDurataToAnalizaModel.cs" />
+    <Compile Include="Migrations\202104150908538_AddingDurataToAnalizaModel.Designer.cs">
+      <DependentUpon>202104150908538_AddingDurataToAnalizaModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
@@ -182,6 +222,7 @@
     <Compile Include="Models\User1.cs" />
     <Compile Include="Models\Utilizator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AnalizaFormViewModel.cs" />
     <Compile Include="ViewModels\ArticolViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\MedicFormViewModel.cs" />
@@ -279,6 +320,19 @@
     <Content Include="Views\Medic\Delete.cshtml" />
     <Content Include="Views\Analiza\Delete.cshtml" />
     <Content Include="Views\Articol\Delete.cshtml" />
+    <Content Include="Views\Pacients\Create.cshtml" />
+    <Content Include="Views\Pacients\Delete.cshtml" />
+    <Content Include="Views\Pacients\Details.cshtml" />
+    <Content Include="Views\Pacients\Edit.cshtml" />
+    <Content Include="Views\Pacients\Index.cshtml" />
+    <Content Include="Views\Cont\Index.cshtml" />
+    <Content Include="Views\Cont\Delete.cshtml" />
+    <Content Include="Views\Specializares\Create.cshtml" />
+    <Content Include="Views\Specializares\Delete.cshtml" />
+    <Content Include="Views\Specializares\Details.cshtml" />
+    <Content Include="Views\Specializares\Edit.cshtml" />
+    <Content Include="Views\Specializares\Index.cshtml" />
+    <Content Include="Views\Analiza\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -305,6 +359,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104141115495_SmallChanges.resx">
       <DependentUpon>202104141115495_SmallChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141139119_ChangeAnalizaModel.resx">
+      <DependentUpon>202104141139119_ChangeAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141155332_AddingValidators.resx">
+      <DependentUpon>202104141155332_AddingValidators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141159438_removeRequired.resx">
+      <DependentUpon>202104141159438_removeRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141255104_OneToOne.resx">
+      <DependentUpon>202104141255104_OneToOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141315029_AddingProgramareId.resx">
+      <DependentUpon>202104141315029_AddingProgramareId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141316179_AddingProgramareId2.resx">
+      <DependentUpon>202104141316179_AddingProgramareId2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141320049_OneToOneAnalize.resx">
+      <DependentUpon>202104141320049_OneToOneAnalize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104150540557_AddingSpecializareFieldToAnalizaModel.resx">
+      <DependentUpon>202104150540557_AddingSpecializareFieldToAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104150908538_AddingDurataToAnalizaModel.resx">
+      <DependentUpon>202104150908538_AddingDurataToAnalizaModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

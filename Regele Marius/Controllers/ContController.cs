@@ -3,6 +3,7 @@ using Regele_Marius.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -63,6 +64,36 @@ namespace Regele_Marius.Controllers
                 return RedirectToAction("Index", "Home");
             }
             
+        }
+
+        public ActionResult Index()
+        {
+            var utilizatori = _context.Users1.ToList();
+            return View(utilizatori);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User1 user = _context.Users1.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            User1 user = _context.Users1.Find(id);
+            _context.Users1.Remove(user);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Deconectare()

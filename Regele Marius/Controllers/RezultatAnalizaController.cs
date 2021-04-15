@@ -45,8 +45,10 @@ namespace Regele_Marius.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RezultatAnaliza rezultatAnaliza)
+        public ActionResult Create(RezultatAnaliza rezultatAnaliza,ProgramareAnaliza programareAnaliza)
         {
+           // rezultatAnaliza.ProgramareAnaliza = programareAnaliza.Id;
+
             _context.RezultateAnaliza.Add(rezultatAnaliza);
             _context.SaveChanges();
 
