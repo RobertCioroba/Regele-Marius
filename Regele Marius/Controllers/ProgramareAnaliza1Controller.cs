@@ -43,7 +43,12 @@ namespace Regele_Marius.Controllers
             if(ModelState.IsValid)
                 if (this.IsCaptchaValid("Captcha is not valid"))
                 {
+                    RezultatAnaliza rezultat = new RezultatAnaliza();
+                    _context.RezultateAnaliza.Add(rezultat);
+                    _context.SaveChanges();
+                    programareAnaliza.RezultatId = rezultat.Id;
                     List<Medic> medici = _context.Medici.ToList();
+                    programareAnaliza.Status = Status.Derulare;
                     _context.ProgramariAnaliza.Add(programareAnaliza);
                     _context.SaveChanges();
                     return RedirectToAction("Index");

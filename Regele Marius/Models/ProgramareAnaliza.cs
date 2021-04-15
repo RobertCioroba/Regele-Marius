@@ -6,6 +6,12 @@ using System.Web;
 
 namespace Regele_Marius.Models
 {
+    public enum Status
+    {
+        Derulare,
+        Finalizat
+    }
+
     public class ProgramareAnaliza
     {
         public enum Sex4
@@ -21,6 +27,7 @@ namespace Regele_Marius.Models
         public string Nume { get; set; }
         [Required]
         public string Prenume { get; set; }
+        public Status Status { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime DataNastere { get; set; }
@@ -33,8 +40,7 @@ namespace Regele_Marius.Models
         public DateTime? DataProgramare { get; set; }
         [DataType(DataType.Time)]
         public DateTime? OraInceput { get; set; }
-
+        public int RezultatId { get; set; }
         public virtual Analiza Analiza { get; set; }
-        public virtual RezultatAnaliza Rezultat { get; set; }
     }
 }
