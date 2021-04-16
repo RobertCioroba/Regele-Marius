@@ -19,19 +19,19 @@ namespace Regele_Marius.Controllers
 
         public ActionResult Index()
         {
-            var numarPacientiFemei = 0;
-            numarPacientiFemei = _context.Pacienti.Count();
-            Console.WriteLine(numarPacientiFemei);
-            List<Diagrama> intrari = new List<Diagrama>();
 
-            intrari.Add(new Diagrama("NXP", 14));
-            intrari.Add(new Diagrama("Infineon", 10));
-            intrari.Add(new Diagrama("Renesas", 9));
-            intrari.Add(new Diagrama("STMicroelectronics", 8));
-            intrari.Add(new Diagrama("Texas Instruments", 7));
- 
+            List<Diagrama> dataPoints = new List<Diagrama>();
 
-            ViewBag.Diagrame = JsonConvert.SerializeObject(intrari);
+            dataPoints.Add(new Diagrama("Economics", 1));
+            dataPoints.Add(new Diagrama("Physics", 2));
+            dataPoints.Add(new Diagrama("Literature", 4));
+            dataPoints.Add(new Diagrama("Chemistry", 4));
+            dataPoints.Add(new Diagrama("Literature", 9));
+            dataPoints.Add(new Diagrama("Physiology or Medicine", 11));
+            dataPoints.Add(new Diagrama("Peace", 13));
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
             return View();
         }
     }

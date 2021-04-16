@@ -256,6 +256,7 @@
     <Compile Include="ViewModels\MedicFormViewModel.cs" />
     <Compile Include="ViewModels\ProgramareAnalizaViewModel.cs" />
     <Compile Include="ViewModels\ProgramareInterventieViewModel.cs" />
+    <Compile Include="ViewModels\RezultatAnalizaCreateViewModel.cs" />
     <Compile Include="ViewModels\RezultatAnalizaViewModel.cs" />
     <Compile Include="ViewModels\RezultatInterventieViewModel.cs" />
   </ItemGroup>

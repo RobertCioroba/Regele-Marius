@@ -45,7 +45,13 @@ namespace Regele_Marius.Controllers
             rezultat.NumePacient = programare.Nume;
             rezultat.PrenumePacient = programare.Prenume;
 
-            PropertyInfo[] props = typeof(Analiza).GetProperties();
+            var Rezultat = new RezultatAnalizaCreateViewModel
+            {
+                RezultatAnaliza = rezultat,
+                ProgramareAnaliza = programare,
+                Analiza = analiza
+            };
+/*            PropertyInfo[] props = typeof(Analiza).GetProperties();
 
             var justBools = new List<string>();
 
@@ -60,11 +66,11 @@ namespace Regele_Marius.Controllers
             foreach (var boolulet in justBools)
             {
                 Debug.WriteLine(boolulet);
-            }
+            }*/
 
 
 
-            return View(rezultat);
+            return View(Rezultat);
         }
 
         [HttpPost]

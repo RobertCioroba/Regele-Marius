@@ -1,44 +1,33 @@
-﻿
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
-    <script type="text/javascript">
+    <script>
+window.onload = function () {
 
-        window.onload = function () {
-            var chart = new CanvasJS.Chart("chartContainer", {
-                theme: "light2",
-                animationEnabled: true,
-                title: {
-                    text: "Simple Column Chart in ASP.NET MVC"
-                },
-                subtitles: [
-                    { text: "Try Resizing the Browser" }
-                ],
-                data: [
-                    {
-                        type: "column", //change type to bar, line, area, pie, etc
-                        dataPoints: [
-                            { x: 10, y: 71 },
-                            { x: 20, y: 55 },
-                            { x: 30, y: 50 },
-                            { x: 40, y: 65 },
-                            { x: 50, y: 95 },
-                            { x: 60, y: 68 },
-                            { x: 70, y: 28 },
-                            { x: 80, y: 34 },
-                            { x: 90, y: 14 }
-                        ]
-                    }
-                ]
-            });
-            chart.render();
-        };
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Women Nobel Laureates"
+	},
+	subtitles: [{
+		text: "from 1903 to 2015"
+	}],
+	axisY: {
+		title: "Number of Nobel Prizes",
+		gridThickness: 0
+	},
+	data: [{
+		type: "bar",
+		indexLabel: "{y}",
+		dataPoints: @Html.Raw(ViewBag.DataPoints)}]
+});
+chart.render();
+
+}
     </script>
 </head>
-
 <body>
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 </body>
-</html>  
+</html>
