@@ -22,7 +22,7 @@ namespace Regele_Marius.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name =  "Analiza")]
+        [Display(Name ="Analiza")]
         public int AnalizaId { get; set; }
         [Required]
         public string Nume { get; set; }
@@ -31,8 +31,10 @@ namespace Regele_Marius.Models
         public Status Status { get; set; }
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name ="Data nastere")]
         public DateTime DataNastere { get; set; }
         [Required]
+        [Display(Name ="Numar telefon")]
         public int NrTelefon { get; set; }
         [EmailAddress]
         public string Email { get; set; }
