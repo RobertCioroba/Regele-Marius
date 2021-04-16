@@ -1,0 +1,36 @@
+﻿@*@model Regele_Marius.Models.Specializare
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+    </dl>
+</div>*@
+
+<div>
+    <dt>Specializare</dt>
+    <dd id="specializare"></dd>
+    <input type="hidden" id="specializareID" value="@ViewData["id"]"/>
+</div>
+
+
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.getJSON("/Medic/getSpecializare",
+            {
+                id: $("#specializareID").val()
+            },
+            function (json) {
+                $("#specializare").append(json);
+            }
+        );
+    });
+</script>

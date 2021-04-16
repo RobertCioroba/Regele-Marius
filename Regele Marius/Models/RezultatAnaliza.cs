@@ -15,17 +15,14 @@ namespace Regele_Marius.Models
         public int? PacientId { get; set; }
         [Display(Name = "Analiza")]
         public int? AnalizaId { get; set; }
-        public enum Sex2
-        {
-            Masculin, Feminin
-        }
         [DataType(DataType.Date)]
         public DateTime? DataNastere { get; set; }
         public int? NrTelefon { get; set; }
         public string Email { get; set; }
         public string Adresa { get; set; }
-        public Sex2 Gen { get; set; }
-
+        public Sex Gen { get; set; }
+        public string NumePacient { get; set; }
+        public string PrenumePacient { get; set; }
         public string Denumire { get; set; }
         public string Descriere { get; set; }
         public int? Pret { get; set; }
@@ -56,5 +53,14 @@ namespace Regele_Marius.Models
         public virtual Medic Medic { get; set; }
         public virtual Pacient Pacient { get; set; }
         public virtual Analiza Analiza { get; set; }
+
+        [Display(Name = "Nume pacient")]
+        public string NumeComplet
+        {
+            get
+            {
+                return NumePacient + " " + PrenumePacient;
+            }
+        }
     }
 }

@@ -29,7 +29,6 @@ namespace Regele_Marius.Models
         public string Parola { get; set; }
         [Display(Name = "Medic")]
         public bool Activ { get; set; }
-
-        public virtual Medic Medic { get; set; }
+        public int IdMedic { get; set; }
     }
 }

@@ -36,7 +36,8 @@ namespace Regele_Marius.Controllers
             }
             _context.Users1.Add(user);
             _context.SaveChanges();
-            return Content("Utilizator salvat cu succes!");
+            TempData["idUser"] = user.Id;
+            return RedirectToAction("Create", "Medic");
         }
 
         public ActionResult Logare()
@@ -91,6 +92,8 @@ namespace Regele_Marius.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             User1 user = _context.Users1.Find(id);
+            Medic medic = _context.Medici.Find(user.IdMedic);
+            _context.Medici.Remove(medic);
             _context.Users1.Remove(user);
             _context.SaveChanges();
             return RedirectToAction("Index");

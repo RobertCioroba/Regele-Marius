@@ -12,12 +12,13 @@ namespace Regele_Marius.Models
         Finalizat
     }
 
+    public enum Sex
+    {
+        Masculin, Feminin
+    }
+
     public class ProgramareAnaliza
     {
-        public enum Sex4
-        {
-            Masculin, Feminin
-        }
         public int Id { get; set; }
 
         [Required]
@@ -36,11 +37,12 @@ namespace Regele_Marius.Models
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        public Sex4 Gen { get; set; }
+        public Sex Gen { get; set; }
         public DateTime? DataProgramare { get; set; }
         [DataType(DataType.Time)]
         public DateTime? OraInceput { get; set; }
         public int RezultatId { get; set; }
+        public int? MedicId { get; set; }
         public virtual Analiza Analiza { get; set; }
     }
 }

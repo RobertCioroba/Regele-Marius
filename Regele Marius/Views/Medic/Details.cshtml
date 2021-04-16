@@ -1,0 +1,110 @@
+﻿@model Regele_Marius.Models.Medic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalii medic</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenume)
+        </dd>
+
+        <div>
+            @Html.Partial("_Specializare", new ViewDataDictionary { { "id", Model.SpecializareId } })
+        </div>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LuniFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LuniInceput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LuniFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LuniFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MartiInceput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MartiInceput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MartiFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MartiFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiercuriInceput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiercuriInceput)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MiercuriFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiercuriFinal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiInceput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiInceput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VineriInceput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VineriInceput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MartiFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MartiFinal)
+        </dd>
+    </dl>
+</div>

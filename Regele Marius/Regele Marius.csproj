@@ -214,6 +214,22 @@
     <Compile Include="Migrations\202104151336474_Nullable.Designer.cs">
       <DependentUpon>202104151336474_Nullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104151350327_AddingMedicIdToProgramareAnaliza.cs" />
+    <Compile Include="Migrations\202104151350327_AddingMedicIdToProgramareAnaliza.Designer.cs">
+      <DependentUpon>202104151350327_AddingMedicIdToProgramareAnaliza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104160610531_ChangeRezultatAnalizaModel.cs" />
+    <Compile Include="Migrations\202104160610531_ChangeRezultatAnalizaModel.Designer.cs">
+      <DependentUpon>202104160610531_ChangeRezultatAnalizaModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104160918427_AdduserIdToMedic.cs" />
+    <Compile Include="Migrations\202104160918427_AdduserIdToMedic.Designer.cs">
+      <DependentUpon>202104160918427_AdduserIdToMedic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104160934116_AddIdMedicToUser.cs" />
+    <Compile Include="Migrations\202104160934116_AddIdMedicToUser.Designer.cs">
+      <DependentUpon>202104160934116_AddIdMedicToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -345,6 +361,8 @@
     <Content Include="Views\Specializares\Edit.cshtml" />
     <Content Include="Views\Specializares\Index.cshtml" />
     <Content Include="Views\Analiza\Edit.cshtml" />
+    <Content Include="Views\Medic\Details.cshtml" />
+    <Content Include="Views\Medic\_Specializare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -407,6 +425,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104151336474_Nullable.resx">
       <DependentUpon>202104151336474_Nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104151350327_AddingMedicIdToProgramareAnaliza.resx">
+      <DependentUpon>202104151350327_AddingMedicIdToProgramareAnaliza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104160610531_ChangeRezultatAnalizaModel.resx">
+      <DependentUpon>202104160610531_ChangeRezultatAnalizaModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104160918427_AdduserIdToMedic.resx">
+      <DependentUpon>202104160918427_AdduserIdToMedic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104160934116_AddIdMedicToUser.resx">
+      <DependentUpon>202104160934116_AddIdMedicToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

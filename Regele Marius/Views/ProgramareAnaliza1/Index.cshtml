@@ -59,11 +59,10 @@
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+        @Html.ActionLink("Finalizare", "Create","RezultatAnaliza",new { id = item.Id}, new { id = item.Id }) 
     </td>
 </tr>
 }
 
 </table>
-
-<a href="GeneratePDF"> Generate PDF</a>

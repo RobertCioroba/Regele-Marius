@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace Regele_Marius.Controllers
 {
@@ -26,22 +28,43 @@ namespace Regele_Marius.Controllers
         }
 
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            var _pacienti = _context.Pacienti.ToList();
-            var _analize = _context.Analize.ToList();
-            var _medici = _context.Medici.ToList();
-            var _rezultatAnaliza = _context.RezultateAnaliza.ToList();
+            ProgramareAnaliza programare = _context.ProgramariAnaliza.Find(id);
+            Analiza analiza = _context.Analize.Find(programare.AnalizaId);
+            RezultatAnaliza rezultat = new RezultatAnaliza();
+            rezultat.AnalizaId = programare.AnalizaId;
+            rezultat.DataNastere = programare.DataNastere;
+            rezultat.Denumire = analiza.Denumire;
+            rezultat.Descriere = analiza.Descriere;
+            rezultat.Email = programare.Email;
+            rezultat.MedicId = programare.MedicId;
+            rezultat.NrTelefon = programare.NrTelefon;
+            rezultat.Pret = analiza.Pret;
+            rezultat.Gen = programare.Gen;
+            rezultat.NumePacient = programare.Nume;
+            rezultat.PrenumePacient = programare.Prenume;
 
-            var viewModel = new RezultatAnalizaViewModel
+            PropertyInfo[] props = typeof(Analiza).GetProperties();
+
+            var justBools = new List<string>();
+
+            foreach(PropertyInfo prop in props)
             {
-                RezultatAnaliza = new RezultatAnaliza(),
-                Analize = _analize,
-                Medici = _medici,
-                Pacienti = _pacienti
-            };
+                if (prop.PropertyType.ToString() == "System.Boolean")
+                {
+                    justBools.Add(prop.Name);
+                }
+            }
 
-            return View(viewModel);
+            foreach (var boolulet in justBools)
+            {
+                Debug.WriteLine(boolulet);
+            }
+
+
+
+            return View(rezultat);
         }
 
         [HttpPost]

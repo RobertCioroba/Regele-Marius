@@ -25,5 +25,21 @@ namespace Regele_Marius.Controllers
 
             return View();
         }
+
+        public ActionResult About()
+        {
+            var analize = new List<string>();
+            analize.Add("1");
+            analize.Add("2");
+            analize.Add("3");
+            analize.Add("4");
+            analize.Add("5");
+            analize.Add("6");
+            analize.Add("7");
+            analize.Add("8");
+
+            ViewBag.Analize = analize;
+            return View();
+        }
     }
 }

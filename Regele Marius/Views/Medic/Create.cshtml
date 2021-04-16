@@ -2,10 +2,6 @@
 @{
     ViewBag.Title = "Adaugare medic";
 
-    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == false)
-    {
-        Response.Redirect("~/Cont/Logare", false);
-    }
 }
 
 <h2>Adaugare medic</h2>

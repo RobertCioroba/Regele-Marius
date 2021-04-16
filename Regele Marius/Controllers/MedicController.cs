@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
+using System.Diagnostics;
 
 namespace Regele_Marius.Controllers
 {
@@ -22,23 +23,63 @@ namespace Regele_Marius.Controllers
         public ActionResult Create()
         {
             var _specializari = _context.Specializari.ToList();
-
             var viewModel = new MedicFormViewModel
             {
                 Medic = new Medic(),
                 Specializari = _specializari
             };
-
             return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Create(Medic medic)
         {
+            var idUser = TempData["idUser"].ToString();
+            var userId = Convert.ToInt32(idUser);
+            medic.UserId = userId;
+            User1 user = _context.Users1.Find(userId);
             _context.Medici.Add(medic);
+            _context.SaveChanges();
+            user.IdMedic = medic.Id;
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            Medic medic = _context.Medici.Find(id);
+            if (medic == null)
+                return HttpNotFound();
+
+            Specializare specializare = _context.Specializari.Find(medic.SpecializareId);
+            ViewBag.Specializare = specializare;
+
+
+            return View(medic);
+        }
+
+        public ActionResult _Specializare(int id)
+        {
+            Specializare specializare = _context.Specializari.Find(id);
+            return PartialView(specializare);
+        }
+
+
+        [HttpGet]
+        public JsonResult getSpecializare(int id)
+        {
+            if (_context.Specializari.Any(x => x.Id == id))
+            {
+                var specialiare = _context.Specializari.Find(id);
+                var numeSpecializare = specialiare.Nume;
+                Debug.WriteLine(numeSpecializare);
+                return Json(numeSpecializare, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json("eroare");
         }
 
         public ActionResult Delete(int? id)

@@ -8,11 +8,6 @@ namespace Regele_Marius.Models
 {
     public class Calculator
     {
-        public enum Sex
-        {
-            Masculin, Feminin
-        }
-
         [Required]
         public int Id { get; set; }
         [Required]

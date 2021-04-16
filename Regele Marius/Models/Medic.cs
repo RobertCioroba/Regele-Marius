@@ -9,7 +9,6 @@ namespace Regele_Marius.Models
 {
     public class Medic
     {
-        [ForeignKey("User1")]
         public int Id { get; set; }
         [Required]
         public string Nume { get; set; }
@@ -49,8 +48,7 @@ namespace Regele_Marius.Models
         [Display(Name = "Final vineri")]
         public DateTime? VineriFinal { get; set; }
 
-
-        public virtual User1 User1 { get; set; }
+        public int UserId { get; set; }
         public virtual ICollection<ProgramareInterventie> ProgramariInterventie { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }
         public virtual ICollection<RezultatInterventie> RezultateInterventie { get; set; }
