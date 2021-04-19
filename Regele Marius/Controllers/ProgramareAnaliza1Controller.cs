@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
 using CaptchaMvc.HtmlHelpers;
+using PagedList;
 
 namespace Regele_Marius.Controllers
 {
@@ -67,12 +68,20 @@ namespace Regele_Marius.Controllers
 
             if (programareAnaliza == null)
                 return HttpNotFound();
-            _context.ProgramariAnaliza.Remove(programareAnaliza);
-            _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return View(programareAnaliza);
         }
 
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            ProgramareAnaliza programare = _context.ProgramariAnaliza.Find(id);
+            _context.ProgramariAnaliza.Remove(programare);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,10 +100,64 @@ namespace Regele_Marius.Controllers
 
             return View("Create", viewModel);
         }
-        public ActionResult Index()
+
+        public ActionResult Index(string sortOrder, string currentFilter2, string searchString2, int? page)
         {
-            var programariAnaliza = _context.ProgramariAnaliza.Include(c => c.Analiza).ToList();
-            return View(programariAnaliza);
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.DateSortParm2 = sortOrder == "Date2" ? "date_desc2" : "Date2";
+            ViewBag.DateSortParm3 = sortOrder == "Date3" ? "date_desc3" : "Date3";
+            if (searchString2 != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString2 = currentFilter2;
+            }
+
+            ViewBag.CurrentFilter2 = searchString2;
+
+            var programari = _context.ProgramariAnaliza.Include(t => t.Analiza);
+
+            if (!String.IsNullOrEmpty(searchString2))
+            {
+                programari = programari.Where(s => s.Nume.Contains(searchString2) ||
+                             s.Prenume.Contains(searchString2));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    programari = programari.OrderByDescending(s => s.Analiza.Denumire);
+                    break;
+                case "Date":
+                    programari = programari.OrderBy(s => s.Nume);
+                    break;
+                case "date_desc":
+                    programari = programari.OrderByDescending(s => s.Nume);
+                    break;
+                case "Date2":
+                    programari = programari.OrderBy(s => s.Prenume);
+                    break;
+                case "date_desc2":
+                    programari = programari.OrderByDescending(s => s.Prenume);
+                    break;
+                case "Date3":
+                    programari = programari.OrderBy(s => s.Status);
+                    break;
+                case "date_desc3":
+                    programari = programari.OrderByDescending(s => s.Status);
+                    break;
+                default:
+                    programari = programari.OrderBy(s => s.Analiza.Denumire);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+
+            return View(programari.ToPagedList(pageNumber, pageSize));
         }
 
         protected override void Dispose(bool disposing)

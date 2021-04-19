@@ -215,8 +215,9 @@
             @Html.DisplayFor(modelItem => item.Magneziu)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Editare", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Stergere", "Delete", new { id = item.Id }) |
+            @Html.ActionLink("Detalii", "Details", new { id = item.Id }) 
         </td>
     </tr>
 }

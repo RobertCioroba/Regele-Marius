@@ -44,44 +44,66 @@ namespace Regele_Marius.Controllers
             rezultat.Gen = programare.Gen;
             rezultat.NumePacient = programare.Nume;
             rezultat.PrenumePacient = programare.Prenume;
-
+            programare.Status = Status.Finalizat;
             var Rezultat = new RezultatAnalizaCreateViewModel
             {
                 RezultatAnaliza = rezultat,
                 ProgramareAnaliza = programare,
                 Analiza = analiza
             };
-/*            PropertyInfo[] props = typeof(Analiza).GetProperties();
+            /*            PropertyInfo[] props = typeof(Analiza).GetProperties();
 
-            var justBools = new List<string>();
+                        var justBools = new List<string>();
 
-            foreach(PropertyInfo prop in props)
-            {
-                if (prop.PropertyType.ToString() == "System.Boolean")
-                {
-                    justBools.Add(prop.Name);
-                }
-            }
+                        foreach(PropertyInfo prop in props)
+                        {
+                            if (prop.PropertyType.ToString() == "System.Boolean")
+                            {
+                                justBools.Add(prop.Name);
+                            }
+                        }
 
-            foreach (var boolulet in justBools)
-            {
-                Debug.WriteLine(boolulet);
-            }*/
-
-
-
+                        foreach (var boolulet in justBools)
+                        {
+                            Debug.WriteLine(boolulet);
+                        }*/
             return View(Rezultat);
         }
 
         [HttpPost]
-        public ActionResult Create(RezultatAnaliza rezultatAnaliza,ProgramareAnaliza programareAnaliza)
+        public ActionResult Create(RezultatAnaliza rezultatAnaliza)
         {
-           // rezultatAnaliza.ProgramareAnaliza = programareAnaliza.Id;
-
-            _context.RezultateAnaliza.Add(rezultatAnaliza);
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+            // rezultatAnaliza.ProgramareAnaliza = programareAnaliza.Id;
+            if(ModelState.IsValid)
+            {
+                string idProgramare = null;
+                if (TempData.ContainsKey("idProgramare"))
+                {
+                    idProgramare = TempData["idProgramare"].ToString();
+                    int programareId = Convert.ToInt32(idProgramare);
+                    ProgramareAnaliza programare = _context.ProgramariAnaliza.Find(programareId);
+                    Analiza analiza = _context.Analize.Find(programare.AnalizaId);
+                    rezultatAnaliza.AnalizaId = programare.AnalizaId;
+                    rezultatAnaliza.DataNastere = programare.DataNastere;
+                    rezultatAnaliza.Denumire = analiza.Denumire;
+                    rezultatAnaliza.Descriere = analiza.Descriere;
+                    rezultatAnaliza.Email = programare.Email;
+                    rezultatAnaliza.MedicId = programare.MedicId;
+                    rezultatAnaliza.NrTelefon = programare.NrTelefon;
+                    rezultatAnaliza.Pret = analiza.Pret;
+                    rezultatAnaliza.Gen = programare.Gen;
+                    rezultatAnaliza.NumePacient = programare.Nume;
+                    rezultatAnaliza.PrenumePacient = programare.Prenume;
+                    rezultatAnaliza.ProgramareAnalizaId = programareId;
+                    programare.Status = Status.Finalizat;
+                    _context.RezultateAnaliza.Add(rezultatAnaliza);
+                    _context.SaveChanges();
+                    programare.RezultatId = rezultatAnaliza.Id;
+                    _context.SaveChanges();
+                }
+                return RedirectToAction("Index","ProgramareAnaliza1"); ;
+            }
+            return View();
         }
 
         public ActionResult Edit(int? id)
@@ -134,9 +156,16 @@ namespace Regele_Marius.Controllers
 
             if (rezultatAnaliza == null)
                 return HttpNotFound();
-            _context.RezultateAnaliza.Remove(rezultatAnaliza);
-            _context.SaveChanges();
+            return View(rezultatAnaliza);
+        }
 
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            RezultatAnaliza rezultat = _context.RezultateAnaliza.Find(id);
+            _context.RezultateAnaliza.Remove(rezultat);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 

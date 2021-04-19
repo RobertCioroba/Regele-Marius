@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Parola)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Activ)
+            Tip cont
         </th>
         <th></th>
     </tr>
@@ -38,9 +38,22 @@
     <td>
         @Html.DisplayFor(modelItem => item.Parola)
     </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Activ)
-    </td>
+    @{
+        if (item.Activ == true)
+        {
+            <td>
+                Medic
+            </td>
+        }
+        else
+        {
+            <td>
+                Secretara
+            </td>
+        }
+
+    }
+
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.Id })|

@@ -16,17 +16,21 @@ namespace Regele_Marius.Models
         [Display(Name = "Analiza")]
         public int? AnalizaId { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name ="Data nastere")]
         public DateTime? DataNastere { get; set; }
+        [Display(Name ="Numar telefon")]
         public int? NrTelefon { get; set; }
         public string Email { get; set; }
         public string Adresa { get; set; }
         public Sex Gen { get; set; }
         public string NumePacient { get; set; }
         public string PrenumePacient { get; set; }
+        [Display(Name ="Set analize")]
         public string Denumire { get; set; }
+        [Display(Name ="Descriere set analize")]
         public string Descriere { get; set; }
         public int? Pret { get; set; }
-
+        public int? ProgramareAnalizaId { get; set; }
         public int? Glicemie { get; set; }
         public int? NumarLeucocite { get; set; }
         public int? NumarEritrocite { get; set; }

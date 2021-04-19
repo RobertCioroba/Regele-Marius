@@ -2,8 +2,10 @@
 using Regele_Marius.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,13 +18,6 @@ namespace Regele_Marius.Controllers
         public AnalizaController()
         {
             _context = new ContextClinica();
-        }
-
-        // GET: Analiza
-        public ActionResult Index()
-        {
-            var analize = _context.Analize.ToList();
-            return View(analize);
         }
 
         public ActionResult Create()
@@ -41,10 +36,26 @@ namespace Regele_Marius.Controllers
         [HttpPost]
         public ActionResult Create(Analiza analiza)
         {
-            _context.Analize.Add(analiza);
-            _context.SaveChanges();
+            if(ModelState.IsValid)
+            {
+                int numarParametrii = 0;
 
-            return RedirectToAction("Index");
+/*                foreach(PropertyInfo prop in analiza.GetType().GetProperties())
+                {
+                    if(prop.PropertyType == typeof(bool))
+                    {
+                        var valoare = prop.GetValue(analiza);
+                        if (valoare == true)
+                            numarParametrii++;
+                    }
+                }*/
+
+                analiza.Pret = numarParametrii * 15;
+                _context.Analize.Add(analiza);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         public ActionResult Delete(int? id)
@@ -86,6 +97,12 @@ namespace Regele_Marius.Controllers
             };
 
             return View("Create", viewModel);
+        }
+
+        public ActionResult Index()
+        {
+            var analize = _context.Analize.ToList();
+            return View(analize);
         }
 
         protected override void Dispose(bool disposing)

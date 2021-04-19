@@ -1,0 +1,51 @@
+﻿@model Regele_Marius.Models.ProgramareAnaliza
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Vrei sa stergi aceasta programare?</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Analiza.Denumire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Analiza.Denumire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Analiza.Descriere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Analiza.Descriere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenume)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sterge" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

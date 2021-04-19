@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Regele_Marius.Models.ProgramareAnaliza>
+﻿@model PagedList.IPagedList<Regele_Marius.Models.ProgramareAnaliza>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Lista programari analiza";
@@ -11,30 +14,51 @@
 
 <h2>Lista programari analiza</h2>
 
+@using (Html.BeginForm("Index", "ProgramareAnaliza1", FormMethod.Get))
+{
+    <p>
+        <div class="tooltip">
+            @Html.TextBox("SearchString2", ViewBag.CurrentFilter2 as string)
+            <input type="submit" value="Search" />
+            <span class="tooltiptext">Cauta dupa nume</span>
+        </div>
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Analiza.Denumire)
+            <div class="tooltip">
+                @Html.ActionLink("Denumire analiza", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter2 = ViewBag.CurrentFilter2 })
+                <span class="tooltiptext">Sorteaza dupa analiza</span>
+            </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nume)
+            Nume
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Prenume)
+            Prenume
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataNastere)
+            Data nastere
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NrTelefon)
+            Numar telefon
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
+        </th>
+        <th>
+            <div class="tooltip">
+                @Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.DateSortParm3, currentFilter2 = ViewBag.CurrentFilter2 })
+                <span class="tooltiptext">Sorteaza dupa status</span>
+            </div>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.Analiza.Denumire)
@@ -54,12 +78,53 @@
     <td>
         @Html.DisplayFor(modelItem => item.Email)
     </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-        @Html.ActionLink("Finalizare", "Create","RezultatAnaliza",new { id = item.Id}, new { id = item.Id }) 
-    </td>
-</tr>
-}
+        @{
+            if (item.Status == Regele_Marius.Models.Status.Derulare)
+            {
+                <td style="background-color:yellow">@item.Status</td>
+            }
+            else
+            {
+                <td style="background-color:limegreen">@item.Status</td>
+            }
+        }
+<td>
+    @{
+        if (item.Status == Regele_Marius.Models.Status.Finalizat)
+        {
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Details", "RezultatAnaliza", new { id = item.RezultatId }, new { style = "background: url('" + Url.Content("~/images/info.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(40%) sepia(52%) saturate(3535%) hue-rotate(209deg) brightness(99%) contrast(110%);" })
+                <span class="tooltiptext">Vizionare raport</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Edit", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "') no-repeat center; display:inline-block; height:30px; width:30px;filter: invert(51%) sepia(6%) saturate(4768%) hue-rotate(71deg) brightness(117%) contrast(102%);" })
+                <span class="tooltiptext">Editare</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                <span class="tooltiptext">Stergere</span>
+            </div>
+        }
+        else
+        {
+            @Html.ActionLink("Finalizare", "Create", "RezultatAnaliza", new { id = item.Id }, new { id = item.Id })
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Edit", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "') no-repeat center; display:inline-block; height:30px; width:30px;filter: invert(51%) sepia(6%) saturate(4768%) hue-rotate(71deg) brightness(117%) contrast(102%);" })
+                <span class="tooltiptext">Editare</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                <span class="tooltiptext">Stergere</span>
+            </div>
+        }
+    }
+
+</td>
+    </tr>
+    }
 
 </table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter2 = ViewBag.CurrentFilter2 }))

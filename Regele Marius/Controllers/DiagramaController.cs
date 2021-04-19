@@ -17,22 +17,32 @@ namespace Regele_Marius.Controllers
             _context = new ContextClinica();
         }
 
-        public ActionResult Index()
-        {
+		public ActionResult Index()
+		{
+			//randare chart pentru taskuri
+			List<Diagrama> dataPoints = new List<Diagrama>();
+			List<ProgramareAnaliza> programari = _context.ProgramariAnaliza.ToList();
+			int derulare = 0, finalizat = 0, total = programari.Count();
+			foreach (var programare in programari)
+			{
+				switch (programare.Status)
+				{
+					case Status.Derulare:
+						derulare++;
+						break;
+					default:
+						finalizat++;
+						break;
+				}
+			}
+			derulare = (derulare * 100) / total;
+			finalizat = (finalizat * 100) / total;
 
-            List<Diagrama> dataPoints = new List<Diagrama>();
+			dataPoints.Add(new Diagrama("In derulare", derulare));
+			dataPoints.Add(new Diagrama("Finalizare", finalizat));
 
-            dataPoints.Add(new Diagrama("Economics", 1));
-            dataPoints.Add(new Diagrama("Physics", 2));
-            dataPoints.Add(new Diagrama("Literature", 4));
-            dataPoints.Add(new Diagrama("Chemistry", 4));
-            dataPoints.Add(new Diagrama("Literature", 9));
-            dataPoints.Add(new Diagrama("Physiology or Medicine", 11));
-            dataPoints.Add(new Diagrama("Peace", 13));
-
-            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
-
-            return View();
-        }
-    }
+			ViewBag.DataPointsTasks = JsonConvert.SerializeObject(dataPoints);
+			return View();
+		}
+	}
 }
