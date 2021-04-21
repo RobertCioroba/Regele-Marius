@@ -34,7 +34,7 @@ namespace Regele_Marius.Controllers
         public int[] SetInterval(DateTime? inceput, DateTime? final)
         {
             int oraInceput = 0, oraFinal = 0;
-            oraInceput = inceput.Value.Hour * 2;
+            oraInceput = inceput.Value.Hour * 2 + 1;
             //verific daca sunt in prima sau in a 2-a jumatate a unei ore
             if (inceput.Value.Minute > 30)
                 oraInceput++;
@@ -53,49 +53,60 @@ namespace Regele_Marius.Controllers
             var userId = Convert.ToInt32(idUser);
             medic.UserId = userId;
             User1 user = _context.Users1.Find(userId);
-            ProgramMedici program = new ProgramMedici();
-            program.IdMedic = medic.Id;
-            program.Luni = new int[49];
-            program.Marti = new int[49];
-            program.Miercuri = new int[49];
-            program.Joi = new int[49];
-            program.Vineri = new int[49];
+            Program program = new Program();
+            int[] Luni,Marti,Miercuri,Joi,Vineri;
+            Luni = new int[49];
+            Marti = new int[49];
+            Miercuri = new int[49];
+            Joi = new int[49];
+            Vineri = new int[49];
 
             for (var i = 0; i < 48; i++)
             {
-                program.Luni[i] = 0;
-                program.Marti[i] = 0;
-                program.Miercuri[i] = 0;
-                program.Joi[i] = 0;
-                program.Vineri[i] = 0;
+                Luni[i] = 0;
+                Marti[i] = 0;
+                Miercuri[i] = 0;
+                Joi[i] = 0;
+                Vineri[i] = 0;
             }
 
             //Marchez programul de lucru pentru fiecare zi
             int[] interval = SetInterval(medic.LuniInceput, medic.LuniFinal);
             for (int i = interval[0]; i < interval[1]; i++)
-                program.Luni[i] = 1;
+                Luni[i] = 1;
 
             interval = SetInterval(medic.MartiInceput, medic.MartiFinal);
             for (int i = interval[0]; i < interval[1]; i++)
-                program.Marti[i] = 1;
+                Marti[i] = 1;
 
             interval = SetInterval(medic.MiercuriInceput, medic.MiercuriFinal);
             for (int i = interval[0]; i < interval[1]; i++)
-                program.Miercuri[i] = 1;
+                Miercuri[i] = 1;
 
             interval = SetInterval(medic.JoiInceput, medic.JoiFinal);
             for (int i = interval[0]; i < interval[1]; i++)
-                program.Joi[i] = 1;
+                Joi[i] = 1;
 
             interval = SetInterval(medic.VineriInceput, medic.VineriFinal);
             for (int i = interval[0]; i < interval[1]; i++)
-                program.Vineri[i] = 1;
+                Vineri[i] = 1;
 
-            _context.ProgramMedicis.Add(program);
+            for(var i = 0; i < 48; i++)
+            {
+                program.Luni += Luni[i];
+                program.Marti += Marti[i];
+                program.Miercuri += Miercuri[i];
+                program.Joi += Joi[i];
+                program.Vineri += Vineri[i];
+            }
+
+            _context.Programs.Add(program);
             _context.Medici.Add(medic);
             _context.SaveChanges();
 
+            program.IdMedic = medic.Id;
             user.IdMedic = medic.Id;
+            medic.ProgramId = program.Id;
             _context.SaveChanges();
 
             return RedirectToAction("Index");

@@ -244,19 +244,38 @@
     <Compile Include="Migrations\202104210605170_test.Designer.cs">
       <DependentUpon>202104210605170_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104210725047_test2.cs" />
+    <Compile Include="Migrations\202104210725047_test2.Designer.cs">
+      <DependentUpon>202104210725047_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104210732058_AddingProgram.cs" />
+    <Compile Include="Migrations\202104210732058_AddingProgram.Designer.cs">
+      <DependentUpon>202104210732058_AddingProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104211025482_ChangeDurata.cs" />
+    <Compile Include="Migrations\202104211025482_ChangeDurata.Designer.cs">
+      <DependentUpon>202104211025482_ChangeDurata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104211026135_ChangeDurata2.cs" />
+    <Compile Include="Migrations\202104211026135_ChangeDurata2.Designer.cs">
+      <DependentUpon>202104211026135_ChangeDurata2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104211221408_AddOraFinalInProgramare.cs" />
+    <Compile Include="Migrations\202104211221408_AddOraFinalInProgramare.Designer.cs">
+      <DependentUpon>202104211221408_AddOraFinalInProgramare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
     <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\ContextClinica.cs" />
     <Compile Include="Models\Diagrama.cs" />
-    <Compile Include="Models\DoamneAjuta.cs" />
     <Compile Include="Models\Interventie.cs" />
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Pacient.cs" />
+    <Compile Include="Models\Program.cs" />
     <Compile Include="Models\ProgramareAnaliza.cs" />
     <Compile Include="Models\ProgramareInterventie.cs" />
-    <Compile Include="Models\ProgramMedici.cs" />
     <Compile Include="Models\RezultatAnaliza.cs" />
     <Compile Include="Models\RezultatInterventie.cs" />
     <Compile Include="Models\Role.cs" />
@@ -464,6 +483,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104210605170_test.resx">
       <DependentUpon>202104210605170_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104210725047_test2.resx">
+      <DependentUpon>202104210725047_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104210732058_AddingProgram.resx">
+      <DependentUpon>202104210732058_AddingProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104211025482_ChangeDurata.resx">
+      <DependentUpon>202104211025482_ChangeDurata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104211026135_ChangeDurata2.resx">
+      <DependentUpon>202104211026135_ChangeDurata2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104211221408_AddOraFinalInProgramare.resx">
+      <DependentUpon>202104211221408_AddOraFinalInProgramare.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -33,8 +33,9 @@ namespace Regele_Marius.Models
         public int? SpecializareId { get; set; }
         [Display(Name = "Specializare")]
         public Specializare Specializare { get; set; }
-
-        public float Durata { get; set; }
+        
+        [DataType(DataType.Time)]
+        public DateTime? Durata { get; set; }
 
         public virtual ICollection<ProgramareAnaliza> ProgramariAnaliza { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }

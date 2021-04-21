@@ -43,6 +43,8 @@ namespace Regele_Marius.Models
         public DateTime? DataProgramare { get; set; }
         [DataType(DataType.Time)]
         public DateTime? OraInceput { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime? OraFinal { get; set; }
         public int RezultatId { get; set; }
         public string RezultatGuid { get; set; }
         public int? MedicId { get; set; }

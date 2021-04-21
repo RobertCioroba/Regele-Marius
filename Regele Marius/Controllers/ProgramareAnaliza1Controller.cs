@@ -38,6 +38,69 @@ namespace Regele_Marius.Controllers
             return View(viewModel);
         }
 
+        //convert din string in vector
+        public int[] SetareVector(string programPeZi)
+        {
+            int[] zi = new int[49];
+            int i = 0;
+            foreach(char c in programPeZi)
+            {
+                zi[i] = Convert.ToInt32(c);
+                i++;
+            }
+            return zi;
+        }
+
+        public DateTime inceput = new DateTime(1, 1, 1, 0, 0, 0);
+        public DateTime final = new DateTime(1, 1, 1, 0, 0, 0);
+        //incerc sa introduc programarea in programul medicului
+        public int[] VerificareZi(int[] ziPentruVerificare,int durataAnaliza)
+        {
+            int i = 0, gasit = 0, startInterval = 0, finalInterval = 0, lungimeInterval = 0;
+            while(i < (ziPentruVerificare.Length - 2) || gasit == 0)
+            {
+                if(ziPentruVerificare[i] == 1)
+                {
+                    if(lungimeInterval == 0)
+                    {
+                        startInterval = i;
+                        i++;
+                        lungimeInterval++;
+                    }
+                    else
+                    {
+                        lungimeInterval++;
+                        i++;
+                    }
+                    if (lungimeInterval == durataAnaliza)
+                    {
+                        gasit = 1;
+                        finalInterval = i - 1;
+                    }
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            if (gasit == 1)
+            {
+                for (i = startInterval; i < finalInterval; i++)
+                    ziPentruVerificare[1] = 2;
+                ziPentruVerificare[48] = 5;
+                inceput.AddHours(startInterval / 2);
+                if (startInterval % 2 != 0)
+                    inceput.AddMinutes(30);
+
+                final.AddHours(finalInterval / 2);
+                if (finalInterval % 2 != 0)
+                    final.AddMinutes(30);
+            }
+
+            return ziPentruVerificare;
+        }
+
         [HttpPost]
         public ActionResult Create(ProgramareAnaliza programareAnaliza)
         {
@@ -49,13 +112,96 @@ namespace Regele_Marius.Controllers
                     _context.SaveChanges();
                     programareAnaliza.RezultatId = rezultat.Id;
 
-/*                    List<Medic> medici = _context.Medici.ToList();
-                    foreach(var medic in medici)
-                    {
-                        if (medic.Specializare != programareAnaliza.Analiza.Specializare)
-                            medici.Remove(medic);
-                    }*/
+                    List<Medic> medici = _context.Medici.ToList();
+                    List<Medic> mediciEligibili = new List<Medic>();
+                    List<Analiza> analize = _context.Analize.ToList();
+                    List<Program> programs = _context.Programs.ToList();
 
+                    var analiza = _context.Analize.SingleOrDefault(c => c.Id == programareAnaliza.AnalizaId);
+                    var specializareAnaliza = _context.Specializari.SingleOrDefault(c => c.Id == analiza.SpecializareId);
+                    //caut doar medicii care pot efectua setul cautat de analize
+                    foreach (var medic in medici)
+                    {
+                        var specializareMedic = _context.Specializari.SingleOrDefault(c => c.Id == medic.SpecializareId);
+                        
+                        if (specializareMedic == specializareAnaliza)
+                            mediciEligibili.Add(medic);
+                    }
+
+                    int[] luni, marti, miercuri, joi, vineri;
+                    luni = new int[49];
+                    marti = new int[49];
+                    miercuri = new int[49];
+                    joi = new int[49];
+                    vineri = new int[49];
+
+                    var durataAnaliza = analiza.Durata;
+                    int durata = durataAnaliza.Value.Hour * 2;
+                    if (durataAnaliza.Value.Minute > 30)
+                        durata++;
+
+                    foreach(var medic in mediciEligibili)
+                    {
+                        Program program = _context.Programs.SingleOrDefault(c => c.Id == medic.ProgramId);
+                        luni = SetareVector(program.Luni);
+                        luni = VerificareZi(luni, durata);
+                        if (luni[48] == 5)
+                        {
+                            programareAnaliza.MedicId = medic.Id;
+                            programareAnaliza.OraInceput = inceput;
+                            programareAnaliza.OraFinal = final;
+                            break;
+                        }
+                        else
+                        {
+                            marti = SetareVector(program.Marti);
+                            marti = VerificareZi(marti, durata);
+                            if (marti[48] == 5)
+                            {
+                                programareAnaliza.MedicId = medic.Id;
+                                programareAnaliza.OraInceput = inceput;
+                                programareAnaliza.OraFinal = final;
+                                break;
+                            }
+                            else
+                            {
+                                miercuri = SetareVector(program.Miercuri);
+                                miercuri = VerificareZi(miercuri, durata);
+                                if (miercuri[48] == 5)
+                                {
+                                    programareAnaliza.MedicId = medic.Id;
+                                    programareAnaliza.OraInceput = inceput;
+                                    programareAnaliza.OraFinal = final;
+                                    break;
+                                }
+                                else
+                                {
+                                    joi = SetareVector(program.Joi);
+                                    joi = VerificareZi(joi, durata);
+                                    if (joi[48] == 5)
+                                    {
+                                        programareAnaliza.MedicId = medic.Id;
+                                        programareAnaliza.OraInceput = inceput;
+                                        programareAnaliza.OraFinal = final;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        vineri = SetareVector(program.Vineri);
+                                        vineri = VerificareZi(vineri, durata);
+                                        if(vineri[48] == 5)
+                                        {
+                                            programareAnaliza.MedicId = medic.Id;
+                                            programareAnaliza.OraInceput = inceput;
+                                            programareAnaliza.OraFinal = final;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                   
                     programareAnaliza.Status = Status.Derulare;
                     _context.ProgramariAnaliza.Add(programareAnaliza);
                     _context.SaveChanges();
