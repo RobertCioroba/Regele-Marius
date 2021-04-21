@@ -49,6 +49,7 @@ namespace Regele_Marius.Models
         public DateTime? VineriFinal { get; set; }
 
         public int UserId { get; set; }
+        public int ProgramId { get; set; }
         public virtual ICollection<ProgramareInterventie> ProgramariInterventie { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }
         public virtual ICollection<RezultatInterventie> RezultateInterventie { get; set; }

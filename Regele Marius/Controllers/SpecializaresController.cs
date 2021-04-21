@@ -50,9 +50,14 @@ namespace Regele_Marius.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Specializari.Add(specializare);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Specializari.Any(x => x.Nume == specializare.Nume))
+                    ModelState.AddModelError("Nume", "Specializare existenta");
+                else
+                {
+                    db.Specializari.Add(specializare);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(specializare);

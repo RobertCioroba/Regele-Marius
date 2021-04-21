@@ -44,6 +44,7 @@ namespace Regele_Marius.Models
         [DataType(DataType.Time)]
         public DateTime? OraInceput { get; set; }
         public int RezultatId { get; set; }
+        public string RezultatGuid { get; set; }
         public int? MedicId { get; set; }
         public virtual Analiza Analiza { get; set; }
     }

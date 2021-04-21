@@ -240,17 +240,23 @@
     <Compile Include="Migrations\202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.Designer.cs">
       <DependentUpon>202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104210605170_test.cs" />
+    <Compile Include="Migrations\202104210605170_test.Designer.cs">
+      <DependentUpon>202104210605170_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
     <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\ContextClinica.cs" />
     <Compile Include="Models\Diagrama.cs" />
+    <Compile Include="Models\DoamneAjuta.cs" />
     <Compile Include="Models\Interventie.cs" />
     <Compile Include="Models\Medic.cs" />
     <Compile Include="Models\Pacient.cs" />
     <Compile Include="Models\ProgramareAnaliza.cs" />
     <Compile Include="Models\ProgramareInterventie.cs" />
+    <Compile Include="Models\ProgramMedici.cs" />
     <Compile Include="Models\RezultatAnaliza.cs" />
     <Compile Include="Models\RezultatInterventie.cs" />
     <Compile Include="Models\Role.cs" />
@@ -455,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.resx">
       <DependentUpon>202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104210605170_test.resx">
+      <DependentUpon>202104210605170_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

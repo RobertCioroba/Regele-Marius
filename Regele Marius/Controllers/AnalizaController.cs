@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Web;
+using System.Data.Entity;
 using System.Web.Mvc;
 
 namespace Regele_Marius.Controllers
@@ -38,22 +39,31 @@ namespace Regele_Marius.Controllers
         {
             if(ModelState.IsValid)
             {
-                int numarParametrii = 0;
-
-/*                foreach(PropertyInfo prop in analiza.GetType().GetProperties())
+                if (_context.Analize.Any(k => k.Denumire == analiza.Denumire))
+                    ModelState.AddModelError("Denumire", "Analiza deja exista");
+                else
                 {
-                    if(prop.PropertyType == typeof(bool))
+                    int numarParametrii = 0;
+                    //parcurg toate proprietatile si numar cate dintre acestea sunt de tip boolean si sunt adevarate
+                    //pentru a genera automat pretul setului de analize
+                    foreach (PropertyInfo prop in analiza.GetType().GetProperties())
                     {
-                        var valoare = prop.GetValue(analiza);
-                        if (valoare == true)
-                            numarParametrii++;
+                        var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                        if (type == typeof(Boolean))
+                        {
+                            var proprietate = prop.GetValue(analiza, null).ToString();
+                            if (proprietate == "True")
+                            {
+                                numarParametrii++;
+                            }
+                        }
                     }
-                }*/
 
-                analiza.Pret = numarParametrii * 15;
-                _context.Analize.Add(analiza);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                    analiza.Pret = numarParametrii * 15;
+                    _context.Analize.Add(analiza);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index");
+                }  
             }
             return View();
         }
@@ -101,7 +111,7 @@ namespace Regele_Marius.Controllers
 
         public ActionResult Index()
         {
-            var analize = _context.Analize.ToList();
+            var analize = _context.Analize.Include(c => c.Specializare).ToList();
             return View(analize);
         }
 

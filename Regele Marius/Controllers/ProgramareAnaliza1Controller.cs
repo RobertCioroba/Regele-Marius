@@ -48,7 +48,14 @@ namespace Regele_Marius.Controllers
                     _context.RezultateAnaliza.Add(rezultat);
                     _context.SaveChanges();
                     programareAnaliza.RezultatId = rezultat.Id;
-                    List<Medic> medici = _context.Medici.ToList();
+
+/*                    List<Medic> medici = _context.Medici.ToList();
+                    foreach(var medic in medici)
+                    {
+                        if (medic.Specializare != programareAnaliza.Analiza.Specializare)
+                            medici.Remove(medic);
+                    }*/
+
                     programareAnaliza.Status = Status.Derulare;
                     _context.ProgramariAnaliza.Add(programareAnaliza);
                     _context.SaveChanges();

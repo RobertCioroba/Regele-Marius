@@ -31,6 +31,8 @@ namespace Regele_Marius.Models
         public string Descriere { get; set; }
         public int? Pret { get; set; }
         public int? ProgramareAnalizaId { get; set; }
+
+        public string RezultatGuid { get; set; }
         public int? Glicemie { get; set; }
         public int? NumarLeucocite { get; set; }
         public int? NumarEritrocite { get; set; }

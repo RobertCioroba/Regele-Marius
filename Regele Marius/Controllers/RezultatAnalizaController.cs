@@ -99,6 +99,9 @@ namespace Regele_Marius.Controllers
                     _context.RezultateAnaliza.Add(rezultatAnaliza);
                     _context.SaveChanges();
                     programare.RezultatId = rezultatAnaliza.Id;
+                    Guid guidRezultat = Guid.NewGuid();
+                    programare.RezultatGuid = guidRezultat.ToString();
+                    rezultatAnaliza.RezultatGuid = guidRezultat.ToString();
                     _context.SaveChanges();
                 }
                 return RedirectToAction("Index","ProgramareAnaliza1"); ;
@@ -126,14 +129,14 @@ namespace Regele_Marius.Controllers
             return View("Create", viewModel);
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            RezultatAnaliza rezultatAnaliza = _context.RezultateAnaliza.Find(id);
+            RezultatAnaliza rezultatAnaliza = _context.RezultateAnaliza.First(x => x.RezultatGuid == id);
             if (rezultatAnaliza == null)
             {
                 return HttpNotFound();
