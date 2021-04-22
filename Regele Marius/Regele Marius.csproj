@@ -411,6 +411,7 @@
     <Content Include="Views\RezultatAnaliza\Delete.cshtml" />
     <Content Include="Views\ProgramareAnaliza1\Delete.cshtml" />
     <Content Include="Views\QrGenerator\Index.cshtml" />
+    <Content Include="Views\Articol\IndexPacienti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

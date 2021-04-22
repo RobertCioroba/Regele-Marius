@@ -1,22 +1,14 @@
 ﻿@{
     ViewBag.Title = "Acasa";
 }
-<!--
 
-  <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>-->
-<!-- Carousel
-  ================================================== -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         @foreach (var item in ViewBag.Slider)
         {
             var status1 = "";
-            if (item.Id == 5)
+            if (item.Id == 1)
             {
                 status1 = "active";
             }
@@ -28,7 +20,7 @@
         @foreach (var item in ViewBag.Slider)
         {
             var status = "";
-            if (item.Id == 5)
+            if (item.Id == 1)
             {
                 status = "active";
             }
@@ -39,7 +31,6 @@
                     <div class="carousel-caption">
                         <h1>@item.Titlu</h1>
                         <p>@item.Descriere</p>
-                        <p><a class="btn btn-lg btn-primary" href="/Cont/Inregistrare" role="button">Inregistreaza-te acum</a></p>
                     </div>
                 </div>
             </div>
@@ -54,12 +45,11 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<!-- /.carousel -->
 
-<head>
+@*<head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-</head>
+</head>*@
 
 <section class="article-section">
     <article>

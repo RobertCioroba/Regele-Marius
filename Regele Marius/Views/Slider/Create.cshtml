@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Slide nou";
 
-    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == false)
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
     {
         Response.Redirect("~/Cont/Logare", false);
     }

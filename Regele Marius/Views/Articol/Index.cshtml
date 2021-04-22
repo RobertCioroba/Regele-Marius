@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Articole";
 
-    if (Session["NumeUtilizator"] == null)
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
     {
         Response.Redirect("~/Cont/Logare", false);
     }
@@ -26,6 +26,10 @@
         <div class="article-description">
             <p>@Html.DisplayFor(modelItem => item.Descriere)</p>
         </div>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
     </article>
     }
     </section>

@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Create";
 
-    if (Session["NumeUtilizator"] == null)
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
     {
         Response.Redirect("~/Cont/Logare", false);
     }

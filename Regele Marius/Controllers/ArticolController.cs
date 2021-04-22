@@ -24,6 +24,12 @@ namespace Regele_Marius.Controllers
             return View(articole);
         }
 
+        public ActionResult IndexPacienti()
+        {
+            var articole = _context.Articole.ToList();
+            return View(articole);
+        }
+
         public ActionResult Create()
         {
             return View(new Articol { Id = 0 });

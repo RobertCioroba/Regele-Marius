@@ -43,9 +43,9 @@ namespace Regele_Marius.Controllers
         {
             int[] zi = new int[49];
             int i = 0;
-            foreach(char c in programPeZi)
+            foreach(var c in programPeZi)
             {
-                zi[i] = Convert.ToInt32(c);
+                zi[i] = Convert.ToInt32(c - '0');
                 i++;
             }
             return zi;

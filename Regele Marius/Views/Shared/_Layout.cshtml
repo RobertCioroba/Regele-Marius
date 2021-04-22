@@ -7,6 +7,8 @@
     <title>@ViewBag.Title </title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css"/>
+    <link href="~/Content/bootstrap.css"/>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Style/StyleSheet.css")
@@ -34,6 +36,7 @@
                     @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == false)
                     {
                         <li>@Html.ActionLink("Articole", "Index", "Articol")</li>
+                        <li>@Html.ActionLink("Program", "Index", "Medic")</li>
                         <li>@Html.ActionLink("Programari analize", "Index", "ProgramareAnaliza1")</li>
                         <li>@Html.ActionLink("Analize", "Index", "Analiza")</li>
                         <li>@Html.ActionLink("Specializari", "Index", "Specializares")</li>
@@ -48,6 +51,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Formular programare", "Create", "ProgramareAnaliza1")</li>
                     <li>@Html.ActionLink("Calculator", "Create", "Calculator")</li>
+                    <li>@Html.ActionLink("Articole", "IndexPacienti", "Articol")</li>
                 </ul>
 
                     <ul class="nav navbar-nav navbar-right">

@@ -6,7 +6,7 @@
 @{
     ViewBag.Title = "Lista programari analiza";
 
-    if (Session["NumeUtilizator"] == null)
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
     {
         Response.Redirect("~/Cont/Logare", false);
     }

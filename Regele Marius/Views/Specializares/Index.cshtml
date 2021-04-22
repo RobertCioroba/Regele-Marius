@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Specializari";
+
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h2>Specializari</h2>

@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<Regele_Marius.Models.Articol>
+
+@{
+    ViewBag.Title = "Articole";
+}
+
+<h1>Articole</h1>
+
+<section class="list-articles row">
+    @foreach (var item in Model)
+    {
+        <article class="col-md-6 col-sm-12">
+            <div class="image-container">
+                <img src="@Url.Content(item.Imagine)" />
+                <h3>@Html.DisplayFor(modelItem => item.Titlu)</h3>
+            </div>
+            <div class="article-description">
+                <p>@Html.DisplayFor(modelItem => item.Descriere)</p>
+            </div>
+        </article>
+    }
+</section>

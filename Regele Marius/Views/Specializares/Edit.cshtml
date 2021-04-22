@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Editare";
+
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h2>Editare</h2>

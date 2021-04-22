@@ -2,6 +2,10 @@
 
 @{
     ViewBag.Title = "Raport analize";
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
 }
 
 <h1>Raport analize</h1>
