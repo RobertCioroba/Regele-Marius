@@ -57,7 +57,7 @@ namespace Regele_Marius.Controllers
         public int[] VerificareZi(int[] ziPentruVerificare,int durataAnaliza)
         {
             int i = 0, gasit = 0, startInterval = 0, finalInterval = 0, lungimeInterval = 0;
-            while(i < (ziPentruVerificare.Length - 2) || gasit == 0)
+            while(i < (ziPentruVerificare.Length - 2) && gasit == 0)
             {
                 if(ziPentruVerificare[i] == 1)
                 {

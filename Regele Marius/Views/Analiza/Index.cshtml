@@ -14,7 +14,7 @@
 <p>
     @Html.ActionLink("Analiza noua", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Denumire)
@@ -99,97 +99,232 @@
         </th>
 
         <th></th>
-    </tr>
+    </tr>*@
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Denumire)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Descriere)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Durata)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Pret)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Specializare.Nume)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Glicemie)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NumarLeucocite)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NumarEritrocite)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hemoglobina)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hematrocit)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VolumEritrocitarMediu)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ConcentratieMedie)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Trombocite)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.VolumMediuTrombocitar)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Plachetocrit)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Monocite)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Neutrofile)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Eozinofile)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Bazofile)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Limfocite)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Colesterol)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Trigliceride)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Uree)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Creatinina)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Calciu)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Fier)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Magneziu)
-    </td>
+@foreach (var item in Model)
+{
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Denumire)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Denumire)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Descriere)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Descriere)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Durata)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Durata)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Pret)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Pret)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Specializare.Nume)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => item.Specializare.Nume)
+            </dd>
+            <dt> 
 
+            </dt>
+            <dd>
+
+            </dd>
+            <dt>
+                Parametrii
+            </dt>
+            @{
+                if (item.Glicemie == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Glicemie)
+                    </dd>
+                }
+            }
+            @{
+                if (item.NumarLeucocite == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.NumarLeucocite)
+                    </dd>
+                }
+            }
+            @{
+                if (item.NumarEritrocite == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.NumarEritrocite)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Hemoglobina == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Hemoglobina)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Hematrocit == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Hematrocit)
+                    </dd>
+                }
+            }
+            @{
+                if (item.VolumEritrocitarMediu == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.VolumEritrocitarMediu)
+                    </dd>
+                }
+            }
+            @{
+                if (item.ConcentratieMedie == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.ConcentratieMedie)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Trombocite == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Trombocite)
+                    </dd>
+                }
+            }
+            @{
+                if (item.VolumMediuTrombocitar == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.VolumMediuTrombocitar)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Plachetocrit == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Plachetocrit)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Monocite == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Monocite)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Neutrofile == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Neutrofile)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Eozinofile == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Eozinofile)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Bazofile == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Bazofile)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Limfocite == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Limfocite)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Colesterol == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Colesterol)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Trigliceride == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Trigliceride)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Uree == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Uree)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Creatinina == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Creatinina)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Calciu == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Calciu)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Fier == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Fier)
+                    </dd>
+                }
+            }
+            @{
+                if (item.Magneziu == true)
+                {
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Magneziu)
+                    </dd>
+                }
+            }
+        </dl>
+    </div>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
     </td>
-</tr>
 }
-
-</table>
