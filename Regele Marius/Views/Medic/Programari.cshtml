@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Regele_Marius.Models.ProgramareAnaliza>
+
+@{
+    ViewBag.Title = "Programari";
+    if (Session["NumeUtilizator"] == null)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
+}
+
+<h2>Programari</h2>
+<table class="table">
+    <tr>
+        <th>
+            Nume analiza
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNastere)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NrTelefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gen)
+        </th>
+        <th>
+            Data programare
+        </th>
+        <th>
+            Orar
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Analiza.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNastere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataProgramare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OraInceput) - @Html.DisplayFor(modelItem => item.OraFinal)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -119,7 +119,26 @@ namespace Regele_Marius.Controllers
 
                     //preiau lungimea programarii
                     var durataAnaliza = analiza.Durata;
-                    int durata = durataAnaliza.Value.Hour * 2;
+                    int durata = 0;
+                    switch(analiza.Durata)
+                    {
+                        case Durata.JumatateDeOra:
+                            durata = 1;
+                            break;
+                        case Durata.Ora:
+                            durata = 2;
+                            break;
+                        case Durata.Ora30:
+                            durata = 3;
+                            break;
+                        case Durata.DouaOre:
+                            durata = 4;
+                            break;
+                        default:
+                            break;
+                    }
+
+
                     string[] sirAuxiliar = null;
                     bool gasit = false;
 
@@ -252,12 +271,22 @@ namespace Regele_Marius.Controllers
 
                     programareAnaliza.Status = Status.Derulare;
                     _context.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details",new { id = programareAnaliza.Id });
                 }
             ViewBag.ErrMessage = "Error: captcha is not valid.";
             return View();
         }
         
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            ProgramareAnaliza programare = _context.ProgramariAnaliza.Find(id);
+            if (programare == null)
+                return HttpNotFound();
+
+            return View(programare);
+        }
 
         public ActionResult Delete(int? id)
         {

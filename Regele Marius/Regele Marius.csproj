@@ -286,6 +286,14 @@
     <Compile Include="Migrations\202104230837186_changeOraType.Designer.cs">
       <DependentUpon>202104230837186_changeOraType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104231205286_changeOraType1.cs" />
+    <Compile Include="Migrations\202104231205286_changeOraType1.Designer.cs">
+      <DependentUpon>202104231205286_changeOraType1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104231205535_changeOraType2.cs" />
+    <Compile Include="Migrations\202104231205535_changeOraType2.Designer.cs">
+      <DependentUpon>202104231205535_changeOraType2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -532,6 +540,8 @@
     <Content Include="Views\ProgramareAnaliza1\Delete.cshtml" />
     <Content Include="Views\QrGenerator\Index.cshtml" />
     <Content Include="Views\Articol\IndexPacienti.cshtml" />
+    <Content Include="Views\Medic\Programari.cshtml" />
+    <Content Include="Views\ProgramareAnaliza1\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -641,6 +651,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104230837186_changeOraType.resx">
       <DependentUpon>202104230837186_changeOraType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104231205286_changeOraType1.resx">
+      <DependentUpon>202104231205286_changeOraType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104231205535_changeOraType2.resx">
+      <DependentUpon>202104231205535_changeOraType2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

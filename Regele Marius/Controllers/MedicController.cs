@@ -32,27 +32,6 @@ namespace Regele_Marius.Controllers
             return View(viewModel);
         }
 
-/*        public int[] SetInterval(Schimb schimb)
-        {
-            if(schimb == 0)
-            {
-
-            }
-
-
-*//*            int oraInceput = 0, oraFinal = 0;
-            oraInceput = inceput.Value.Hour * 2 + 1;
-            //verific daca sunt in prima sau in a 2-a jumatate a unei ore
-            if (inceput.Value.Minute > 30)
-                oraInceput++;
-
-            oraFinal = final.Value.Hour * 2;
-            if (final.Value.Minute > 30)
-                oraFinal++;
-            int[] interval = { oraInceput, oraFinal };
-            return interval;*//*
-        }*/
-
         public void CreateProgram(object zi, int idMedic,bool schimb)
         {
             int numarOre = 0;
@@ -134,6 +113,25 @@ namespace Regele_Marius.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Programari(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            Medic medic = _context.Medici.Find(id);
+
+            List<ProgramareAnaliza> programari = _context.ProgramariAnaliza.ToList();
+            List<ProgramareAnaliza> programariCautate = new List<ProgramareAnaliza>();
+
+            foreach (var programare in programari)
+                if (programare.MedicId == medic.Id)
+                {
+                    DateTime date = (DateTime)programare.DataProgramare;
+                    programare.DataProgramare = date.Date;
+                    programariCautate.Add(programare);
+                }
+
+            return View(programariCautate);
+        }
         public ActionResult Details(int? id)
         {
             if (id == null)

@@ -6,6 +6,14 @@ using System.Web;
 
 namespace Regele_Marius.Models
 {
+    public enum Durata
+    {
+        JumatateDeOra,
+        Ora,
+        Ora30,
+        DouaOre
+    }
+
     public class Analiza : Serviciu
     {
         public bool Glicemie { get; set; }
@@ -33,9 +41,7 @@ namespace Regele_Marius.Models
         public int? SpecializareId { get; set; }
         [Display(Name = "Specializare")]
         public Specializare Specializare { get; set; }
-        
-        [DataType(DataType.Time)]
-        public DateTime? Durata { get; set; }
+        public Durata Durata { get; set; }
 
         public virtual ICollection<ProgramareAnaliza> ProgramariAnaliza { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }

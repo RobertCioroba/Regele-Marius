@@ -40,6 +40,7 @@ namespace Regele_Marius.Models
         public string Email { get; set; }
         [Required]
         public Sex Gen { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? DataProgramare { get; set; }
         public string OraInceput { get; set; }
         public string OraFinal { get; set; }
@@ -47,5 +48,14 @@ namespace Regele_Marius.Models
         public string RezultatGuid { get; set; }
         public int? MedicId { get; set; }
         public virtual Analiza Analiza { get; set; }
+
+        [Display(Name = "Nume pacient")]
+        public string NumeComplet
+        {
+            get
+            {
+                return Nume + " " + Prenume;
+            }
+        }
     }
 }

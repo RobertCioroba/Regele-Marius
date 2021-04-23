@@ -1,0 +1,69 @@
+﻿@model Regele_Marius.Models.ProgramareAnaliza
+
+@{
+    ViewBag.Title = "Sumar programare";
+}
+
+<h2>Sumar programare</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Analiza.Denumire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Analiza.Denumire)
+        </dd>
+
+        <dt>
+            Solicitant
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeComplet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNastere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNastere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrTelefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrTelefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Data programare
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataProgramare)
+        </dd>
+
+        <dt>
+            Interval orar
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OraInceput) - @Html.DisplayFor(model => model.OraFinal)
+        </dd>
+
+    </dl>
+</div>
