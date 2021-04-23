@@ -35,43 +35,20 @@
         </div>
 
         <dt>
-            Luni: 
+            Program
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LuniInceput) - @Html.DisplayFor(model => model.LuniFinal)
-        </dd>
+        @{
+            if (Model.Schimb == Regele_Marius.Models.Schimb.Unu)
+            {
+                <dd>8:00 - 14:00</dd>
+            }
+            else
+            {
+                <dd>14:00 - 20:00</dd>
+            }
+        }
 
-        <dt>
-            Marti
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MartiInceput) - @Html.DisplayFor(model => model.MartiFinal)
-        </dd>
-
-        <dt>
-            Miercuri
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MiercuriInceput) - @Html.DisplayFor(model => model.MiercuriFinal)
-        </dd>
-
-        <dt>
-            Joi
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JoiInceput) - @Html.DisplayFor(model => model.JoiFinal)
-        </dd>
-
-        <dt>
-            Vineri
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VineriInceput) - @Html.DisplayFor(model => model.VineriFinal)
-        </dd>
     </dl>
 </div>

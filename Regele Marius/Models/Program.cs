@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,5 +15,7 @@ namespace Regele_Marius.Models
         public string Joi { get; set; }
         public string Vineri { get; set; }
         public int IdMedic { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? Data { get; set; }
     }
 }

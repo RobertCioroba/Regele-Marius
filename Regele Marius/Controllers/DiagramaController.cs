@@ -35,6 +35,7 @@ namespace Regele_Marius.Controllers
 						break;
 				}
 			}
+
 			derulare = (derulare * 100) / total;
 			finalizat = (finalizat * 100) / total;
 

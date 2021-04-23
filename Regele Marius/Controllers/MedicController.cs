@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace Regele_Marius.Controllers
 {
@@ -31,9 +32,15 @@ namespace Regele_Marius.Controllers
             return View(viewModel);
         }
 
-        public int[] SetInterval(DateTime? inceput, DateTime? final)
+/*        public int[] SetInterval(Schimb schimb)
         {
-            int oraInceput = 0, oraFinal = 0;
+            if(schimb == 0)
+            {
+
+            }
+
+
+*//*            int oraInceput = 0, oraFinal = 0;
             oraInceput = inceput.Value.Hour * 2 + 1;
             //verific daca sunt in prima sau in a 2-a jumatate a unei ore
             if (inceput.Value.Minute > 30)
@@ -43,7 +50,23 @@ namespace Regele_Marius.Controllers
             if (final.Value.Minute > 30)
                 oraFinal++;
             int[] interval = { oraInceput, oraFinal };
-            return interval;
+            return interval;*//*
+        }*/
+
+        public void CreateProgram(object zi, int idMedic,bool schimb)
+        {
+            int numarOre = 0;
+            if (schimb == true)
+                foreach (PropertyInfo prop in zi.GetType().GetProperties())
+                {
+                    var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                    if (type == typeof(int))
+                    {
+                        var proprietate = prop.GetValue(zi, null);
+                        //zi(prop) = 1;
+                        //zi.
+                    }
+                }
         }
 
         [HttpPost]
@@ -53,53 +76,52 @@ namespace Regele_Marius.Controllers
             var userId = Convert.ToInt32(idUser);
             medic.UserId = userId;
             User1 user = _context.Users1.Find(userId);
-            Program program = new Program();
-            int[] Luni,Marti,Miercuri,Joi,Vineri;
-            Luni = new int[49];
-            Marti = new int[49];
-            Miercuri = new int[49];
-            Joi = new int[49];
-            Vineri = new int[49];
 
-            for (var i = 0; i < 48; i++)
-            {
-                Luni[i] = 0;
-                Marti[i] = 0;
-                Miercuri[i] = 0;
-                Joi[i] = 0;
-                Vineri[i] = 0;
-            }
+            Program program = new Program();
+            string[] Luni, Marti, Miercuri, Joi, Vineri;
+            Luni = new string[25];
+            Marti = new string[25];
+            Miercuri = new string[25];
+            Joi = new string[25];
+            Vineri = new string[25];
 
             //Marchez programul de lucru pentru fiecare zi
-            int[] interval = SetInterval(medic.LuniInceput, medic.LuniFinal);
-            for (int i = interval[0]; i < interval[1]; i++)
-                Luni[i] = 1;
-
-            interval = SetInterval(medic.MartiInceput, medic.MartiFinal);
-            for (int i = interval[0]; i < interval[1]; i++)
-                Marti[i] = 1;
-
-            interval = SetInterval(medic.MiercuriInceput, medic.MiercuriFinal);
-            for (int i = interval[0]; i < interval[1]; i++)
-                Miercuri[i] = 1;
-
-            interval = SetInterval(medic.JoiInceput, medic.JoiFinal);
-            for (int i = interval[0]; i < interval[1]; i++)
-                Joi[i] = 1;
-
-            interval = SetInterval(medic.VineriInceput, medic.VineriFinal);
-            for (int i = interval[0]; i < interval[1]; i++)
-                Vineri[i] = 1;
-
-            for(var i = 0; i < 48; i++)
+            if(medic.Schimb == Schimb.Unu)
             {
-                program.Luni += Luni[i];
-                program.Marti += Marti[i];
-                program.Miercuri += Miercuri[i];
-                program.Joi += Joi[i];
-                program.Vineri += Vineri[i];
+                for(int i = 0; i < 12; i++)
+                {
+                    Luni[i] = "job";
+                    Marti[i] = "job";
+                    Miercuri[i] = "job";
+                    Joi[i] = "job";
+                    Vineri[i] = "job";
+                }
+            }
+            else
+            {
+                for (int i = 12; i < 24; i++)
+                {
+                    Luni[i] = "job";
+                    Marti[i] = "job";
+                    Miercuri[i] = "job";
+                    Joi[i] = "job";
+                    Vineri[i] = "job";
+                }
             }
 
+
+            for (var i = 0; i < 25; i++)
+            {
+                program.Luni += Luni[i] + ',';
+                program.Marti += Marti[i] + ',';
+                program.Miercuri += Miercuri[i] + ',';
+                program.Joi += Joi[i] + ',';
+                program.Vineri += Vineri[i] + ',';
+            }
+            DateTime data = DateTime.Today;
+            while (data.DayOfWeek != DayOfWeek.Monday)
+                data = data.AddDays(1);
+            program.Data = data;
             _context.Programs.Add(program);
             _context.Medici.Add(medic);
             _context.SaveChanges();

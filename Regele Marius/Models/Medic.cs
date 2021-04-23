@@ -7,6 +7,12 @@ using System.Web;
 
 namespace Regele_Marius.Models
 {
+    public enum Schimb
+    {
+        Unu,
+        Doi
+    }
+
     public class Medic
     {
         public int Id { get; set; }
@@ -17,36 +23,8 @@ namespace Regele_Marius.Models
         public int? SpecializareId { get; set; }
         [Display(Name ="Specializare")]
         public Specializare Specializare { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Inceput luni")]
-        public DateTime? LuniInceput { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Final luni")]
-        public DateTime? LuniFinal { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Inceput marti")]
-        public DateTime? MartiInceput { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Final marti")]
-        public DateTime? MartiFinal { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Inceput miercuri")]
-        public DateTime? MiercuriInceput { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Final miercuri")]
-        public DateTime? MiercuriFinal { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Inceput joi")]
-        public DateTime? JoiInceput { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Final joi")]
-        public DateTime? JoiFinal { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Inceput vineri")]
-        public DateTime? VineriInceput { get; set; }
-        [DataType(DataType.Time)]
-        [Display(Name = "Final vineri")]
-        public DateTime? VineriFinal { get; set; }
+
+        public Schimb Schimb { get; set; }
 
         public int UserId { get; set; }
         public int ProgramId { get; set; }

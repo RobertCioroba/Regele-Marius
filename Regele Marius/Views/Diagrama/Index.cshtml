@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
     <script>
 window.onload = function () {
@@ -13,8 +14,8 @@ var chart1 = new CanvasJS.Chart("chartContainer", {
 		type: "doughnut",
 		startAngle: 60,
 		indexLabelFontSize: 16,
-		indexLabel: "{suprafata} - {valoare}%",
-		toolTipContent: "<b>{suprafata}:</b> {valoare}%",
+		indexLabel: "{suprafata} - {y}%",
+		toolTipContent: "<b>{suprafata}:</b> {y}%",
 		dataPoints: @Html.Raw(ViewBag.DataPointsTasks)}]
 });
 chart1.render();
@@ -24,8 +25,6 @@ chart1.render();
 <body>
     <h2>Grafice</h2>
     <div id="chartContainer" style="height: 370px; padding:25px 25px 25px 25px"></div>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>
 
