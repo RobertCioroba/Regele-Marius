@@ -315,6 +315,11 @@
     <Compile Include="Models\User1.cs" />
     <Compile Include="Models\Utilizator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\EmailInfo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailInfo.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AnalizaFormViewModel.cs" />
     <Compile Include="ViewModels\ArticolViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
@@ -347,6 +352,7 @@
     <Content Include="App_Browsers\qt.browser" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom-form.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\gcal.js" />
@@ -543,6 +549,7 @@
     <Content Include="Views\Articol\IndexPacienti.cshtml" />
     <Content Include="Views\Medic\Programari.cshtml" />
     <Content Include="Views\ProgramareAnaliza1\Details.cshtml" />
+    <Content Include="Views\NotificareEmail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -658,6 +665,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104231205535_changeOraType2.resx">
       <DependentUpon>202104231205535_changeOraType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EmailInfo.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailInfo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

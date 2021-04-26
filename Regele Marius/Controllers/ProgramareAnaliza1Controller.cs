@@ -9,6 +9,9 @@ using System.Data.Entity;
 using System.Net;
 using CaptchaMvc.HtmlHelpers;
 using PagedList;
+using System.Net.Mail;
+using Regele_Marius.Resources;
+using System.Threading.Tasks;
 
 namespace Regele_Marius.Controllers
 {
@@ -21,7 +24,47 @@ namespace Regele_Marius.Controllers
             _context = new ContextClinica();
         }
 
-  
+        public async Task<bool> SendEmailAsync(string email, string msg, string subject = "")
+        {
+            bool isSend = false;
+
+            try
+            {
+                var body = msg;
+                var message = new MailMessage();
+
+                message.To.Add(new MailAddress(email));
+                message.From = new MailAddress(EmailInfo.FROM_EMAIL_ACCOUNT);
+                message.Subject = !string.IsNullOrEmpty(subject) ? subject : EmailInfo.EMAIL_SUBJECT_DEFAULT;
+                message.Body = body;
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    var credential = new NetworkCredential
+                    {
+                        UserName = EmailInfo.FROM_EMAIL_ACCOUNT,
+                        Password = EmailInfo.FROM_EMAIL_PASSWORD
+                    };
+                    smtp.Credentials = credential;
+                    smtp.Host = EmailInfo.SMTP_HOST_GMAIL;
+                    smtp.Port = Convert.ToInt32(EmailInfo.SMTP_PORT_GMAIL);
+                    smtp.EnableSsl = true;
+
+                    await smtp.SendMailAsync(message);
+
+                    isSend = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return isSend;
+        }
+
+
         public ActionResult Create()
         {
             var _analize = _context.Analize.ToList();
@@ -90,7 +133,8 @@ namespace Regele_Marius.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ProgramareAnaliza programareAnaliza)
+        [AllowAnonymous]
+        public async Task<ActionResult> Create(ProgramareAnaliza programareAnaliza)
         {
             if(ModelState.IsValid)
                 if (this.IsCaptchaValid("Captcha is not valid"))
@@ -271,12 +315,16 @@ namespace Regele_Marius.Controllers
 
                     programareAnaliza.Status = Status.Derulare;
                     _context.SaveChanges();
+                    string emailMsg = "Salut, <br /><br /> Ai finalizat cu succes programarea la clinica noastra! Te asteptam in ziua programarii alaturi de actul tau de identitate. </b> <br /><br /> O zi frumoasa! <br />Echipa Regele Marius";
+                    string emailSubject = EmailInfo.EMAIL_SUBJECT_DEFAULT + " Programare";
+
+                    await this.SendEmailAsync(programareAnaliza.Email, emailMsg, emailSubject);
                     return RedirectToAction("Details",new { id = programareAnaliza.Id });
                 }
             ViewBag.ErrMessage = "Error: captcha is not valid.";
             return View();
         }
-        
+
         public ActionResult Details(int? id)
         {
             if (id == null)

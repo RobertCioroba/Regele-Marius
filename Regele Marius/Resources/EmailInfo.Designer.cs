@@ -22,14 +22,14 @@ namespace Regele_Marius.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Email {
+    public class EmailInfo {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Email() {
+        internal EmailInfo() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Regele_Marius.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Regele_Marius.Resources.Email", typeof(Email).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Regele_Marius.Resources.EmailInfo", typeof(EmailInfo).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace Regele_Marius.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notificare .
+        ///   Looks up a localized string similar to [Notificare clinica].
         /// </summary>
         public static string EMAIL_SUBJECT_DEFAULT {
             get {

@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using System.Reflection;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Net.Mail;
+using Regele_Marius.Resources;
 
 namespace Regele_Marius.Controllers
 {
@@ -25,6 +28,46 @@ namespace Regele_Marius.Controllers
         {
             var report = new Rotativa.ActionAsPdf("Details", new { id = id });
             return report;
+        }
+
+        public async Task<bool> SendEmailAsync(string email, string msg, string subject = "")
+        {
+            bool isSend = false;
+
+            try
+            {
+                var body = msg;
+                var message = new MailMessage();
+
+                message.To.Add(new MailAddress(email));
+                message.From = new MailAddress(EmailInfo.FROM_EMAIL_ACCOUNT);
+                message.Subject = !string.IsNullOrEmpty(subject) ? subject : EmailInfo.EMAIL_SUBJECT_DEFAULT;
+                message.Body = body;
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    var credential = new NetworkCredential
+                    {
+                        UserName = EmailInfo.FROM_EMAIL_ACCOUNT,
+                        Password = EmailInfo.FROM_EMAIL_PASSWORD
+                    };
+                    smtp.Credentials = credential;
+                    smtp.Host = EmailInfo.SMTP_HOST_GMAIL;
+                    smtp.Port = Convert.ToInt32(EmailInfo.SMTP_PORT_GMAIL);
+                    smtp.EnableSsl = true;
+
+                    await smtp.SendMailAsync(message);
+
+                    isSend = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return isSend;
         }
 
 
@@ -71,7 +114,7 @@ namespace Regele_Marius.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RezultatAnaliza rezultatAnaliza)
+        public async Task<ActionResult> Create(RezultatAnaliza rezultatAnaliza)
         {
             // rezultatAnaliza.ProgramareAnaliza = programareAnaliza.Id;
             if(ModelState.IsValid)
@@ -103,6 +146,11 @@ namespace Regele_Marius.Controllers
                     programare.RezultatGuid = guidRezultat.ToString();
                     rezultatAnaliza.RezultatGuid = guidRezultat.ToString();
                     _context.SaveChanges();
+
+                    string emailMsg = "Salut, <br /><br /> Avem vesti bune! Analizele tale tocmai au fost finalizate. Poti vedea rezultatele accesand link-ul de mai jos: </br> http://localhost:63610/RezultatAnaliza/Details/" + rezultatAnaliza.RezultatGuid + " </b> <br /><br /> O zi frumoasa! <br />Echipa Regele Marius";
+                    string emailSubject = EmailInfo.EMAIL_SUBJECT_DEFAULT + " Rezultate analize";
+
+                    await this.SendEmailAsync(rezultatAnaliza.Email, emailMsg, emailSubject);
                 }
                 return RedirectToAction("Programari","Medic", new { id = rezultatAnaliza.MedicId}); 
             }
