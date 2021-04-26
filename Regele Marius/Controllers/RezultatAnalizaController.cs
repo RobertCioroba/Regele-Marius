@@ -21,7 +21,7 @@ namespace Regele_Marius.Controllers
             _context = new ContextClinica();
         }
 
-        public ActionResult GeneratePDF(int id)
+        public ActionResult GeneratePDF(string id)
         {
             var report = new Rotativa.ActionAsPdf("Details", new { id = id });
             return report;
@@ -104,7 +104,7 @@ namespace Regele_Marius.Controllers
                     rezultatAnaliza.RezultatGuid = guidRezultat.ToString();
                     _context.SaveChanges();
                 }
-                return RedirectToAction("Index","ProgramareAnaliza1"); ;
+                return RedirectToAction("Programari","Medic", new { id = rezultatAnaliza.MedicId}); 
             }
             return View();
         }

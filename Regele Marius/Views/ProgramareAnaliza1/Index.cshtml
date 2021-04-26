@@ -20,7 +20,7 @@
         <div class="tooltip">
             @Html.TextBox("SearchString2", ViewBag.CurrentFilter2 as string)
             <input type="submit" value="Search" />
-            <span class="tooltiptext">Cauta dupa nume</span>
+            <span class="tooltiptext">Cauta dupa nume/prenume</span>
         </div>
     </p>
 }
@@ -93,25 +93,16 @@
         if (item.Status == Regele_Marius.Models.Status.Finalizat)
         {
             <div class="tooltip">
-                @Html.ActionLink(" ", "Details", "RezultatAnaliza", new { id = item.RezultatGuid }, new { style = "background: url('" + Url.Content("~/images/info.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(40%) sepia(52%) saturate(3535%) hue-rotate(209deg) brightness(99%) contrast(110%);" })
-                <span class="tooltiptext">Vizionare raport</span>
-            </div>
-            <div class="tooltip">
-                @Html.ActionLink(" ", "Edit", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "') no-repeat center; display:inline-block; height:30px; width:30px;filter: invert(51%) sepia(6%) saturate(4768%) hue-rotate(71deg) brightness(117%) contrast(102%);" })
-                <span class="tooltiptext">Editare</span>
-            </div>
-            <div class="tooltip">
                 @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
                 <span class="tooltiptext">Stergere</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Details", "RezultatAnaliza", new { id = item.RezultatGuid }, new { style = "background: url('" + Url.Content("~/images/info.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(40%) sepia(52%) saturate(3535%) hue-rotate(209deg) brightness(99%) contrast(110%);" })
+                <span class="tooltiptext">Vizionare raport</span>
             </div>
         }
         else
         {
-            @Html.ActionLink("Finalizare", "Create", "RezultatAnaliza", new { id = item.Id }, new { id = item.Id })
-            <div class="tooltip">
-                @Html.ActionLink(" ", "Edit", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "') no-repeat center; display:inline-block; height:30px; width:30px;filter: invert(51%) sepia(6%) saturate(4768%) hue-rotate(71deg) brightness(117%) contrast(102%);" })
-                <span class="tooltiptext">Editare</span>
-            </div>
             <div class="tooltip">
                 @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
                 <span class="tooltiptext">Stergere</span>

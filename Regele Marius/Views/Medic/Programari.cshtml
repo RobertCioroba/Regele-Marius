@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Regele_Marius.Models.ProgramareAnaliza>
-
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
 @{
     ViewBag.Title = "Programari";
     if (Session["NumeUtilizator"] == null)
@@ -38,6 +38,9 @@
         <th>
             Orar
         </th>
+        <th>
+
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -69,6 +72,24 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OraInceput) - @Html.DisplayFor(modelItem => item.OraFinal)
+            </td>
+            <td>
+                @{
+                    if (item.Status == Regele_Marius.Models.Status.Derulare)
+                    {
+                        <div class="tooltip">
+                            @Html.ActionLink(" ", "Create", "RezultatAnaliza", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/folder-solid.svg") + "') no-repeat center; display:inline-block; height:30px; width:30px;filter: invert(51%) sepia(6%) saturate(4768%) hue-rotate(71deg) brightness(117%) contrast(102%);" })
+                            <span class="tooltiptext">Finalizare</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="tooltip">
+                            @Html.ActionLink(" ", "Details", "RezultatAnaliza", new { id = item.RezultatGuid }, new { style = "background: url('" + Url.Content("~/images/info.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(40%) sepia(52%) saturate(3535%) hue-rotate(209deg) brightness(99%) contrast(110%);" })
+                            <span class="tooltiptext">Vizionare raport</span>
+                        </div>
+                    }
+                }
             </td>
         </tr>
     }

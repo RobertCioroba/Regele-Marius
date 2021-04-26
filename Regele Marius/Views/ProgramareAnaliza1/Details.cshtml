@@ -65,5 +65,9 @@
             @Html.DisplayFor(model => model.OraInceput) - @Html.DisplayFor(model => model.OraFinal)
         </dd>
 
+        <td>
+            @Html.ActionLink("Confirma", "Index") |
+            @Html.ActionLink("Anuleaza", "Delete", new { id = Model.Id }) |
+        </td>
     </dl>
 </div>
