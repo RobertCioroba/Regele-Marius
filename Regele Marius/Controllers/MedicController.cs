@@ -118,7 +118,7 @@ namespace Regele_Marius.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Medic medic = _context.Medici.Find(id);
-
+            int totalProgramariAzi = 0, programariFinalizateAzi = 0;
             List<ProgramareAnaliza> programari = _context.ProgramariAnaliza.ToList();
             List<ProgramareAnaliza> programariCautate = new List<ProgramareAnaliza>();
 
@@ -128,8 +128,16 @@ namespace Regele_Marius.Controllers
                     DateTime date = (DateTime)programare.DataProgramare;
                     programare.DataProgramare = date.Date;
                     programariCautate.Add(programare);
-                }
+                    if (programare.DataProgramare == DateTime.Today && programare.Status == Status.Finalizat)
+                        programariFinalizateAzi++;
+                    if (programare.DataProgramare == DateTime.Today)
+                        totalProgramariAzi++;
 
+                }
+            ViewBag.totalProgramariAzi = totalProgramariAzi;
+            ViewBag.programariFinalizateAzi = programariFinalizateAzi;
+            var dataCurenta = DateTime.Today;
+            ViewBag.dataCurenta = dataCurenta.ToShortDateString();
             return View(programariCautate);
         }
         public ActionResult Details(int? id)

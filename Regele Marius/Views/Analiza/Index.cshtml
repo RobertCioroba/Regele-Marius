@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<Regele_Marius.Models.Analiza>
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista analize";
 
     if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
     {
@@ -11,95 +12,10 @@
 
 <h2>Lista analize</h2>
 
-<p>
-    @Html.ActionLink("Analiza noua", "Create")
-</p>
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Denumire)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descriere)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Durata)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pret)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specializare.Nume)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Glicemie)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumarLeucocite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumarEritrocite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hemoglobina)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hematrocit)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VolumEritrocitarMediu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConcentratieMedie)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trombocite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VolumMediuTrombocitar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Plachetocrit)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Monocite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Neutrofile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Eozinofile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bazofile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Limfocite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Colesterol)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trigliceride)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Uree)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Creatinina)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Calciu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fier)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Magneziu)
-        </th>
-
-        <th></th>
-    </tr>*@
+<div class="tooltip">
+    @Html.ActionLink(" ", "Create", "Analiza", new { style = "background: url('" + Url.Content("~/images/plus-solid.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+    <span class="tooltiptext">Adauga analiza</span>
+</div>
 
 @foreach (var item in Model)
 {
@@ -121,9 +37,32 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Durata)
             </dt>
-            <dd>
-                @Html.DisplayFor(model => item.Durata)
-            </dd>
+                @{ 
+                    if(item.Durata == Regele_Marius.Models.Durata.JumatateDeOra)
+                    {
+                        <dd>
+                            0:30h
+                        </dd>
+                    }
+                    else if(item.Durata == Regele_Marius.Models.Durata.Ora)
+                    {
+                        <dd>
+                            1:00h
+                        </dd>
+                    }
+                    else if(item.Durata == Regele_Marius.Models.Durata.Ora30)
+                    {
+                        <dd>
+                            1:30h
+                        </dd>
+                    }
+                    else if(item.Durata == Regele_Marius.Models.Durata.DouaOre)
+                    {
+                        <dd>
+                            2:00h
+                        </dd>
+                    }
+                }
             <dt>
                 @Html.DisplayNameFor(model => model.Pret)
             </dt>
@@ -324,7 +263,13 @@
         </dl>
     </div>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        <div class="tooltip">
+            @Html.ActionLink(" ", "Delete", "Analiza", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+            <span class="tooltiptext">Stergere</span>
+        </div>
+        <div class="tooltip">
+            @Html.ActionLink(" ", "Edit", "Analiza", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+            <span class="tooltiptext">Editare</span>
+        </div>
     </td>
 }

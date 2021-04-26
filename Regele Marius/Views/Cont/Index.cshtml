@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Regele_Marius.Models.User1>
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Lista medici";
@@ -11,9 +12,11 @@
 
 <h2>Lista medici</h2>
 
-<p>
-    @Html.ActionLink("Cont nou", "Inregistrare")
-</p>
+<div class="tooltip">
+    @Html.ActionLink(" ", "Inregistrare", "Cont", new { style = "background: url('" + Url.Content("~/images/user-plus-solid.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+    <span class="tooltiptext">Adauga cont</span>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -31,45 +34,55 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model)
-{
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Email)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NumeUtilizator)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Parola)
-    </td>
-    @{
-        if (item.Activ == true)
-        {
+    @foreach (var item in Model)
+    {
+        <tr>
             <td>
-                Medic
+                @Html.DisplayFor(modelItem => item.Email)
             </td>
-        }
-        else
-        {
             <td>
-                Secretara
+                @Html.DisplayFor(modelItem => item.NumeUtilizator)
             </td>
-        }
+            <td>
+                @Html.DisplayFor(modelItem => item.Parola)
+            </td>
+            @{
+                if (item.Activ == true)
+                {
+                    <td>
+                        Medic
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Secretara
+                    </td>
+                }
 
-    }
-
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
-        @{
-            if (item.Activ == true)
-            {
-                @Html.ActionLink("Detalii", "Details", "Medic", new { id = item.IdMedic }, null)
             }
-        }
-    </td>
-</tr>
- }
+
+        <td>
+
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Delete", "Cont", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                <span class="tooltiptext">Stergere</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Edit", "Cont", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+                <span class="tooltiptext">Editare</span>
+            </div>
+            @{
+                if (item.Activ == true)
+                {
+                    <div class="tooltip">
+                        @Html.ActionLink(" ", "Details", "Medic", new { id = item.IdMedic }, new { style = "background: url('" + Url.Content("~/images/info.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(40%) sepia(52%) saturate(3535%) hue-rotate(209deg) brightness(99%) contrast(110%);" })
+                        <span class="tooltiptext">Detalii</span>
+                    </div>
+                }
+            }
+        </td>
+        </tr>
+    }
 
 </table>

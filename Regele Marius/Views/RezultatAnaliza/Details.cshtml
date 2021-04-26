@@ -66,269 +66,425 @@
             <th>Valoarea obtinuta</th>
             <th>Valori biologice de referinta</th>
             <th>U.M.</th>
+            <th></th>
             </thead>
             <tbody>
                 @{
                     if (Model.Glicemie != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Glicemie)</td>
-                            <td>@Html.DisplayFor(model => model.Glicemie)</td>
-                            <td>3 - 5</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Glicemie)</td>
+                                    <td>@Html.DisplayFor(model => model.Glicemie)</td>
+                                    <td>3 - 5</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Glicemie < 3 || Model.Glicemie > 5)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.NumarLeucocite != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.NumarLeucocite)</td>
-                            <td>@Html.DisplayFor(model => model.NumarLeucocite)</td>
-                            <td>65 - 115</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.NumarLeucocite)</td>
+                                    <td>@Html.DisplayFor(model => model.NumarLeucocite)</td>
+                                    <td>65 - 115</td>
+                                    <td>mg/dL</td>
+                                        @{ if (Model.NumarLeucocite < 65 || Model.NumarLeucocite > 115)
+                                            {
+                                                <td>
+                                                    <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                                </td>
+                                            }
+                                        }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.NumarEritrocite != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.NumarEritrocite)</td>
-                            <td>@Html.DisplayFor(model => model.NumarEritrocite)</td>
-                            <td>20 - 40</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.NumarEritrocite)</td>
+                                    <td>@Html.DisplayFor(model => model.NumarEritrocite)</td>
+                                    <td>20 - 40</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.NumarEritrocite < 20 || Model.NumarEritrocite > 40)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Hemoglobina != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Hemoglobina)</td>
-                            <td>@Html.DisplayFor(model => model.Hemoglobina)</td>
-                            <td>12 - 55</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Hemoglobina)</td>
+                                    <td>@Html.DisplayFor(model => model.Hemoglobina)</td>
+                                    <td>12 - 55</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Hemoglobina < 12 || Model.Hemoglobina > 55)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Hematrocit != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Hematrocit)</td>
-                            <td>@Html.DisplayFor(model => model.Hematrocit)</td>
-                            <td>1-2</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Hematrocit)</td>
+                                    <td>@Html.DisplayFor(model => model.Hematrocit)</td>
+                                    <td>1-2</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Hematrocit < 1 || Model.Hematrocit > 2)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.VolumEritrocitarMediu != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.VolumEritrocitarMediu)</td>
-                            <td>@Html.DisplayFor(model => model.VolumEritrocitarMediu)</td>
-                            <td>80-150</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.VolumEritrocitarMediu)</td>
+                                    <td>@Html.DisplayFor(model => model.VolumEritrocitarMediu)</td>
+                                    <td>80-150</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.VolumEritrocitarMediu < 80 || Model.VolumEritrocitarMediu > 150)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.ConcentratieMedie != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.ConcentratieMedie)</td>
-                            <td>@Html.DisplayFor(model => model.ConcentratieMedie)</td>
-                            <td>3 - 5</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.ConcentratieMedie)</td>
+                                    <td>@Html.DisplayFor(model => model.ConcentratieMedie)</td>
+                                    <td>3 - 5</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.ConcentratieMedie < 3 || Model.ConcentratieMedie > 5)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Trombocite != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Trombocite)</td>
-                            <td>@Html.DisplayFor(model => model.Trombocite)</td>
-                            <td>6 - 15</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Trombocite)</td>
+                                    <td>@Html.DisplayFor(model => model.Trombocite)</td>
+                                    <td>6 - 15</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Trombocite < 6 || Model.Trombocite > 15)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.VolumMediuTrombocitar != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.VolumMediuTrombocitar)</td>
-                            <td>@Html.DisplayFor(model => model.VolumMediuTrombocitar)</td>
-                            <td>90 - 110</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.VolumMediuTrombocitar)</td>
+                                    <td>@Html.DisplayFor(model => model.VolumMediuTrombocitar)</td>
+                                    <td>90 - 110</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.VolumMediuTrombocitar < 90 || Model.VolumMediuTrombocitar > 110)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Plachetocrit != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Plachetocrit)</td>
-                            <td>@Html.DisplayFor(model => model.Plachetocrit)</td>
-                            <td>70 - 250</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Plachetocrit)</td>
+                                    <td>@Html.DisplayFor(model => model.Plachetocrit)</td>
+                                    <td>70 - 250</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Plachetocrit < 70 || Model.Plachetocrit > 250)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Monocite != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Monocite)</td>
-                            <td>@Html.DisplayFor(model => model.Monocite)</td>
-                            <td>36 - 80</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Monocite)</td>
+                                    <td>@Html.DisplayFor(model => model.Monocite)</td>
+                                    <td>36 - 80</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Monocite < 36 || Model.Monocite > 80)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Neutrofile != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Neutrofile)</td>
-                            <td>@Html.DisplayFor(model => model.Neutrofile)</td>
-                            <td>50 - 95</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Neutrofile)</td>
+                                    <td>@Html.DisplayFor(model => model.Neutrofile)</td>
+                                    <td>50 - 95</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Neutrofile < 50 || Model.Neutrofile > 95)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Eozinofile != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Eozinofile)</td>
-                            <td>@Html.DisplayFor(model => model.Eozinofile)</td>
-                            <td>15 - 160</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Eozinofile)</td>
+                                    <td>@Html.DisplayFor(model => model.Eozinofile)</td>
+                                    <td>15 - 160</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Eozinofile < 15 || Model.Eozinofile > 160)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Bazofile != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Bazofile)</td>
-                            <td>@Html.DisplayFor(model => model.Bazofile)</td>
-                            <td>6 - 10</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Bazofile)</td>
+                                    <td>@Html.DisplayFor(model => model.Bazofile)</td>
+                                    <td>6 - 10</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Bazofile < 6 || Model.Bazofile > 10)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Limfocite != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Limfocite)</td>
-                            <td>@Html.DisplayFor(model => model.Limfocite)</td>
-                            <td>25 -35</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Limfocite)</td>
+                                    <td>@Html.DisplayFor(model => model.Limfocite)</td>
+                                    <td>25 -35</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Limfocite < 25 || Model.Limfocite > 35)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Colesterol != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Colesterol)</td>
-                            <td>@Html.DisplayFor(model => model.Colesterol)</td>
-                            <td>75 - 400</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Colesterol)</td>
+                                    <td>@Html.DisplayFor(model => model.Colesterol)</td>
+                                    <td>75 - 400</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Colesterol < 75 || Model.Colesterol > 400)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Trigliceride != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Trigliceride)</td>
-                            <td>@Html.DisplayFor(model => model.Trigliceride)</td>
-                            <td>2 - 950</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Trigliceride)</td>
+                                    <td>@Html.DisplayFor(model => model.Trigliceride)</td>
+                                    <td>2 - 950</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Trigliceride < 2 || Model.Trigliceride > 950)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Uree != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Uree)</td>
-                            <td>@Html.DisplayFor(model => model.Uree)</td>
-                            <td>35 - 55</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Uree)</td>
+                                    <td>@Html.DisplayFor(model => model.Uree)</td>
+                                    <td>35 - 55</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Uree < 35 || Model.Uree > 55)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Creatinina != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Creatinina)</td>
-                            <td>@Html.DisplayFor(model => model.Creatinina)</td>
-                            <td>30 - 220</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Creatinina)</td>
+                                    <td>@Html.DisplayFor(model => model.Creatinina)</td>
+                                    <td>30 - 220</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Creatinina < 30 || Model.Creatinina > 220)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Calciu != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Calciu)</td>
-                            <td>@Html.DisplayFor(model => model.Calciu)</td>
-                            <td>3 - 5</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Calciu)</td>
+                                    <td>@Html.DisplayFor(model => model.Calciu)</td>
+                                    <td>3 - 5</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Calciu < 3 || Model.Calciu > 5)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Fier != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Fier)</td>
-                            <td>@Html.DisplayFor(model => model.Fier)</td>
-                            <td>75 - 85</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Fier)</td>
+                                    <td>@Html.DisplayFor(model => model.Fier)</td>
+                                    <td>75 - 85</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Glicemie < 78 || Model.Glicemie > 85)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 
                 @{
                     if (Model.Magneziu != null)
                     {
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Magneziu)</td>
-                            <td>@Html.DisplayFor(model => model.Magneziu)</td>
-                            <td>110 - 210</td>
-                            <td>mg/dL</td>
-                        </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Magneziu)</td>
+                                    <td>@Html.DisplayFor(model => model.Magneziu)</td>
+                                    <td>110 - 210</td>
+                                    <td>mg/dL</td>
+                                    @{ if (Model.Magneziu < 110 || Model.Magneziu > 210)
+                                        {
+                                            <td>
+                                                <img src="~/Images/circle-solid.svg" style="filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" />
+                                            </td>
+                                        }
+                                    }
+                                </tr>
                     }
                 }
 

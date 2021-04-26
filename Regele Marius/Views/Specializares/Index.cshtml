@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Regele_Marius.Models.Specializare>
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Specializari";
@@ -11,9 +12,10 @@
 
 <h2>Specializari</h2>
 
-<p>
-    @Html.ActionLink("Adaugare", "Create")
-</p>
+<div class="tooltip">
+    @Html.ActionLink(" ", "Create", "Specializares", new { style = "background: url('" + Url.Content("~/images/plus-solid.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+    <span class="tooltiptext">Adauga specializare</span>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -28,8 +30,14 @@
             @Html.DisplayFor(modelItem => item.Nume)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Delete", "Specializares", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                <span class="tooltiptext">Stergere</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Edit", "Specializares", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+                <span class="tooltiptext">Editare</span>
+            </div>
         </td>
     </tr>
 }

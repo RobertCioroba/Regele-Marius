@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Regele_Marius.Models.Medic>
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
+
 
 @{
     ViewBag.Title = "Lista medici";
@@ -30,32 +32,39 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Nume)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Prenume)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Specializare.Nume)
-    </td>
-    @{
-        if (item.Schimb == Regele_Marius.Models.Schimb.Unu)
-        {
-            <td>8:00 - 14:00</td>
-        }
-        else
-        {
-            <td>14:00 - 20:00</td>
-        }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specializare.Nume)
+            </td>
+            @{
+                if (item.Schimb == Regele_Marius.Models.Schimb.Unu)
+                {
+                    <td>8:00 - 14:00</td>
+                }
+                else
+                {
+                    <td>14:00 - 20:00</td>
+                }
+            }
+        <td>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Delete", "Medic", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                <span class="tooltiptext">Stergere</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Edit", "Medic", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+                <span class="tooltiptext">Editare</span>
+            </div>
+        </td>
+        </tr>
     }
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-</tr>
-}
 
 </table>

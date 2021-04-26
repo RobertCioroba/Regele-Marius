@@ -315,7 +315,7 @@ namespace Regele_Marius.Controllers
 
                     programareAnaliza.Status = Status.Derulare;
                     _context.SaveChanges();
-                    string emailMsg = "Salut, <br /><br /> Ai finalizat cu succes programarea la clinica noastra! Te asteptam in ziua programarii alaturi de actul tau de identitate. </b> <br /><br /> O zi frumoasa! <br />Echipa Regele Marius";
+                    string emailMsg = "Salut, <br /><br /> Ai finalizat cu succes programarea la clinica noastra! Te asteptam " + " alaturi de actul tau de identitate. </b> <br /><br /> O zi frumoasa! <br />Echipa Regele Marius";
                     string emailSubject = EmailInfo.EMAIL_SUBJECT_DEFAULT + " Programare";
 
                     await this.SendEmailAsync(programareAnaliza.Email, emailMsg, emailSubject);

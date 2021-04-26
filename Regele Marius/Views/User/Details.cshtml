@@ -39,13 +39,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Activ)
+            Functie
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Activ)
-        </dd>
-
+        @{
+            if (Model.Activ == true)
+            {
+                <dd>
+                    Medic
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    Secretara
+                </dd>
+            }
+        }
     </dl>
 </div>
 <p>

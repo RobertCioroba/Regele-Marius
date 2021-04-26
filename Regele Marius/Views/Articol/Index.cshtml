@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Regele_Marius.Models.Articol>
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Articole";
@@ -11,63 +12,32 @@
 
 <h2>Articole</h2>
 
-<p>
-    @Html.ActionLink("Adaugare articol", "Create")
-</p>
+<div class="tooltip">
+    @Html.ActionLink(" ", "Create", "Articol", new { style = "background: url('" + Url.Content("~/images/plus-solid.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+    <span class="tooltiptext">Adauga articol</span>
+</div>
 
 <section class="list-articles row">
     @foreach (var item in Model)
     {
-    <article class="col-md-6 col-sm-12">
-        <div class="image-container">
-            <img src="@Url.Content(item.Imagine)" />
-            <h3>@Html.DisplayFor(modelItem => item.Titlu)</h3>
-        </div>
-        <div class="article-description">
-            <p>@Html.DisplayFor(modelItem => item.Descriere)</p>
-        </div>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </article>
+        <article class="col-md-6 col-sm-12">
+            <div class="image-container">
+                <img src="@Url.Content(item.Imagine)" />
+                <h3>@Html.DisplayFor(modelItem => item.Titlu)</h3>
+            </div>
+            <div class="article-description">
+                <p>@Html.DisplayFor(modelItem => item.Descriere)</p>
+            </div>
+            <td>
+                <div class="tooltip">
+                    @Html.ActionLink(" ", "Delete", "Articol", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                    <span class="tooltiptext">Stergere</span>
+                </div>
+                <div class="tooltip">
+                    @Html.ActionLink(" ", "Edit", "Articol", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+                    <span class="tooltiptext">Editare</span>
+                </div>
+            </td>
+        </article>
     }
-    </section>
-<!--
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nume)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Titlu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descriere)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-
-    <tr>
-        <td>
-            <img src="@Url.Content(item.Imagine)" class="img-thumbnail" width="800" height="500"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titlu)
-        </td>
-
-        <td>
-            @Html.DisplayFor(modelItem => item.Descriere)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-    }
-
-</table>-->
+</section>

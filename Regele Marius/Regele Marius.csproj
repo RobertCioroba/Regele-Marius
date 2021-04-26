@@ -344,6 +344,8 @@
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
     <Content Include="Images\3.jpg" />
+    <Content Include="Images\circle-solid.svg" />
+    <Content Include="Images\dot.png" />
     <Content Include="Images\file-download-solid.svg" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
@@ -488,8 +490,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Pacient\Index.cshtml" />
-    <Content Include="Views\Specializare\Index.cshtml" />
-    <Content Include="Views\Specializare\Create.cshtml" />
     <Content Include="Views\Medic\Create.cshtml" />
     <Content Include="Views\Medic\Index.cshtml" />
     <Content Include="Views\Cont\Inregistrare.cshtml" />
@@ -549,7 +549,6 @@
     <Content Include="Views\Articol\IndexPacienti.cshtml" />
     <Content Include="Views\Medic\Programari.cshtml" />
     <Content Include="Views\ProgramareAnaliza1\Details.cshtml" />
-    <Content Include="Views\NotificareEmail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
