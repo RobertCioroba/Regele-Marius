@@ -17,10 +17,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nume)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prenume)
+            @Html.DisplayNameFor(model => model.NumeComplet)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Specializare.Nume)
@@ -36,10 +33,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prenume)
+                @Html.DisplayFor(modelItem => item.NumeComplet)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Specializare.Nume)
@@ -55,10 +49,6 @@
                 }
             }
         <td>
-            <div class="tooltip">
-                @Html.ActionLink(" ", "Delete", "Medic", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
-                <span class="tooltiptext">Stergere</span>
-            </div>
             <div class="tooltip">
                 @Html.ActionLink(" ", "Edit", "Medic", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/edit-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
                 <span class="tooltiptext">Editare</span>

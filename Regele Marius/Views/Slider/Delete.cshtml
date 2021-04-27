@@ -1,7 +1,7 @@
-﻿@model Regele_Marius.Models.Analiza
+﻿@model Regele_Marius.Models.Slider
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Sterge slide";
 
     if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
     {
@@ -9,16 +9,17 @@
     }
 }
 
-<h3>Vrei sa stergi aceasta analiza?</h3>
+<h2>Vrei sa stergi acest slide?</h2>
+
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Denumire)
+            @Html.DisplayNameFor(model => model.Titlu)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Denumire)
+            @Html.DisplayFor(model => model.Titlu)
         </dd>
 
         <dt>
@@ -27,21 +28,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Descriere)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Durata)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Durata)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Pret)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pret)
         </dd>
 
     </dl>

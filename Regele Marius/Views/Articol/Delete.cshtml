@@ -1,7 +1,7 @@
 ﻿@model Regele_Marius.Models.Articol
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Sterge articol";
 
     if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
     {
@@ -37,7 +37,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" />
+            <input type="submit" value="Sterge" class="btn btn-danger" />
         </div>
     }
 </div>

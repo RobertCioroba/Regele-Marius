@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Regele_Marius.Models;
+using Regele_Marius.ViewModels;
 
 namespace Regele_Marius.Controllers
 {
@@ -28,11 +29,23 @@ namespace Regele_Marius.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User1 user = db.Users1.Find(id);
-            if (user == null)
+            Medic medic = db.Medici.Find(user.IdMedic);
+            Specializare specializare = null;
+            if (user.Activ == true)
+            {
+                specializare = db.Specializari.Find(medic.SpecializareId);
+            }
+            if (user == null || medic == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            var viewModel = new ContMedicViewModel
+            {
+                Medic = medic,
+                User = user,
+                Specializare = specializare
+            };
+            return View(viewModel);
         }
 
         // GET: User/Create

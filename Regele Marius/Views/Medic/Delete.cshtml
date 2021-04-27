@@ -9,9 +9,7 @@
     }
 }
 
-<h2>Delete</h2>
-
-<h3>Vrei sa stergi acest medic?</h3>
+<h2>Vrei sa stergi acest medic?</h2>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -37,8 +35,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Sterge" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Sterge" class="btn btn-danger" />
         </div>
     }
 </div>

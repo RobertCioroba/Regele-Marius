@@ -1,5 +1,5 @@
-﻿@model Regele_Marius.Models.ProgramareAnaliza
-
+﻿@model Regele_Marius.ViewModels.SumarProgramareViewModel
+<link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
 @{
     ViewBag.Title = "Sumar programare";
 }
@@ -22,31 +22,31 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NumeComplet)
+            @Html.DisplayFor(model => model.ProgramareAnaliza.NumeComplet)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataNastere)
+            @Html.DisplayNameFor(model => model.ProgramareAnaliza.DataNastere)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DataNastere)
+            @Html.DisplayFor(model => model.ProgramareAnaliza.DataNastere)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NrTelefon)
+            @Html.DisplayNameFor(model => model.ProgramareAnaliza.NrTelefon)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NrTelefon)
+            @Html.DisplayFor(model => model.ProgramareAnaliza.NrTelefon)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.ProgramareAnaliza.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.ProgramareAnaliza.Email)
         </dd>
 
         <dt>
@@ -54,7 +54,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DataProgramare)
+            @Html.DisplayFor(model => model.ProgramareAnaliza.DataProgramare)
         </dd>
 
         <dt>
@@ -62,12 +62,27 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OraInceput) - @Html.DisplayFor(model => model.OraFinal)
+            @Html.DisplayFor(model => model.ProgramareAnaliza.OraInceput) - @Html.DisplayFor(model => model.ProgramareAnaliza.OraFinal)
+        </dd>
+        <dt>
+            Nume medic
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medic.NumeComplet)
         </dd>
 
+
         <td>
-            @Html.ActionLink("Confirma", "Index") |
-            @Html.ActionLink("Anuleaza", "Delete", new { id = Model.Id }) |
+
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Index", "ProgramariAnaliza", new { style = "background: url('" + Url.Content("~/images/check-circle-regular.svg") + "') no-repeat center; display:inline-block; height:30px; width:30px;filter: invert(51%) sepia(6%) saturate(4768%) hue-rotate(71deg) brightness(117%) contrast(102%);" })
+                <span class="tooltiptext">Confirma</span>
+            </div>
+            <div class="tooltip">
+                @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = Model.ProgramareAnaliza.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(11%) sepia(91%) saturate(5572%) hue-rotate(358deg) brightness(88%) contrast(112%);" })
+                <span class="tooltiptext">Anuleaza</span>
+            </div>
         </td>
     </dl>
 </div>

@@ -42,7 +42,7 @@ namespace Regele_Marius.Controllers
 			dataPoints.Add(new Diagrama("In derulare", derulare));
 			dataPoints.Add(new Diagrama("Finalizare", finalizat));
 
-			ViewBag.DataPointsTasks = JsonConvert.SerializeObject(dataPoints);
+			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
 			return View();
 		}
 	}

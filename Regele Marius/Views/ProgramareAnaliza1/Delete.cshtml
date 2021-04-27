@@ -2,10 +2,6 @@
 
 @{
     ViewBag.Title = "Delete";
-    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
-    {
-        Response.Redirect("~/Cont/Logare", false);
-    }
 }
 
 <h2>Vrei sa stergi aceasta programare?</h2>
@@ -29,18 +25,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nume)
+            @Html.DisplayNameFor(model => model.NumeComplet)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Prenume)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Prenume)
+            @Html.DisplayFor(model => model.NumeComplet)
         </dd>
     </dl>
 
@@ -48,8 +37,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Sterge" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Sterge" class="btn btn-danger" />
         </div>
     }
 </div>

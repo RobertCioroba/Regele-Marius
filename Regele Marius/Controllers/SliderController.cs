@@ -27,7 +27,6 @@ namespace Regele_Marius.Controllers
         public ActionResult Create(Slider slider, HttpPostedFileBase picture)
         {
             string numeImagine = (picture == null) ? null : System.IO.Path.GetFileName(picture.FileName);
-
             string imagePath = "~/Uploads/Slider/" + numeImagine;
 
             picture.SaveAs(Server.MapPath(imagePath));
@@ -56,9 +55,17 @@ namespace Regele_Marius.Controllers
 
             if (slider == null)
                 return HttpNotFound();
+
+            return View(slider);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Slider slider = _context.Sliders.Find(id);
             _context.Sliders.Remove(slider);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
 

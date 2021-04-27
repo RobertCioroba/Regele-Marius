@@ -51,66 +51,70 @@ namespace Regele_Marius.Controllers
         [HttpPost]
         public ActionResult Create(Medic medic)
         {
-            var idUser = TempData["idUser"].ToString();
-            var userId = Convert.ToInt32(idUser);
-            medic.UserId = userId;
-            User1 user = _context.Users1.Find(userId);
-
-            Program program = new Program();
-            string[] Luni, Marti, Miercuri, Joi, Vineri;
-            Luni = new string[25];
-            Marti = new string[25];
-            Miercuri = new string[25];
-            Joi = new string[25];
-            Vineri = new string[25];
-
-            //Marchez programul de lucru pentru fiecare zi
-            if(medic.Schimb == Schimb.Unu)
+            if(ModelState.IsValid)
             {
-                for(int i = 0; i < 12; i++)
+                var idUser = TempData["idUser"].ToString();
+                var userId = Convert.ToInt32(idUser);
+                medic.UserId = userId;
+                User1 user = _context.Users1.Find(userId);
+
+                Program program = new Program();
+                string[] Luni, Marti, Miercuri, Joi, Vineri;
+                Luni = new string[25];
+                Marti = new string[25];
+                Miercuri = new string[25];
+                Joi = new string[25];
+                Vineri = new string[25];
+
+                //Marchez programul de lucru pentru fiecare zi
+                if (medic.Schimb == Schimb.Unu)
                 {
-                    Luni[i] = "job";
-                    Marti[i] = "job";
-                    Miercuri[i] = "job";
-                    Joi[i] = "job";
-                    Vineri[i] = "job";
+                    for (int i = 0; i < 12; i++)
+                    {
+                        Luni[i] = "job";
+                        Marti[i] = "job";
+                        Miercuri[i] = "job";
+                        Joi[i] = "job";
+                        Vineri[i] = "job";
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 12; i < 24; i++)
+                else
                 {
-                    Luni[i] = "job";
-                    Marti[i] = "job";
-                    Miercuri[i] = "job";
-                    Joi[i] = "job";
-                    Vineri[i] = "job";
+                    for (int i = 12; i < 24; i++)
+                    {
+                        Luni[i] = "job";
+                        Marti[i] = "job";
+                        Miercuri[i] = "job";
+                        Joi[i] = "job";
+                        Vineri[i] = "job";
+                    }
                 }
+
+
+                for (var i = 0; i < 25; i++)
+                {
+                    program.Luni += Luni[i] + ',';
+                    program.Marti += Marti[i] + ',';
+                    program.Miercuri += Miercuri[i] + ',';
+                    program.Joi += Joi[i] + ',';
+                    program.Vineri += Vineri[i] + ',';
+                }
+                DateTime data = DateTime.Today;
+                while (data.DayOfWeek != DayOfWeek.Monday)
+                    data = data.AddDays(1);
+                program.Data = data;
+                _context.Programs.Add(program);
+                _context.Medici.Add(medic);
+                _context.SaveChanges();
+
+                program.IdMedic = medic.Id;
+                user.IdMedic = medic.Id;
+                medic.ProgramId = program.Id;
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
             }
-
-
-            for (var i = 0; i < 25; i++)
-            {
-                program.Luni += Luni[i] + ',';
-                program.Marti += Marti[i] + ',';
-                program.Miercuri += Miercuri[i] + ',';
-                program.Joi += Joi[i] + ',';
-                program.Vineri += Vineri[i] + ',';
-            }
-            DateTime data = DateTime.Today;
-            while (data.DayOfWeek != DayOfWeek.Monday)
-                data = data.AddDays(1);
-            program.Data = data;
-            _context.Programs.Add(program);
-            _context.Medici.Add(medic);
-            _context.SaveChanges();
-
-            program.IdMedic = medic.Id;
-            user.IdMedic = medic.Id;
-            medic.ProgramId = program.Id;
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+            return View();
         }
 
         public ActionResult Programari(int? id)
@@ -128,12 +132,10 @@ namespace Regele_Marius.Controllers
                     DateTime date = (DateTime)programare.DataProgramare;
                     programare.DataProgramare = date.Date;
                     programariCautate.Add(programare);
-                    if (programare.DataProgramare == DateTime.Today && programare.Status == Status.Finalizat)
+                    if (programare.Status == Status.Finalizat)
                         programariFinalizateAzi++;
-                    if (programare.DataProgramare == DateTime.Today)
-                        totalProgramariAzi++;
-
                 }
+            totalProgramariAzi = programariCautate.Count();
             ViewBag.totalProgramariAzi = totalProgramariAzi;
             ViewBag.programariFinalizateAzi = programariFinalizateAzi;
             var dataCurenta = DateTime.Today;
@@ -145,14 +147,21 @@ namespace Regele_Marius.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             Medic medic = _context.Medici.Find(id);
+            User1 user = _context.Users1.Find(medic.UserId);
+            Specializare specializare = _context.Specializari.Find(medic.SpecializareId);
             if (medic == null)
                 return HttpNotFound();
 
-            Specializare specializare = _context.Specializari.Find(medic.SpecializareId);
-            ViewBag.Specializare = specializare;
+            /*            Specializare specializare = _context.Specializari.Find(medic.SpecializareId);
+                        ViewBag.Specializare = specializare;*/
+            var viewModel = new ContMedicViewModel
+            {
+                Medic = medic,
+                User = user,
+                Specializare = specializare
+            };
 
-
-            return View(medic);
+            return View(viewModel);
         }
 
         public ActionResult _Specializare(int id)

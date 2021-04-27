@@ -75,7 +75,6 @@
                 @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == false)
                 {
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Cont", "Details", "User", new { id = Session["Id"] }, null)</li>
                         <li>@Html.ActionLink("Deconectare", "Deconectare", "Cont")</li>
                     </ul>
                 }

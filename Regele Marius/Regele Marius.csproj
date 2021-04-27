@@ -149,7 +149,6 @@
     <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\ContController.cs" />
     <Compile Include="Controllers\DiagramaController.cs" />
-    <Compile Include="Controllers\ExRezultatAnalizasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterventieController.cs" />
     <Compile Include="Controllers\MedicController.cs" />
@@ -322,6 +321,7 @@
     </Compile>
     <Compile Include="ViewModels\AnalizaFormViewModel.cs" />
     <Compile Include="ViewModels\ArticolViewModel.cs" />
+    <Compile Include="ViewModels\ContMedicViewModel.cs" />
     <Compile Include="ViewModels\LoginFormViewModel.cs" />
     <Compile Include="ViewModels\MedicFormViewModel.cs" />
     <Compile Include="ViewModels\ProgramareAnalizaViewModel.cs" />
@@ -329,6 +329,7 @@
     <Compile Include="ViewModels\RezultatAnalizaCreateViewModel.cs" />
     <Compile Include="ViewModels\RezultatAnalizaViewModel.cs" />
     <Compile Include="ViewModels\RezultatInterventieViewModel.cs" />
+    <Compile Include="ViewModels\SumarProgramareViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -347,6 +348,11 @@
     <Content Include="Images\circle-solid.svg" />
     <Content Include="Images\dot.png" />
     <Content Include="Images\file-download-solid.svg" />
+    <Content Include="lib\Chart.js\chart.esm.js" />
+    <Content Include="lib\Chart.js\chart.js" />
+    <Content Include="lib\Chart.js\chart.min.js" />
+    <Content Include="lib\Chart.js\helpers.esm.js" />
+    <Content Include="lib\Chart.js\helpers.esm.min.js" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />
@@ -359,6 +365,7 @@
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\gcal.js" />
     <Content Include="Scripts\gcal.min.js" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -486,8 +493,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Pacient\Index.cshtml" />
     <Content Include="Views\Medic\Create.cshtml" />
@@ -517,11 +522,6 @@
     <Content Include="Views\RezultatAnaliza\Index.cshtml" />
     <Content Include="Views\RezultatInterventie\Create.cshtml" />
     <Content Include="Views\RezultatAnaliza\Details.cshtml" />
-    <Content Include="Views\ExRezultatAnalizas\Create.cshtml" />
-    <Content Include="Views\ExRezultatAnalizas\Delete.cshtml" />
-    <Content Include="Views\ExRezultatAnalizas\Details.cshtml" />
-    <Content Include="Views\ExRezultatAnalizas\Edit.cshtml" />
-    <Content Include="Views\ExRezultatAnalizas\Index.cshtml" />
     <Content Include="Views\RezultatInterventie\Index.cshtml" />
     <Content Include="Views\RezultatInterventie\Details.cshtml" />
     <Content Include="Views\Pacient\Delete.cshtml" />
@@ -549,6 +549,7 @@
     <Content Include="Views\Articol\IndexPacienti.cshtml" />
     <Content Include="Views\Medic\Programari.cshtml" />
     <Content Include="Views\ProgramareAnaliza1\Details.cshtml" />
+    <Content Include="Views\Slider\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

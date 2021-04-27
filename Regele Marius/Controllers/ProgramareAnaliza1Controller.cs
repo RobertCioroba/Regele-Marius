@@ -330,10 +330,20 @@ namespace Regele_Marius.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             ProgramareAnaliza programare = _context.ProgramariAnaliza.Find(id);
+            Medic medic = _context.Medici.Find(programare.MedicId);
+            Analiza analiza = _context.Analize.Find(programare.AnalizaId);
+
             if (programare == null)
                 return HttpNotFound();
+            var viewModel = new SumarProgramareViewModel
+            {
+                ProgramareAnaliza = programare,
+                Medic = medic,
+                Analiza = analiza
 
-            return View(programare);
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Delete(int? id)

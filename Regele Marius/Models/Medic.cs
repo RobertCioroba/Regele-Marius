@@ -31,5 +31,14 @@ namespace Regele_Marius.Models
         public virtual ICollection<ProgramareInterventie> ProgramariInterventie { get; set; }
         public virtual ICollection<RezultatAnaliza> RezultateAnaliza { get; set; }
         public virtual ICollection<RezultatInterventie> RezultateInterventie { get; set; }
+
+        [Display(Name = "Nume medic")]
+        public string NumeComplet
+        {
+            get
+            {
+                return Nume + " " + Prenume;
+            }
+        }
     }
 }

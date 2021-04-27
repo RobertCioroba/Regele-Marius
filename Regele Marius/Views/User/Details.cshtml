@@ -1,4 +1,4 @@
-﻿@model Regele_Marius.Models.User1
+﻿@model Regele_Marius.ViewModels.ContMedicViewModel
 
 @{
     ViewBag.Title = "Detalii cont";
@@ -9,55 +9,96 @@
     }
 }
 
-<h2>Detalii cont</h2>
+<h2>Detalii cont - @Model.Medic.NumeComplet</h2>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumeUtilizator)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumeUtilizator)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Parola)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Parola)
-        </dd>
-
-        <dt>
-            Functie
-        </dt>
-
         @{
-            if (Model.Activ == true)
+            if (Model.User.Activ == false)
             {
+                <dt>
+                    @Html.DisplayNameFor(model => model.User.NumeUtilizator)
+                </dt>
+
                 <dd>
-                    Medic
+                    @Html.DisplayFor(model => model.User.NumeUtilizator)
                 </dd>
-            }
-            else
-            {
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.User.Parola)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.Parola)
+                </dd>
+
+                <dt>
+                    Functie
+                </dt>
+
                 <dd>
                     Secretara
                 </dd>
+
+                <dd>
+                    Medic
+                </dd>
+
+            }
+            else
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.User.NumeUtilizator)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.NumeUtilizator)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.User.Parola)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.Parola)
+                </dd>
+
+                <dt>
+                    Functie
+                </dt>
+
+                <dd>
+                    Medic
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Specializare.Nume)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Specializare.Nume)
+                </dd>
+
+                <dt>
+                    Program
+                </dt>
+
+                if (Model.Medic.Schimb == Regele_Marius.Models.Schimb.Unu)
+                {
+                    <dd>
+                        08:00 - 14:00
+                    </dd>
+                }
+                else
+                {
+                    <dd>
+                        14:00 - 20:00
+                    </dd>
+                }
+
             }
         }
+
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-</p>
