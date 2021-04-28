@@ -185,11 +185,20 @@ namespace Regele_Marius.Controllers
             }
 
             RezultatAnaliza rezultatAnaliza = _context.RezultateAnaliza.First(x => x.RezultatGuid == id);
+            Medic medic = _context.Medici.Find(rezultatAnaliza.MedicId);
+            Analiza analiza = _context.Analize.Find(rezultatAnaliza.AnalizaId);
             if (rezultatAnaliza == null)
             {
                 return HttpNotFound();
             }
-            return View(rezultatAnaliza);
+
+            var viewModel = new RezultatViewModel
+            {
+                RezultatAnaliza = rezultatAnaliza,
+                Medic = medic,
+                Analiza = analiza
+            };
+            return View(viewModel);
         }
 
         public ActionResult Index()

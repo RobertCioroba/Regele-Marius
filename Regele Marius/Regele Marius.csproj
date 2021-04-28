@@ -329,6 +329,7 @@
     <Compile Include="ViewModels\RezultatAnalizaCreateViewModel.cs" />
     <Compile Include="ViewModels\RezultatAnalizaViewModel.cs" />
     <Compile Include="ViewModels\RezultatInterventieViewModel.cs" />
+    <Compile Include="ViewModels\RezultatViewModel.cs" />
     <Compile Include="ViewModels\SumarProgramareViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

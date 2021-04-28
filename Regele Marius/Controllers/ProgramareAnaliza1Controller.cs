@@ -231,7 +231,7 @@ namespace Regele_Marius.Controllers
                             foreach (var medic in mediciEligibili)
                             {
                                 Program program = _context.Programs.SingleOrDefault(c => c.Id == medic.ProgramId);
-                                string[] programMiercuri = program.Luni.Split(',');
+                                string[] programMiercuri = program.Miercuri.Split(',');
                                 sirAuxiliar = VerificareZi(programMiercuri, durata, programareAnaliza.Id);
                                 if (sirAuxiliar[25] == "gasit")
                                 {
@@ -282,6 +282,57 @@ namespace Regele_Marius.Controllers
                                     programareAnaliza.DataProgramare = data;
                                     gasit = true;
                                     break;
+                                }
+                                if(!sirAuxiliar.Contains("job"))
+                                {
+                                    Program programNou = new Program();
+                                    string[] Luni, Marti, Miercuri, Joi, Vineri;
+                                    Luni = new string[25];
+                                    Marti = new string[25];
+                                    Miercuri = new string[25];
+                                    Joi = new string[25];
+                                    Vineri = new string[25];
+
+                                    //Marchez programul de lucru pentru fiecare zi
+                                    if (medic.Schimb == Schimb.Unu)
+                                    {
+                                        for (int i = 0; i < 12; i++)
+                                        {
+                                            Luni[i] = "job";
+                                            Marti[i] = "job";
+                                            Miercuri[i] = "job";
+                                            Joi[i] = "job";
+                                            Vineri[i] = "job";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int i = 12; i < 24; i++)
+                                        {
+                                            Luni[i] = "job";
+                                            Marti[i] = "job";
+                                            Miercuri[i] = "job";
+                                            Joi[i] = "job";
+                                            Vineri[i] = "job";
+                                        }
+                                    }
+
+
+                                    for (var i = 0; i < 25; i++)
+                                    {
+                                        programNou.Luni += Luni[i] + ',';
+                                        programNou.Marti += Marti[i] + ',';
+                                        programNou.Miercuri += Miercuri[i] + ',';
+                                        programNou.Joi += Joi[i] + ',';
+                                        programNou.Vineri += Vineri[i] + ',';
+                                    }
+                                    DateTime data = (DateTime)program.Data;
+                                    programNou.Data = data.AddDays(7);
+                                    programNou.IdMedic = program.IdMedic;
+                                    _context.Programs.Remove(program);
+                                    _context.Programs.Add(programNou);
+                                    _context.SaveChanges();
+                                    medic.ProgramId = programNou.Id;
                                 }
                             }
                         }
