@@ -17,3 +17,5 @@ https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-sta
 https://console.cloud.google.com/projectselector2/home/dashboard?_ga=2.250910213.2052955388.1619609540-864920014.1619609540&pli=1
 https://www.romedic.ro/procentul-de-grasime-corporala-calcul-valorile-recomandate-0P37365
 https://www.c-sharpcorner.com/article/managing-data-with-viewmodel-in-asp-net-mvc/
+https://canvasjs.com/asp-net-mvc-charts/animated-chart/
+https://canvasjs.com/docs/charts/integration/asp-net-mvc-charts/
