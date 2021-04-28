@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <link href="~/Content/bootstrap-theme.css" />
     <link href="~/Content/bootstrap.css" />
+    <link href="~/Content/StyleSheet.css" type="text/css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Style/StyleSheet.css")
@@ -36,47 +37,107 @@
 
                     @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == false)
                     {
-                        <li>@Html.ActionLink("Articole", "Index", "Articol")</li>
-                        <li>@Html.ActionLink("Program", "Index", "Medic")</li>
-                        <li>@Html.ActionLink("Programari analize", "Index", "ProgramareAnaliza1")</li>
-                        <li>@Html.ActionLink("Analize", "Index", "Analiza")</li>
-                        <li>@Html.ActionLink("Specializari", "Index", "Specializares")</li>
-                        <li>@Html.ActionLink("Slider", "Index", "Slider")</li>
-                        <li>@Html.ActionLink("Conturi", "Index", "Cont")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img alt="Check" src="@Url.Content("~/images/palette-solid.svg")" style="width: 30px; height: 30px; filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown dropdown-submenu">
+                                <li>@Html.ActionLink("Articole", "Index", "Articol")</li>
+                                <li>@Html.ActionLink("Slider", "Index", "Slider")</li>
+                            </ul>
+                        </li>
 
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img alt="Check" src="@Url.Content("~/images/capsules-solid.svg")" style="width: 30px; height: 30px; filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown dropdown-submenu">
+                                <li>@Html.ActionLink("Programari analize", "Index", "ProgramareAnaliza1")</li>
+                                <li>@Html.ActionLink("Analize", "Index", "Analiza")</li>
+                                <li>@Html.ActionLink("Specializari", "Index", "Specializares")</li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img alt="Check" src="@Url.Content("~/images/user-md-solid.svg")" style="width: 30px; height: 30px; filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown dropdown-submenu">
+                                <li>@Html.ActionLink("Program", "Index", "Medic")</li>
+                                <li>@Html.ActionLink("Conturi", "Index", "Cont")</li>
+                            </ul>
+                        </li>
                     }
                 </ul>
 
                 @if (Session["NumeUtilizator"] == null)
                 {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Formular programare", "Create", "ProgramareAnaliza1")</li>
-                        <li>@Html.ActionLink("Calculator", "Create", "Calculator")</li>
-                        <li>@Html.ActionLink("Articole", "IndexPacienti", "Articol")</li>
-                    </ul>
+            <ul class="nav navbar-nav">
+                <li class="uk-active">
+                    <a href='@Url.Action("Create","ProgramareAnaliza1")' title="Formular programare">
+                        <img alt="Check" src="@Url.Content("~/images/align-justify-solid.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                    </a>
+                </li>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Logare", "Logare", "Cont")</li>
-                    </ul>
+                <li class="uk-active">
+                    <a href='@Url.Action("Create","Calculator")' title="Calculator">
+                        <img alt="Check" src="@Url.Content("~/images/cash-register-solid.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                    </a>
+                </li>
+
+                <li class="uk-active">
+                    <a href='@Url.Action("IndexPacienti","Articol")' title="Articole">
+                        <img alt="Check" src="@Url.Content("~/images/newspaper-regular.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="uk-active">
+                    <a href='@Url.Action("Logare","Cont")' title="Logare">
+                        <img alt="Check" src="@Url.Content("~/images/sign-in-alt-solid.svg")" style="width: 30px;height: 30px;">
+                    </a>
+                </li>
+            </ul>
                 }
 
                 @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == true)
                 {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Programari", "Programari", "Medic", new { id = Session["MedicId"] }, null)</li>
-                    </ul>
+                <ul class="nav navbar-nav">
+                    <li class="uk-active">
+                        <a href='@Url.Action("Programari","Medic", new { id = Session["MedicId"] })' title="Programari">
+                            <img alt="Check" src="@Url.Content("~/images/clipboard-list-solid.svg")" style="width: 30px;height: 30px; filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                        </a>
+                    </li>
+                </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Cont", "Details", "User", new { id = Session["Id"] }, null)</li>
-                        <li>@Html.ActionLink("Deconectare", "Deconectare", "Cont")</li>
+                        <li class="uk-active">
+                            <a href='@Url.Action("Details","User", new { id = Session["Id"]})' title="Cont">
+                                <img alt="Check" src="@Url.Content("~/images/hospital-user-solid.svg")" style="width: 30px;height: 30px;">
+                            </a>
+                        </li>
+
+                        <li class="uk-active">
+                            <a href='@Url.Action("Deconectare","Cont")' title="Deconectare">
+                                <img alt="Check" src="@Url.Content("~/images/shipping-fast-solid.svg")" style="width: 30px;height: 30px;">
+                            </a>
+                        </li>
                     </ul>
                 }
 
                 @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == false)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Deconectare", "Deconectare", "Cont")</li>
-                    </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="uk-active">
+                        <a href='@Url.Action("Deconectare","Cont")' title="Deconectare">
+                            <img alt="Check" src="@Url.Content("~/images/shipping-fast-solid.svg")" style="width: 30px;height: 30px;">
+                        </a>
+                    </li>
+                </ul>
                 }
             </div>
         </div>

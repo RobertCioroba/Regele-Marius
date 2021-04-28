@@ -17,8 +17,8 @@
     @*    <input type="text" id="datepickerFrom" placeholder="Selecteaza data:" class="datepickerClass" readonly="readonly">
         <button class="btn btn-outline-danger" id="cautaBtn">Cauta</button>*@
     <div class="tooltip">
-        @Html.ActionLink(" ", "Programari2", "Medic", new { id = Session["MedicId"] }, new { style = "background: url('" + Url.Content("~/images/eye-slash-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(37%) sepia(0%) saturate(17%) hue-rotate(148deg) brightness(87%) contrast(84%);" })
-        <span class="tooltiptext">Ascunde programari finalizate</span>
+        @Html.ActionLink(" ", "Programari", "Medic", new { id = Session["MedicId"] }, new { style = "background: url('" + Url.Content("~/images/eye-solid.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(37%) sepia(0%) saturate(17%) hue-rotate(148deg) brightness(87%) contrast(84%);" })
+        <span class="tooltiptext">Arata toate programarile</span>
     </div>
 
 </td>
@@ -52,7 +52,7 @@
 
         </th>
     </tr>
-   
+
     @foreach (var item in Model)
     {
         <tr>
@@ -102,39 +102,3 @@
     }
 
 </table>
-
-<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
-@section Scripts {
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#datepickerFrom").val('@ViewBag.From');
-        });
-
-        $(function () {
-            $("#datepickerFrom").datepicker({
-                dateFormat: 'dd-mm-yy',
-                onSelect: function (date) {
-                    var date1 = $("#datepickerFrom").datepicker('getDate');
-                    var date = new Date(Date.parse(date1));
-                    date.setDate(date.getDate() + 0);
-                    var newDate = date.toDateString();
-                    newDate = new Date(Date.parse(newDate));
-                    $("#datepickerTo").datepicker('option', { minDate: newDate });
-                }
-            });
-        });
-
-         $("#cautaBtn").click(function () {
-            var from = $("#datepickerFrom").val();
-            var to = $("#datepickerTo").val();
-
-            if (from == "") {
-                $("#datepickerFrom").focus();
-                return false;
-            }
-            var path = '@Url.Action("Programari")' + "?from=" + from;
-            window.location.href = path;
-        });
-    </script>
-}

@@ -551,6 +551,7 @@
     <Content Include="Views\Medic\Programari.cshtml" />
     <Content Include="Views\ProgramareAnaliza1\Details.cshtml" />
     <Content Include="Views\Slider\Delete.cshtml" />
+    <Content Include="Views\Medic\Programari2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

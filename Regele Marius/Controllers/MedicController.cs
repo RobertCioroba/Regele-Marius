@@ -142,6 +142,35 @@ namespace Regele_Marius.Controllers
             ViewBag.dataCurenta = dataCurenta.ToShortDateString();
             return View(programariCautate);
         }
+
+        public ActionResult Programari2(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            Medic medic = _context.Medici.Find(id);
+            int totalProgramariAzi = 0, programariFinalizateAzi = 0;
+            List<ProgramareAnaliza> programari = _context.ProgramariAnaliza.ToList();
+            List<ProgramareAnaliza> programariCautate = new List<ProgramareAnaliza>();
+
+            foreach (var programare in programari)
+            {
+                if (programare.MedicId == medic.Id && programare.Status == Status.Derulare)
+                {
+                    DateTime date = (DateTime)programare.DataProgramare;
+                    programare.DataProgramare = date.Date;
+                    programariCautate.Add(programare);
+                }
+                if (programare.MedicId == medic.Id && programare.Status == Status.Finalizat)
+                    programariFinalizateAzi++;
+                if (programare.MedicId == medic.Id)
+                    totalProgramariAzi++;
+            }
+            ViewBag.totalProgramariAzi = totalProgramariAzi;
+            ViewBag.programariFinalizateAzi = programariFinalizateAzi;
+            var dataCurenta = DateTime.Today;
+            ViewBag.dataCurenta = dataCurenta.ToShortDateString();
+            return View(programariCautate);
+        }
         public ActionResult Details(int? id)
         {
             if (id == null)
