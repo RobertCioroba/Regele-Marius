@@ -1,15 +1,61 @@
-﻿<!DOCTYPE HTML>
+﻿@{
+    ViewBag.Title = "Statistici";
+
+    if (Session["NumeUtilizator"] == null || (bool)Session["Activ"] == true)
+    {
+        Response.Redirect("~/Cont/Logare", false);
+    }
+}
+
+<!DOCTYPE HTML>
 <html>
 <head>
     <script>
 window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart1 = new CanvasJS.Chart("chartFete", {
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	exportEnabled: true,
 	animationEnabled: true,
 	title: {
-		text: "Progresul total al programarilor",
+		text: "Greutate medie - fete",
+		fontSize: 21
+	},
+	data: [{
+		type: "column",
+		startAngle: 160,
+		toolTipContent: "<b>{label}</b>: {y} Kg",
+		indexLabel: "{y} Kg",
+		dataPoints: @Html.Raw(ViewBag.StatisticiFete)
+	}]
+});
+chart1.render();
+
+
+	var chart2 = new CanvasJS.Chart("chartBaieti", {
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	exportEnabled: true,
+	animationEnabled: true,
+	title: {
+		text: "Greutate medie - baieti",
+		fontSize: 21
+	},
+	data: [{
+		type: "column",
+		startAngle: 160,
+		toolTipContent: "<b>{label}</b>: {y} Kg",
+		indexLabel: "{y} Kg",
+		dataPoints: @Html.Raw(ViewBag.StatisticiBaieti)
+	}]
+});
+	chart2.render();
+
+	var chart3 = new CanvasJS.Chart("chartObezitate", {
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	exportEnabled: true,
+	animationEnabled: true,
+	title: {
+		text: "Stare sanatate utilizatori",
 		fontSize: 21
 	},
 	data: [{
@@ -17,16 +63,22 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		startAngle: 160,
 		toolTipContent: "<b>{label}</b>: {y}%",
 		indexLabel: "{label} - {y}%",
-		dataPoints: @Html.Raw(ViewBag.DataPoints)
+		dataPoints: @Html.Raw(ViewBag.StatisticiObezitate)
 	}]
 });
-chart.render();
-
+chart3.render();
 }
     </script>
 </head>
 <body>
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <br />
+    <h1 style="text-align:center">Statistici calculator IBM</h1>
+    <br />
+    <div id="chartFete" style="height: 370px; width: 100%;"></div>
+    <br />
+    <div id="chartBaieti" style="height: 370px; width: 100%;"></div>
+    <br />
+    <div id="chartObezitate" style="height: 370px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 </body>

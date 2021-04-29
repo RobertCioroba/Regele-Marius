@@ -20,6 +20,7 @@ namespace Regele_Marius.Models
         [Required]
         [Range(1,100)]
         public int Varsta { get; set; }
+        public string Rezultat { get; set; }
 
     }
 }

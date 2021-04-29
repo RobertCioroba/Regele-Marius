@@ -80,7 +80,7 @@ namespace Regele_Marius.Controllers
                     rezultatText = "Obezitate";
             }
 
-
+            _calculator.Rezultat = rezultatText;
             _context.SaveChanges();
             ViewBag.Message1 = String.Format("{0:0.00}", rezultat); 
             ViewBag.Message2 = String.Format("{0:0.00}", BMI);

@@ -493,7 +493,7 @@ namespace Regele_Marius.Controllers
                     break;
             }
 
-            int pageSize = 10;
+            int pageSize = 7;
             int pageNumber = (page ?? 1);
 
             List<DataPoint> dataPoints = new List<DataPoint>();

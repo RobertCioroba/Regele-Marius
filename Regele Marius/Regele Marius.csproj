@@ -294,6 +294,14 @@
     <Compile Include="Migrations\202104231205535_changeOraType2.Designer.cs">
       <DependentUpon>202104231205535_changeOraType2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104291042284_ChangeInaltimeCalculator.cs" />
+    <Compile Include="Migrations\202104291042284_ChangeInaltimeCalculator.Designer.cs">
+      <DependentUpon>202104291042284_ChangeInaltimeCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104291222198_ChangeCalculator.cs" />
+    <Compile Include="Migrations\202104291222198_ChangeCalculator.Designer.cs">
+      <DependentUpon>202104291222198_ChangeCalculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
     <Compile Include="Models\Articol.cs" />
@@ -328,6 +336,7 @@
     <Compile Include="ViewModels\MedicFormViewModel.cs" />
     <Compile Include="ViewModels\ProgramareAnalizaViewModel.cs" />
     <Compile Include="ViewModels\ProgramareInterventieViewModel.cs" />
+    <Compile Include="ViewModels\ProgramareViewModel.cs" />
     <Compile Include="ViewModels\RezultatAnalizaCreateViewModel.cs" />
     <Compile Include="ViewModels\RezultatAnalizaViewModel.cs" />
     <Compile Include="ViewModels\RezultatInterventieViewModel.cs" />
@@ -670,6 +679,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104231205535_changeOraType2.resx">
       <DependentUpon>202104231205535_changeOraType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291042284_ChangeInaltimeCalculator.resx">
+      <DependentUpon>202104291042284_ChangeInaltimeCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291222198_ChangeCalculator.resx">
+      <DependentUpon>202104291222198_ChangeCalculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\EmailInfo.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

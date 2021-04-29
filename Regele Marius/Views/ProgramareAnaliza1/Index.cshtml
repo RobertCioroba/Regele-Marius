@@ -12,8 +12,8 @@
     }
 }
 
-<h2>Lista programari analiza</h2>
-
+<h1 style="text-align:center">Lista programari analiza</h1>
+@*<button id="expanded-lol">click me</button>*@
 @using (Html.BeginForm("Index", "ProgramareAnaliza1", FormMethod.Get))
 {
     <p>
@@ -24,97 +24,89 @@
         </div>
     </p>
 }
-
-<table class="table">
-    <tr>
-        <th>
-            <div class="tooltip">
-                @Html.ActionLink("Denumire analiza", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter2 = ViewBag.CurrentFilter2 })
-                <span class="tooltiptext">Sorteaza dupa analiza</span>
-            </div>
-        </th>
-        <th>
-            Nume
-        </th>
-        <th>
-            Prenume
-        </th>
-        <th>
-            Data nastere
-        </th>
-        <th>
-            Numar telefon
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            <div class="tooltip">
-                @Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.DateSortParm3, currentFilter2 = ViewBag.CurrentFilter2 })
-                <span class="tooltiptext">Sorteaza dupa status</span>
-            </div>
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Analiza.Denumire)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prenume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataNastere)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NrTelefon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            @{
-                if (item.Status == Regele_Marius.Models.Status.Derulare)
-                {
-                    <td style="background-color:yellow">@item.Status</td>
-                }
-                else
-                {
-                    <td style="background-color:limegreen">@item.Status</td>
-                }
-            }
-            <td>
-                @{
-                    if (item.Status == Regele_Marius.Models.Status.Finalizat)
-                    {
-                        <div class="tooltip">
-                            @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
-                            <span class="tooltiptext">Stergere</span>
-                        </div>
-                        <div class="tooltip">
-                            @Html.ActionLink(" ", "Details", "RezultatAnaliza", new { id = item.RezultatGuid }, new { style = "background: url('" + Url.Content("~/images/info.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(40%) sepia(52%) saturate(3535%) hue-rotate(209deg) brightness(99%) contrast(110%);" })
-                            <span class="tooltiptext">Vizionare raport</span>
-                        </div>
+<br />
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <div class="tooltip">
+                        @Html.ActionLink("Denumire analiza", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter2 = ViewBag.CurrentFilter2 })
+                        <span class="tooltiptext">Sorteaza dupa analiza</span>
+                    </div>
+                </th>
+                <th scope="col">Nume pacient</th>
+                <th scope="col">
+                    <div class="tooltip">
+                        @Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.DateSortParm3, currentFilter2 = ViewBag.CurrentFilter2 })
+                        <span class="tooltiptext">Sorteaza dupa status</span>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr class="accordion-toggle collapsed click-tr" id="accordion1 @item.Id" data-toggle="collapse" data-parent="#accordion1" href="#@item.Id">
+                    <td>@Html.DisplayFor(modelItem => item.Analiza.Denumire)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NumeComplet)</td>
+                    @{
+                        if (item.Status == Regele_Marius.Models.Status.Derulare)
+                        {
+                            <td style="background-color:yellow">@item.Status</td>
+                        }
+                        else
+                        {
+                            <td style="background-color:limegreen">@item.Status</td>
+                        }
                     }
-                    else
-                    {
-                        <div class="tooltip">
-                            @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
-                            <span class="tooltiptext">Stergere</span>
-                        </div>
-                    }
-                }
 
-            </td>
-        </tr>
-    }
+                </tr>
+                
+                <tr class="hide-table-padding toggle-tbody" id="@item.Id">
+                    <td></td>
+                    <td colspan="3">
+                        <div id="@item.Id" class="collapse in p-3">
+                            <div class="row">
+                                <dt>Data nastere: @Html.DisplayFor(modelItem => item.DataNastere)</dt>
+                                <dt>Sex: @Html.DisplayFor(modelItem => item.Gen)</dt>
+                                <dt>Numar telefon: @Html.DisplayFor(modelItem => item.NrTelefon)</dt>
+                                <dt>Email: @Html.DisplayFor(modelItem => item.Email)</dt>
+                                <dt>Data programare: @Html.DisplayFor(modelItem => item.DataProgramare)</dt>
+                                <dt>Ora: @Html.DisplayFor(modelItem => item.OraInceput) - @Html.DisplayFor(modelItem => item.OraFinal)</dt>
+                                <dt>
+                                    @{
+                                        if (item.Status == Regele_Marius.Models.Status.Finalizat)
+                                        {
+                                            <div class="tooltip">
+                                                @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                                                <span class="tooltiptext">Stergere</span>
+                                            </div>
+                                            <div class="tooltip">
+                                                @Html.ActionLink(" ", "Details", "RezultatAnaliza", new { id = item.RezultatGuid }, new { style = "background: url('" + Url.Content("~/images/info.svg") + "')  no-repeat center; display:inline-block; height:30px; width:30px; filter: invert(40%) sepia(52%) saturate(3535%) hue-rotate(209deg) brightness(99%) contrast(110%);" })
+                                                <span class="tooltiptext">Vizionare raport</span>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="tooltip">
+                                                @Html.ActionLink(" ", "Delete", "ProgramareAnaliza1", new { id = item.Id }, new { style = "background: url('" + Url.Content("~/images/trash.svg") + "') no-repeat center right; display:inline-block; height:30px; width:30px; filter: invert(91%) sepia(0%) saturate(6644%) hue-rotate(138deg) brightness(88%) contrast(84%);" })
+                                                <span class="tooltiptext">Stergere</span>
+                                            </div>
+                                        }
+                                    }
+                                </dt>
+</div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        }
+    </table>
+</div>
 
-</table>
+      @*</div>*@
+
 
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
@@ -127,6 +119,21 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 
 <head>
     <script>
+
+        $(document).ready(function () {
+            $(".toggle-tbody").hide("slow");
+        })
+
+        $(".click-tr").click(function () {
+            var id = $(this).attr("id").replace("accordion1", "").trim();
+            $('#' + id + '').show("slow");
+        })
+
+@*        $("#expanded-lol").click(function () {
+            alert(10);
+            $('.toggle-tbody').show("slow");
+        })*@
+
 window.onload = function () {
 
 var chart = new CanvasJS.Chart("chartContainer", {
@@ -150,3 +157,24 @@ chart.render();
 }
     </script>
 </head>
+<style>
+    tr.hide-table-padding td {
+        padding: 0;
+    }
+
+    .expand-button {
+        position: relative;
+    }
+
+    .accordion-toggle .expand-button:after {
+        position: absolute;
+        left: .75rem;
+        top: 50%;
+        transform: translate(0, -50%);
+        content: '-';
+    }
+
+    .accordion-toggle.collapsed .expand-button:after {
+        content: '+';
+    }
+</style>
