@@ -143,7 +143,7 @@ namespace Regele_Marius.Controllers
             return View(programariCautate);
         }
 
-        public ActionResult Programari2(int? id)
+        public ActionResult Programarii(int? id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

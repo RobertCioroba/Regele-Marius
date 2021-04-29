@@ -147,6 +147,7 @@
     <Compile Include="Controllers\AnalizaController.cs" />
     <Compile Include="Controllers\ArticolController.cs" />
     <Compile Include="Controllers\CalculatorController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\ContController.cs" />
     <Compile Include="Controllers\DiagramaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -298,6 +299,7 @@
     <Compile Include="Models\Articol.cs" />
     <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\ContextClinica.cs" />
+    <Compile Include="Models\DataPoint.cs" />
     <Compile Include="Models\Diagrama.cs" />
     <Compile Include="Models\Interventie.cs" />
     <Compile Include="Models\Medic.cs" />
@@ -551,7 +553,8 @@
     <Content Include="Views\Medic\Programari.cshtml" />
     <Content Include="Views\ProgramareAnaliza1\Details.cshtml" />
     <Content Include="Views\Slider\Delete.cshtml" />
-    <Content Include="Views\Medic\Programari2.cshtml" />
+    <Content Include="Views\Medic\Programarii.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

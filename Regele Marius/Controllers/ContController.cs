@@ -1,4 +1,5 @@
-﻿using Regele_Marius.Models;
+﻿using Newtonsoft.Json;
+using Regele_Marius.Models;
 using Regele_Marius.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -36,8 +37,14 @@ namespace Regele_Marius.Controllers
             }
             _context.Users1.Add(user);
             _context.SaveChanges();
-            TempData["idUser"] = user.Id;
-            return RedirectToAction("Create", "Medic");
+            if (user.Activ == true)
+            {
+                TempData["idUser"] = user.Id;
+                return RedirectToAction("Create", "Medic");
+            }
+            else
+                return RedirectToAction("Index", "Cont");
+
         }
 
         public ActionResult Logare()
@@ -68,9 +75,64 @@ namespace Regele_Marius.Controllers
             
         }
 
+        public class NumarDoctorPerSpecializare
+        {
+            public string Nume { get; set; }
+            public int NumarDoctori { get; set; }
+        }
+
         public ActionResult Index()
         {
             var utilizatori = _context.Users1.ToList();
+            List<DataPoint> dataPoints = new List<DataPoint>();
+            List<NumarDoctorPerSpecializare> numarDoctorPerSpecializare = new List<NumarDoctorPerSpecializare>();
+            List<Medic> medici = _context.Medici.ToList();
+            List<Specializare> specializari = _context.Specializari.ToList();
+            
+            foreach(var specializare in specializari)
+            {
+                NumarDoctorPerSpecializare spec = new NumarDoctorPerSpecializare();
+                spec.Nume = specializare.Nume;
+                spec.NumarDoctori = 0;
+                numarDoctorPerSpecializare.Add(spec);
+            }
+
+            foreach(var medic in medici)
+            {
+                Specializare specMedic = _context.Specializari.Find(medic.SpecializareId);
+                var specializare = numarDoctorPerSpecializare.SingleOrDefault(p => p.Nume == specMedic.Nume);
+                numarDoctorPerSpecializare.Remove(specializare);
+                specializare.NumarDoctori = specializare.NumarDoctori+1;
+                numarDoctorPerSpecializare.Add(specializare);
+            }
+
+            foreach(var specializare in numarDoctorPerSpecializare)
+                dataPoints.Add(new DataPoint(specializare.Nume, specializare.NumarDoctori));
+
+            ViewBag.DataPoints2 = JsonConvert.SerializeObject(dataPoints);
+/*            List<ProgramareAnaliza> programari = _context.ProgramariAnaliza.ToList();
+            int derulare = 0, finalizat = 0, total = programari.Count();
+            foreach (var programare in programari)
+            {
+                switch (programare.Status)
+                {
+                    case Status.Derulare:
+                        derulare++;
+                        break;
+                    default:
+                        finalizat++;
+                        break;
+                }
+            }
+
+            derulare = (derulare * 100) / total;
+            finalizat = (finalizat * 100) / total;
+
+            dataPoints.Add(new DataPoint("In derulare", derulare));
+            dataPoints.Add(new DataPoint("Finalizare", finalizat));
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);*/
+
             return View(utilizatori);
         }
 
@@ -93,8 +155,11 @@ namespace Regele_Marius.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             User1 user = _context.Users1.Find(id);
-            Medic medic = _context.Medici.Find(user.IdMedic);
-            _context.Medici.Remove(medic);
+            if(user.Activ == true)
+            {
+                Medic medic = _context.Medici.Find(user.IdMedic);
+                _context.Medici.Remove(medic);
+            }
             _context.Users1.Remove(user);
             _context.SaveChanges();
             return RedirectToAction("Index");

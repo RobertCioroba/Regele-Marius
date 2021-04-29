@@ -12,6 +12,7 @@ using PagedList;
 using System.Net.Mail;
 using Regele_Marius.Resources;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Regele_Marius.Controllers
 {
@@ -494,6 +495,31 @@ namespace Regele_Marius.Controllers
 
             int pageSize = 10;
             int pageNumber = (page ?? 1);
+
+            List<DataPoint> dataPoints = new List<DataPoint>();
+
+            List<ProgramareAnaliza> programari2 = _context.ProgramariAnaliza.ToList();
+            int derulare = 0, finalizat = 0, total = programari.Count();
+            foreach (var programare in programari2)
+            {
+                switch (programare.Status)
+                {
+                    case Status.Derulare:
+                        derulare++;
+                        break;
+                    default:
+                        finalizat++;
+                        break;
+                }
+            }
+
+            derulare = (derulare * 100) / total;
+            finalizat = (finalizat * 100) / total;
+
+            dataPoints.Add(new DataPoint("In derulare", derulare));
+            dataPoints.Add(new DataPoint("Finalizate", finalizat));
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
 
             return View(programari.ToPagedList(pageNumber, pageSize));
         }
