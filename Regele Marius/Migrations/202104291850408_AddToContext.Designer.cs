@@ -7,13 +7,13 @@ namespace Regele_Marius.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class changeOraType2 : IMigrationMetadata
+    public sealed partial class AddToContext : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changeOraType2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddToContext));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104231205535_changeOraType2"; }
+            get { return "202104291850408_AddToContext"; }
         }
         
         string IMigrationMetadata.Source

@@ -84,7 +84,7 @@ namespace Regele_Marius.Controllers
         public ActionResult Index()
         {
             var utilizatori = _context.Users1.ToList();
-            List<DataPoint> dataPoints = new List<DataPoint>();
+/*            List<DataPoint> dataPoints = new List<DataPoint>();
             List<NumarDoctorPerSpecializare> numarDoctorPerSpecializare = new List<NumarDoctorPerSpecializare>();
             List<Medic> medici = _context.Medici.ToList();
             List<Specializare> specializari = _context.Specializari.ToList();
@@ -110,29 +110,7 @@ namespace Regele_Marius.Controllers
                 dataPoints.Add(new DataPoint(specializare.Nume, specializare.NumarDoctori));
 
             ViewBag.DataPoints2 = JsonConvert.SerializeObject(dataPoints);
-/*            List<ProgramareAnaliza> programari = _context.ProgramariAnaliza.ToList();
-            int derulare = 0, finalizat = 0, total = programari.Count();
-            foreach (var programare in programari)
-            {
-                switch (programare.Status)
-                {
-                    case Status.Derulare:
-                        derulare++;
-                        break;
-                    default:
-                        finalizat++;
-                        break;
-                }
-            }
-
-            derulare = (derulare * 100) / total;
-            finalizat = (finalizat * 100) / total;
-
-            dataPoints.Add(new DataPoint("In derulare", derulare));
-            dataPoints.Add(new DataPoint("Finalizare", finalizat));
-
-            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);*/
-
+*/
             return View(utilizatori);
         }
 

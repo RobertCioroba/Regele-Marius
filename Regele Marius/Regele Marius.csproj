@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -136,11 +139,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -166,141 +164,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104131359314_Init.cs" />
-    <Compile Include="Migrations\202104131359314_Init.designer.cs">
-      <DependentUpon>202104131359314_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202104291849169_SecondMigration.cs" />
+    <Compile Include="Migrations\202104291849169_SecondMigration.Designer.cs">
+      <DependentUpon>202104291849169_SecondMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104141110016_ChangeProgramareAnalizaModel.cs" />
-    <Compile Include="Migrations\202104141110016_ChangeProgramareAnalizaModel.Designer.cs">
-      <DependentUpon>202104141110016_ChangeProgramareAnalizaModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141115495_SmallChanges.cs" />
-    <Compile Include="Migrations\202104141115495_SmallChanges.Designer.cs">
-      <DependentUpon>202104141115495_SmallChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141139119_ChangeAnalizaModel.cs" />
-    <Compile Include="Migrations\202104141139119_ChangeAnalizaModel.Designer.cs">
-      <DependentUpon>202104141139119_ChangeAnalizaModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141155332_AddingValidators.cs" />
-    <Compile Include="Migrations\202104141155332_AddingValidators.Designer.cs">
-      <DependentUpon>202104141155332_AddingValidators.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141159438_removeRequired.cs" />
-    <Compile Include="Migrations\202104141159438_removeRequired.Designer.cs">
-      <DependentUpon>202104141159438_removeRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141255104_OneToOne.cs" />
-    <Compile Include="Migrations\202104141255104_OneToOne.Designer.cs">
-      <DependentUpon>202104141255104_OneToOne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141315029_AddingProgramareId.cs" />
-    <Compile Include="Migrations\202104141315029_AddingProgramareId.Designer.cs">
-      <DependentUpon>202104141315029_AddingProgramareId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141316179_AddingProgramareId2.cs" />
-    <Compile Include="Migrations\202104141316179_AddingProgramareId2.Designer.cs">
-      <DependentUpon>202104141316179_AddingProgramareId2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104141320049_OneToOneAnalize.cs" />
-    <Compile Include="Migrations\202104141320049_OneToOneAnalize.Designer.cs">
-      <DependentUpon>202104141320049_OneToOneAnalize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104150540557_AddingSpecializareFieldToAnalizaModel.cs" />
-    <Compile Include="Migrations\202104150540557_AddingSpecializareFieldToAnalizaModel.Designer.cs">
-      <DependentUpon>202104150540557_AddingSpecializareFieldToAnalizaModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104150908538_AddingDurataToAnalizaModel.cs" />
-    <Compile Include="Migrations\202104150908538_AddingDurataToAnalizaModel.Designer.cs">
-      <DependentUpon>202104150908538_AddingDurataToAnalizaModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104151048563_AddingStatusFieldToProgramareAnalizaModel.cs" />
-    <Compile Include="Migrations\202104151048563_AddingStatusFieldToProgramareAnalizaModel.Designer.cs">
-      <DependentUpon>202104151048563_AddingStatusFieldToProgramareAnalizaModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104151125440_AddingRezultatIdToProgramareAnalizaModel.cs" />
-    <Compile Include="Migrations\202104151125440_AddingRezultatIdToProgramareAnalizaModel.Designer.cs">
-      <DependentUpon>202104151125440_AddingRezultatIdToProgramareAnalizaModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104151336474_Nullable.cs" />
-    <Compile Include="Migrations\202104151336474_Nullable.Designer.cs">
-      <DependentUpon>202104151336474_Nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104151350327_AddingMedicIdToProgramareAnaliza.cs" />
-    <Compile Include="Migrations\202104151350327_AddingMedicIdToProgramareAnaliza.Designer.cs">
-      <DependentUpon>202104151350327_AddingMedicIdToProgramareAnaliza.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104160610531_ChangeRezultatAnalizaModel.cs" />
-    <Compile Include="Migrations\202104160610531_ChangeRezultatAnalizaModel.Designer.cs">
-      <DependentUpon>202104160610531_ChangeRezultatAnalizaModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104160918427_AdduserIdToMedic.cs" />
-    <Compile Include="Migrations\202104160918427_AdduserIdToMedic.Designer.cs">
-      <DependentUpon>202104160918427_AdduserIdToMedic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104160934116_AddIdMedicToUser.cs" />
-    <Compile Include="Migrations\202104160934116_AddIdMedicToUser.Designer.cs">
-      <DependentUpon>202104160934116_AddIdMedicToUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.cs" />
-    <Compile Include="Migrations\202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.Designer.cs">
-      <DependentUpon>202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104210605170_test.cs" />
-    <Compile Include="Migrations\202104210605170_test.Designer.cs">
-      <DependentUpon>202104210605170_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104210725047_test2.cs" />
-    <Compile Include="Migrations\202104210725047_test2.Designer.cs">
-      <DependentUpon>202104210725047_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104210732058_AddingProgram.cs" />
-    <Compile Include="Migrations\202104210732058_AddingProgram.Designer.cs">
-      <DependentUpon>202104210732058_AddingProgram.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104211025482_ChangeDurata.cs" />
-    <Compile Include="Migrations\202104211025482_ChangeDurata.Designer.cs">
-      <DependentUpon>202104211025482_ChangeDurata.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104211026135_ChangeDurata2.cs" />
-    <Compile Include="Migrations\202104211026135_ChangeDurata2.Designer.cs">
-      <DependentUpon>202104211026135_ChangeDurata2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104211221408_AddOraFinalInProgramare.cs" />
-    <Compile Include="Migrations\202104211221408_AddOraFinalInProgramare.Designer.cs">
-      <DependentUpon>202104211221408_AddOraFinalInProgramare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104221155378_ChangeStructureForMedic.cs" />
-    <Compile Include="Migrations\202104221155378_ChangeStructureForMedic.Designer.cs">
-      <DependentUpon>202104221155378_ChangeStructureForMedic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104221229430_ZileDinBoolInInt.cs" />
-    <Compile Include="Migrations\202104221229430_ZileDinBoolInInt.Designer.cs">
-      <DependentUpon>202104221229430_ZileDinBoolInInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104230548319_RevenireLaPrimaVariantaDeProgram.cs" />
-    <Compile Include="Migrations\202104230548319_RevenireLaPrimaVariantaDeProgram.Designer.cs">
-      <DependentUpon>202104230548319_RevenireLaPrimaVariantaDeProgram.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104230837186_changeOraType.cs" />
-    <Compile Include="Migrations\202104230837186_changeOraType.Designer.cs">
-      <DependentUpon>202104230837186_changeOraType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104231205286_changeOraType1.cs" />
-    <Compile Include="Migrations\202104231205286_changeOraType1.Designer.cs">
-      <DependentUpon>202104231205286_changeOraType1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104231205535_changeOraType2.cs" />
-    <Compile Include="Migrations\202104231205535_changeOraType2.Designer.cs">
-      <DependentUpon>202104231205535_changeOraType2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104291042284_ChangeInaltimeCalculator.cs" />
-    <Compile Include="Migrations\202104291042284_ChangeInaltimeCalculator.Designer.cs">
-      <DependentUpon>202104291042284_ChangeInaltimeCalculator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104291222198_ChangeCalculator.cs" />
-    <Compile Include="Migrations\202104291222198_ChangeCalculator.Designer.cs">
-      <DependentUpon>202104291222198_ChangeCalculator.cs</DependentUpon>
+    <Compile Include="Migrations\202104291850408_AddToContext.cs" />
+    <Compile Include="Migrations\202104291850408_AddToContext.Designer.cs">
+      <DependentUpon>202104291850408_AddToContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Analiza.cs" />
@@ -584,107 +454,11 @@
     <Folder Include="Uploads\Slider\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104131359314_Init.resx">
-      <DependentUpon>202104131359314_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104291849169_SecondMigration.resx">
+      <DependentUpon>202104291849169_SecondMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141110016_ChangeProgramareAnalizaModel.resx">
-      <DependentUpon>202104141110016_ChangeProgramareAnalizaModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141115495_SmallChanges.resx">
-      <DependentUpon>202104141115495_SmallChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141139119_ChangeAnalizaModel.resx">
-      <DependentUpon>202104141139119_ChangeAnalizaModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141155332_AddingValidators.resx">
-      <DependentUpon>202104141155332_AddingValidators.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141159438_removeRequired.resx">
-      <DependentUpon>202104141159438_removeRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141255104_OneToOne.resx">
-      <DependentUpon>202104141255104_OneToOne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141315029_AddingProgramareId.resx">
-      <DependentUpon>202104141315029_AddingProgramareId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141316179_AddingProgramareId2.resx">
-      <DependentUpon>202104141316179_AddingProgramareId2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104141320049_OneToOneAnalize.resx">
-      <DependentUpon>202104141320049_OneToOneAnalize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104150540557_AddingSpecializareFieldToAnalizaModel.resx">
-      <DependentUpon>202104150540557_AddingSpecializareFieldToAnalizaModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104150908538_AddingDurataToAnalizaModel.resx">
-      <DependentUpon>202104150908538_AddingDurataToAnalizaModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104151048563_AddingStatusFieldToProgramareAnalizaModel.resx">
-      <DependentUpon>202104151048563_AddingStatusFieldToProgramareAnalizaModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104151125440_AddingRezultatIdToProgramareAnalizaModel.resx">
-      <DependentUpon>202104151125440_AddingRezultatIdToProgramareAnalizaModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104151336474_Nullable.resx">
-      <DependentUpon>202104151336474_Nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104151350327_AddingMedicIdToProgramareAnaliza.resx">
-      <DependentUpon>202104151350327_AddingMedicIdToProgramareAnaliza.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104160610531_ChangeRezultatAnalizaModel.resx">
-      <DependentUpon>202104160610531_ChangeRezultatAnalizaModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104160918427_AdduserIdToMedic.resx">
-      <DependentUpon>202104160918427_AdduserIdToMedic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104160934116_AddIdMedicToUser.resx">
-      <DependentUpon>202104160934116_AddIdMedicToUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.resx">
-      <DependentUpon>202104191226055_AddingProgramareAnalizaIdInRezultatAnaliza.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104210605170_test.resx">
-      <DependentUpon>202104210605170_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104210725047_test2.resx">
-      <DependentUpon>202104210725047_test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104210732058_AddingProgram.resx">
-      <DependentUpon>202104210732058_AddingProgram.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104211025482_ChangeDurata.resx">
-      <DependentUpon>202104211025482_ChangeDurata.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104211026135_ChangeDurata2.resx">
-      <DependentUpon>202104211026135_ChangeDurata2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104211221408_AddOraFinalInProgramare.resx">
-      <DependentUpon>202104211221408_AddOraFinalInProgramare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104221155378_ChangeStructureForMedic.resx">
-      <DependentUpon>202104221155378_ChangeStructureForMedic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104221229430_ZileDinBoolInInt.resx">
-      <DependentUpon>202104221229430_ZileDinBoolInInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104230548319_RevenireLaPrimaVariantaDeProgram.resx">
-      <DependentUpon>202104230548319_RevenireLaPrimaVariantaDeProgram.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104230837186_changeOraType.resx">
-      <DependentUpon>202104230837186_changeOraType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104231205286_changeOraType1.resx">
-      <DependentUpon>202104231205286_changeOraType1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104231205535_changeOraType2.resx">
-      <DependentUpon>202104231205535_changeOraType2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104291042284_ChangeInaltimeCalculator.resx">
-      <DependentUpon>202104291042284_ChangeInaltimeCalculator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104291222198_ChangeCalculator.resx">
-      <DependentUpon>202104291222198_ChangeCalculator.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104291850408_AddToContext.resx">
+      <DependentUpon>202104291850408_AddToContext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\EmailInfo.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
