@@ -7,13 +7,13 @@ namespace Regele_Marius.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangeDurata2 : IMigrationMetadata
+    public sealed partial class SecondMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeDurata2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SecondMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104211026135_ChangeDurata2"; }
+            get { return "202104291849169_SecondMigration"; }
         }
         
         string IMigrationMetadata.Source

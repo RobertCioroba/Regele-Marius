@@ -23,61 +23,61 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="row inner-form-horizontal">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="form-group col-md-12">
-                        @Html.LabelFor(model => model.Gen)
-                        @Html.EnumDropDownListFor(model => model.Gen, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Gen, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-md-12">
-                        @Html.LabelFor(model => model.Greutate)
-                        @Html.EditorFor(model => model.Greutate, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Greutate, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-md-12">
-                        @Html.LabelFor(model => model.Inaltime)
-                        @Html.EditorFor(model => model.Inaltime, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Inaltime, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-md-12">
-                        @Html.LabelFor(model => model.Varsta)
-                        @Html.EditorFor(model => model.Varsta, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Varsta, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-md-12 submit-wrapper">
-                        <input type="submit" value="Calculeaza" class="btn btn-danger" />
-                    </div>
-
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row inner-form-horizontal">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(model => model.Gen)
+                    @Html.EnumDropDownListFor(model => model.Gen, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gen, "", new { @class = "text-danger" })
                 </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(model => model.Greutate)
+                    @Html.EditorFor(model => model.Greutate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Greutate, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(model => model.Inaltime)
+                    @Html.EditorFor(model => model.Inaltime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inaltime, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(model => model.Varsta)
+                    @Html.EditorFor(model => model.Varsta, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Varsta, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12 submit-wrapper">
+                    <input type="submit" value="Calculeaza" class="btn btn-danger" />
+                </div>
+
             </div>
         </div>
-
-        @{
-            if (ViewBag.Message3 != null)
-            {
-                <div class="rezultat">
-                    <div>
-                        <!--
-                        @{
-                            var BMI = ViewBag.Title;
-                            var valoare = ViewBag.Message;
-                        }
-                            -->
-                        <h2>@ViewBag.Message3</h2>
-                        <h3>Procent grasime corporala: @ViewBag.Message1 </h3>
-                        <h3>Indice masa corporala(IBM): @ViewBag.Message2</h3>
-                        <img src="~/Uploads/Others/IBM2.PNG" />
-                    </div>
-                </div>
-            }
-        }
     </div>
+
+    @{
+        if (ViewBag.Message3 != null)
+        {
+            <div class="rezultat">
+                <div>
+                    <!--
+                    @{
+                        var BMI = ViewBag.Title;
+                        var valoare = ViewBag.Message;
+                    }
+                        -->
+                    <h2>@ViewBag.Message3</h2>
+                    <h3>Procent grasime corporala: @ViewBag.Message1 </h3>
+                    <h3>Indice masa corporala(IBM): @ViewBag.Message2</h3>
+                    <img src="~/Uploads/Others/IBM2.PNG" />
+                </div>
+            </div>
+        }
+    }
+</div>
 }
 
 

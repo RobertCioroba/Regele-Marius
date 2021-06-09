@@ -19,3 +19,5 @@ https://www.romedic.ro/procentul-de-grasime-corporala-calcul-valorile-recomandat
 https://www.c-sharpcorner.com/article/managing-data-with-viewmodel-in-asp-net-mvc/
 https://canvasjs.com/asp-net-mvc-charts/animated-chart/
 https://canvasjs.com/docs/charts/integration/asp-net-mvc-charts/
+https://mdbootstrap.com/snippets/jquery/cam/979615
+https://stackoverflow.com/

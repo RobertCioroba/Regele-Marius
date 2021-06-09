@@ -14,75 +14,75 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="row inner-form-horizontal">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group align">
-                            @Html.LabelFor(model => model.ProgramareAnaliza.AnalizaId, "Analiza")
-                            @Html.DropDownListFor(model => model.ProgramareAnaliza.AnalizaId, new SelectList(Model.Analize, "Id", "Denumire"), "Selectare Analiza", htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.AnalizaId, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProgramareAnaliza.Nume)
-                            @Html.EditorFor(model => model.ProgramareAnaliza.Nume, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Nume, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProgramareAnaliza.Prenume)
-                            @Html.EditorFor(model => model.ProgramareAnaliza.Prenume, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Prenume, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProgramareAnaliza.Gen, "Gen")
-                            @Html.EnumDropDownListFor(model => model.ProgramareAnaliza.Gen, new { httmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Gen, "", new { @class = "text-danger" })
-                        </div>
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row inner-form-horizontal">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group align">
+                        @Html.LabelFor(model => model.ProgramareAnaliza.AnalizaId, "Analiza")
+                        @Html.DropDownListFor(model => model.ProgramareAnaliza.AnalizaId, new SelectList(Model.Analize, "Id", "Denumire"), "Selectare Analiza", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProgramareAnaliza.AnalizaId, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProgramareAnaliza.DataNastere)
-                            @Html.EditorFor(model => model.ProgramareAnaliza.DataNastere, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.DataNastere, "", new { @class = "text-danger" })
-                        </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProgramareAnaliza.NrTelefon)
-                            @Html.EditorFor(model => model.ProgramareAnaliza.NrTelefon, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.NrTelefon, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProgramareAnaliza.Email)
-                            @Html.EditorFor(model => model.ProgramareAnaliza.Email, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Email, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProgramareAnaliza.Nume)
+                        @Html.EditorFor(model => model.ProgramareAnaliza.Nume, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Nume, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group captcha">
-                            @Html.MathCaptcha()
 
-                            @*@Html.Captcha(3)*@
-                            <br />
-                            <p class="Error">  @ViewBag.ErrMessage </p>
-                        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProgramareAnaliza.Prenume)
+                        @Html.EditorFor(model => model.ProgramareAnaliza.Prenume, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Prenume, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group submit-wrapper">
-                            <input type="submit" value="Salvare" class="btn btn-default" />
-                        </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProgramareAnaliza.Gen, "Gen")
+                        @Html.EnumDropDownListFor(model => model.ProgramareAnaliza.Gen, new { httmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Gen, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProgramareAnaliza.DataNastere)
+                        @Html.EditorFor(model => model.ProgramareAnaliza.DataNastere, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProgramareAnaliza.DataNastere, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProgramareAnaliza.NrTelefon)
+                        @Html.EditorFor(model => model.ProgramareAnaliza.NrTelefon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProgramareAnaliza.NrTelefon, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProgramareAnaliza.Email)
+                        @Html.EditorFor(model => model.ProgramareAnaliza.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProgramareAnaliza.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group captcha">
+                        @Html.MathCaptcha()
+
+                        @*@Html.Captcha(3)*@
+                        <br />
+                        <p class="Error">  @ViewBag.ErrMessage </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group submit-wrapper">
+                        <input type="submit" value="Salvare" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+    
+</div>
 }
 
 <style>
@@ -98,9 +98,9 @@
         align-items: center;
     }
 
-        .form-horizontal .captcha > img {
-            width: 280px;
-        }
+    .form-horizontal .captcha > img {
+        width: 280px;
+    }
 
     .form-horizontal input[type="submit"] {
         text-align: right;
@@ -110,4 +110,6 @@
         display: flex;
         justify-content: flex-end;
     }
+
+
 </style>
