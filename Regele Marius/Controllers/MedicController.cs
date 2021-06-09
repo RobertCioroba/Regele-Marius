@@ -197,7 +197,7 @@ namespace Regele_Marius.Controllers
                 var tipAnaliza = _context.Analize.First(x => x.Id == programare.AnalizaId);
                 events.Add(new Events()
                 {
-                    Nume = programari.First().Nume,
+                    Nume = programari.First().NumeComplet,
                     TipAnaliza = tipAnaliza.Denumire,
                     OraInceput = inceput,
                     OraFinal = final
