@@ -86,6 +86,12 @@ namespace Regele_Marius.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Analiza analiza = _context.Analize.Find(id);
+            List<RezultatAnaliza> rezultate = _context.RezultateAnaliza.ToList();
+            foreach(var rezultat in rezultate)
+            {
+                if (rezultat.AnalizaId == analiza.Id)
+                    _context.RezultateAnaliza.Remove(rezultat);
+            }
             _context.Analize.Remove(analiza);
             _context.SaveChanges();
             return RedirectToAction("Index");

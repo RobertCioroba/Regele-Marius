@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Net;
 using System.Diagnostics;
 using System.Reflection;
+using System.Text;
 
 namespace Regele_Marius.Controllers
 {
@@ -170,6 +171,52 @@ namespace Regele_Marius.Controllers
             var dataCurenta = DateTime.Today;
             ViewBag.dataCurenta = dataCurenta.ToShortDateString();
             return View(programariCautate);
+        }
+
+        public ActionResult Program(int? idMedic)
+        {
+            TempData["idMedic"] = idMedic;
+            return View();
+        }
+
+        public JsonResult GetEvents()
+        {
+            string idMedic = null;
+            if (TempData.ContainsKey("idMedic"))
+                idMedic = TempData["idMedic"].ToString();
+            int medicId = Convert.ToInt32(idMedic);
+
+            List<ProgramareAnaliza> programari = _context.ProgramariAnaliza.Where(x => x.MedicId == medicId).ToList();
+            List<Events> events = new List<Events>();
+            while (programari.Any())
+            {
+                var programare = programari.First();
+                DateTime inceput = Convert.ToDateTime(programare.OraInceput);
+                DateTime final = Convert.ToDateTime(programare.OraFinal);
+
+                var tipAnaliza = _context.Analize.First(x => x.Id == programare.AnalizaId);
+                events.Add(new Events()
+                {
+                    Nume = programari.First().Nume,
+                    TipAnaliza = tipAnaliza.Denumire,
+                    OraInceput = inceput,
+                    OraFinal = final
+                });
+                programari.Remove(programari.First());
+            }
+            return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        protected override JsonResult Json(object data, string contentType, Encoding contentEncoding, JsonRequestBehavior behavior)
+        {
+            return new JsonResult()
+            {
+                Data = data,
+                ContentType = contentType,
+                ContentEncoding = contentEncoding,
+                JsonRequestBehavior = behavior,
+                MaxJsonLength = Int32.MaxValue
+            };
         }
         public ActionResult Details(int? id)
         {

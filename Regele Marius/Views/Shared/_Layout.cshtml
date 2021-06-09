@@ -76,44 +76,52 @@
 
                 @if (Session["NumeUtilizator"] == null)
                 {
-            <ul class="nav navbar-nav">
-                <li class="uk-active">
-                    <a href='@Url.Action("Create","ProgramareAnaliza1")' title="Formular programare">
-                        <img alt="Check" src="@Url.Content("~/images/align-justify-solid.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
-                    </a>
-                </li>
+                    <ul class="nav navbar-nav">
+                        <li class="uk-active">
+                            <a href='@Url.Action("Create","ProgramareAnaliza1")' title="Formular programare">
+                                <img alt="Check" src="@Url.Content("~/images/align-justify-solid.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                        </li>
 
-                <li class="uk-active">
-                    <a href='@Url.Action("Create","Calculator")' title="Calculator">
-                        <img alt="Check" src="@Url.Content("~/images/cash-register-solid.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
-                    </a>
-                </li>
+                        <li class="uk-active">
+                            <a href='@Url.Action("Create","Calculator")' title="Calculator">
+                                <img alt="Check" src="@Url.Content("~/images/cash-register-solid.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                        </li>
 
-                <li class="uk-active">
-                    <a href='@Url.Action("IndexPacienti","Articol")' title="Articole">
-                        <img alt="Check" src="@Url.Content("~/images/newspaper-regular.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
-                    </a>
-                </li>
-            </ul>
+                        <li class="uk-active">
+                            <a href='@Url.Action("IndexPacienti","Articol")' title="Articole">
+                                <img alt="Check" src="@Url.Content("~/images/newspaper-regular.svg")" style="width: 30px;height: 30px;filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                        </li>
+                    </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li class="uk-active">
-                    <a href='@Url.Action("Logare","Cont")' title="Logare">
-                        <img alt="Check" src="@Url.Content("~/images/sign-in-alt-solid.svg")" style="width: 30px;height: 30px;">
-                    </a>
-                </li>
-            </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="uk-active">
+                            <a href='@Url.Action("Logare","Cont")' title="Logare">
+                                <img alt="Check" src="@Url.Content("~/images/sign-in-alt-solid.svg")" style="width: 30px;height: 30px;">
+                            </a>
+                        </li>
+                    </ul>
                 }
 
                 @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == true)
                 {
-                <ul class="nav navbar-nav">
-                    <li class="uk-active">
-                        <a href='@Url.Action("Programari","Medic", new { id = Session["MedicId"] })' title="Programari">
-                            <img alt="Check" src="@Url.Content("~/images/clipboard-list-solid.svg")" style="width: 30px;height: 30px; filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
-                        </a>
-                    </li>
-                </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="uk-active">
+                            <a href='@Url.Action("Programari","Medic", new { id = Session["MedicId"] })' title="Programari">
+                                <img alt="Check" src="@Url.Content("~/images/clipboard-list-solid.svg")" style="width: 30px;height: 30px; filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav">
+                        <li class="uk-active">
+                            <a href='@Url.Action("Program","Medic", new { idMedic = Session["MedicId"] })' title="Programari">
+                                <img alt="Check" src="@Url.Content("~/images/calendar-alt-solid.svg")" style="width: 30px;height: 30px; filter: invert(15%) sepia(93%) saturate(3987%) hue-rotate(26deg) brightness(96%) contrast(102%);">
+                            </a>
+                        </li>
+                    </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="uk-active">
@@ -132,13 +140,13 @@
 
                 @if (Session["NumeUtilizator"] != null && (bool)Session["Activ"] == false)
                 {
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="uk-active">
-                        <a href='@Url.Action("Deconectare","Cont")' title="Deconectare">
-                            <img alt="Check" src="@Url.Content("~/images/shipping-fast-solid.svg")" style="width: 30px;height: 30px;">
-                        </a>
-                    </li>
-                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="uk-active">
+                            <a href='@Url.Action("Deconectare","Cont")' title="Deconectare">
+                                <img alt="Check" src="@Url.Content("~/images/shipping-fast-solid.svg")" style="width: 30px;height: 30px;">
+                            </a>
+                        </li>
+                    </ul>
                 }
             </div>
         </div>
