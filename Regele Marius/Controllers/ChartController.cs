@@ -145,7 +145,19 @@ namespace Regele_Marius.Controllers
 			dataPointsObezitate.Add(new DataPoint("Obezitate", rezultat4));
 			ViewBag.StatisticiObezitate = JsonConvert.SerializeObject(dataPointsObezitate);
 
+			List<DataPoint2> dataPoints = new List<DataPoint2>();
+			var aux = new Random();
+			DateTime dt2 = new DateTime(2021, 06, 16);
+
+			for (int i = 1; i <= 14; i++)
+            {
+				long today = (long)dt2.AddDays(i - 1).ToUniversalTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
+				dataPoints.Add(new DataPoint2(today, aux.Next(i*2, 55)));
+			}
+
+			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
 			return View();
 		}
-    }
+	}
 }
